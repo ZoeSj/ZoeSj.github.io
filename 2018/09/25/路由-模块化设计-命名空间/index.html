@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="tp," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ThinkPHP采用模块化的架构思想,可以支持多模块应用的创建,让应用的扩展更加方便.先简单说下路由规则: 什么是路由?系统从url参数中分析当前请求的分组(平台),控制器和操作方法的过程就是路由.tp框架路由共有四种形式  基本get形式http://网址/index.php?m=分组&amp;amp;c=控制器&amp;amp;a=操作方法该方式是最底层的get形式、传统的参数传递方式，不时尚、不安全。 PA">
+<meta name="keywords" content="tp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="路由,模块化设计,命名空间">
+<meta property="og:url" content="ZoeSj.github.io/2018/09/25/路由-模块化设计-命名空间/index.html">
+<meta property="og:site_name" content="佳爷的后花媛">
+<meta property="og:description" content="ThinkPHP采用模块化的架构思想,可以支持多模块应用的创建,让应用的扩展更加方便.先简单说下路由规则: 什么是路由?系统从url参数中分析当前请求的分组(平台),控制器和操作方法的过程就是路由.tp框架路由共有四种形式  基本get形式http://网址/index.php?m=分组&amp;amp;c=控制器&amp;amp;a=操作方法该方式是最底层的get形式、传统的参数传递方式，不时尚、不安全。 PA">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-53444b50db07bf3d?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-d33ec3036481a6d4?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-4c6172ddfdac6563?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-05e5779a4b11ef5c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-4cea230fb9c2c999?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-30cfa21abdc67199?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-548f1957a979817a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-52c8fdc5a9bc31bb?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-3aa773b1c34a6d34?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-2ef7d4facc61cbd8?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-09-25T07:19:45.637Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="路由,模块化设计,命名空间">
+<meta name="twitter:description" content="ThinkPHP采用模块化的架构思想,可以支持多模块应用的创建,让应用的扩展更加方便.先简单说下路由规则: 什么是路由?系统从url参数中分析当前请求的分组(平台),控制器和操作方法的过程就是路由.tp框架路由共有四种形式  基本get形式http://网址/index.php?m=分组&amp;amp;c=控制器&amp;amp;a=操作方法该方式是最底层的get形式、传统的参数传递方式，不时尚、不安全。 PA">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3162008-53444b50db07bf3d?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="ZoeSj.github.io/2018/09/25/路由-模块化设计-命名空间/"/>
+
+
+
+
+
+  <title>路由,模块化设计,命名空间 | 佳爷的后花媛</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">佳爷的后花媛</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="ZoeSj.github.io/2018/09/25/路由-模块化设计-命名空间/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zoe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="佳爷的后花媛">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">路由,模块化设计,命名空间</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-25T15:07:20+08:00">
+                2018-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>ThinkPHP采用模块化的架构思想,可以支持多模块应用的创建,让应用的扩展更加方便.<br>先简单说下路由规则:</p>
+<h3 id="什么是路由"><a href="#什么是路由" class="headerlink" title="什么是路由?"></a>什么是路由?</h3><p>系统从url参数中分析当前请求的分组(平台),控制器和操作方法的过程就是路由.<br><em>tp框架路由共有四种形式</em></p>
+<ul>
+<li>基本get形式<br><a href="http://网址/index.php?m=分组&amp;c=控制器&amp;a=操作方法" target="_blank" rel="noopener">http://网址/index.php?m=分组&amp;c=控制器&amp;a=操作方法</a><br>该方式是最底层的get形式、传统的参数传递方式，不时尚、不安全。</li>
+<li>PATHINFO路径形式(默认方式)<br><a href="http://网址/index.php/分组/控制器/操作方法" target="_blank" rel="noopener">http://网址/index.php/分组/控制器/操作方法</a><br>比如:http://网址/index.php/Home/Index/advert</li>
+<li>rewrite重写形式(伪静态技术)省略index.php入口文件(<strong>URL模式不可用</strong>)<br><a href="http://网址/分组/控制器/操作方法" target="_blank" rel="noopener">http://网址/分组/控制器/操作方法</a><br>http://网址/Home/Index/index</li>
+<li>兼容形式<br><a href="http://网址/index.php?s=/分组/控制器/操作方法" target="_blank" rel="noopener">http://网址/index.php?s=/分组/控制器/操作方法</a><br>http://网址/index.php?s=/Home/Index/advert<h3 id="注意不要忘了加接口文件"><a href="#注意不要忘了加接口文件" class="headerlink" title="注意不要忘了加接口文件"></a>注意不要忘了加接口文件</h3><h2 id="自动生成模块目录"><a href="#自动生成模块目录" class="headerlink" title="自动生成模块目录"></a>自动生成模块目录</h2>如果我们需要生成一个Admin模块用于后台应用，在应用入口文件中定义如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 绑定Admin模块到当前入口文件</span><br><span class="line">define(&apos;BIND_MODULE&apos;,&apos;Admin&apos;);</span><br><span class="line">define(&apos;APP_PATH&apos;,&apos;./Application/&apos;);</span><br><span class="line">require &apos;./ThinkPHP/ThinkPHP.php&apos;;/ /可不要</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果需要生成更多的控制器类，可以定义BUILD_CONTROLLER_LIST常量.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 绑定Admin模块到当前入口文件</span><br><span class="line">define(&apos;BIND_MODULE&apos;,&apos;Admin&apos;);</span><br><span class="line">define(&apos;BUILD_CONTROLLER_LIST&apos;,&apos;Index,User,Menu&apos;);</span><br><span class="line">define(&apos;APP_PATH&apos;,&apos;./Application/&apos;);</span><br><span class="line">require &apos;./ThinkPHP/ThinkPHP.php&apos;;</span><br></pre></td></tr></table></figure></p>
+<p><em>注意：默认生成的控制器类都是继承Think\Controller，如果需要继承其他的公共类需要另外调整。 如果在应用的公共配置文件中设置关闭了 APP_USE_NAMESPACE的话，生成的控制器类则不会采用命名空间定义。</em></p>
+<h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><ul>
+<li>什么是命名空间?<br>在php程序语言里边，语法规则要求同名称的函数、类名、常量在一个请求里边不允许出现多次。如果有的应用程序不得已必须出现多个同名的 函数、类名、常量，那么我们就可以把它们放到不同的空间里边做请求。这个不同的空间就称作“命名空间”。<br><img src="http://upload-images.jianshu.io/upload_images/3162008-53444b50db07bf3d?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="命名空间"><br>同一个请求里边定义两个同名的函数getInfo()，右图由于有使用命名空间，使得程序可以正常执行。<br>同名称的两个函数在同一个空间进行访问系统要报错.<br><img src="http://upload-images.jianshu.io/upload_images/3162008-d33ec3036481a6d4?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"><br>同名称的两个函数放到不同空间做访问，就不会报错<br><img src="http://upload-images.jianshu.io/upload_images/3162008-4c6172ddfdac6563?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"></li>
+</ul>
+<p><em>使用命名空间</em><br>通过namespace关键字声明命名空间。<br>namespace  空间名称;<br>(空间名称 按照php正确的命名方式定义即可)<br>命名空间针对 函数、类名、const常量 三部分起作用，并统称为“元素”。<br>常量的声明：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">define(名称，值);       //(在类外部声明常量)与命名空间没有关系</span><br><span class="line">//同名称常量只能define一次</span><br><span class="line">const  名称=值;       //与命名空间有关系</span><br></pre></td></tr></table></figure></p>
+<p>① const可以在类的内部声明常量信息(类常量)<br>② const也可以在类外部声明常量(正常常量)<br>使用命名空间的时候const可以放到类外部声明常量。<br>同名称的多个常量，可以分别定义到不同的“命名空间”里边<br><strong>const和define的区别：</strong><br>前者针对命名空间发生影响，后者不发生影响。<br>const可以声明多个同名称的常量<br>define对同名称常量只能声明一个<br><img src="http://upload-images.jianshu.io/upload_images/3162008-05e5779a4b11ef5c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>空间元素的访问(当前空间、其他空间)：<br><img src="http://upload-images.jianshu.io/upload_images/3162008-4cea230fb9c2c999?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"><br><strong>子级(多级)空间 </strong><br>命名空间可以让我们存放许多元素(函数、类、常量)，有的时候元素比较多，为了管理方便，可以对元素进行分门别类地存储。也就是说命名空间可以设置为多级空间。多级空间的最后一级空间就称为“子级空间”<br>多级空间的声明及空间元素的访问：<br><img src="http://upload-images.jianshu.io/upload_images/3162008-30cfa21abdc67199?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"><br><strong>空间元素访问的三种形式</strong><br>① 非限定名称<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo Animal::$name;   就近访问上边与其挨着最近空间的</span><br><span class="line">Animal元素</span><br><span class="line">(类似php引入文件：include “common.php”; //相对路径</span><br><span class="line">引入当前目录下的common.php文件)</span><br></pre></td></tr></table></figure></p>
+<p>② 限定名称<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo beijing\Animal::$name; // 把当前空间 和 beijing空间联合获得Animal元素</span><br><span class="line">(类似php引入文件：include “Common/Conf/config.php”;  相对路径)</span><br></pre></td></tr></table></figure></p>
+<p>③ 完全限定名称</p>
+<pre><code>echo \beijing\Animal::$name;  //访问beijing空间的Animal元素
+(类似php引入文件：include “d:/web/1121/Conf/common.php”; 绝对路径引入文件)
+</code></pre><p>访问空间元素的两种方式：<br><img src="http://upload-images.jianshu.io/upload_images/3162008-548f1957a979817a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"><br>限定名称访问元素：<br><img src="http://upload-images.jianshu.io/upload_images/3162008-52c8fdc5a9bc31bb?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"><br>限定名称访问元素的特殊情况，linken被巧合访问到：<br><img src="http://upload-images.jianshu.io/upload_images/3162008-3aa773b1c34a6d34?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"><br><strong>引入机制</strong><br>命名空间可以声明为多级空间，这个多级空间元素在其他空间内部访问的时候，不得已需要通过 完全限定名称 方式，这个完全限定名称不方便开发、维护，为了降低代码的复杂度，可以在当前的空间把指定的空间给引入进来，进而可以方便地通过“限定名称”的方便的形式使用其他空间的元素。<br><strong>空间引入</strong><br>use 空间;<br><img src="http://upload-images.jianshu.io/upload_images/3162008-2ef7d4facc61cbd8?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tp/" rel="tag"># tp</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/25/php中的公钥和私钥/" rel="next" title="php中的公钥和私钥">
+                <i class="fa fa-chevron-left"></i> php中的公钥和私钥
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/25/tp中的M-D-C-A-I-S方法/" rel="prev" title="tp中的M,D,C,A,I,S方法">
+                tp中的M,D,C,A,I,S方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zoe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是路由"><span class="nav-number">1.</span> <span class="nav-text">什么是路由?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意不要忘了加接口文件"><span class="nav-number">2.</span> <span class="nav-text">注意不要忘了加接口文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动生成模块目录"><span class="nav-number"></span> <span class="nav-text">自动生成模块目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名空间"><span class="nav-number"></span> <span class="nav-text">命名空间</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zoe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

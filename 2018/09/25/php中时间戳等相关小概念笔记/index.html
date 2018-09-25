@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="时间戳," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="首先说下时间戳吧,因为工作需要,对接接口时要用到各种类型的时间戳,所以抽个时间把这些时间戳整理了下.如果想看看返回的时间戳对不对,这里有个在线转换工具,可以试试时间戳在线转换 获取当前的时间戳是最简单的格式如下:$test = time();它返回当前的 Unix 时间戳.这是返回的结果1487839316 ####获取当前日期下的零时零点零分的时间戳格式如下:$tmp1 = date(&amp;quot">
+<meta name="keywords" content="时间戳">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php中时间戳等相关小概念笔记">
+<meta property="og:url" content="ZoeSj.github.io/2018/09/25/php中时间戳等相关小概念笔记/index.html">
+<meta property="og:site_name" content="佳爷的后花媛">
+<meta property="og:description" content="首先说下时间戳吧,因为工作需要,对接接口时要用到各种类型的时间戳,所以抽个时间把这些时间戳整理了下.如果想看看返回的时间戳对不对,这里有个在线转换工具,可以试试时间戳在线转换 获取当前的时间戳是最简单的格式如下:$test = time();它返回当前的 Unix 时间戳.这是返回的结果1487839316 ####获取当前日期下的零时零点零分的时间戳格式如下:$tmp1 = date(&amp;quot">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-25T07:17:14.772Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="php中时间戳等相关小概念笔记">
+<meta name="twitter:description" content="首先说下时间戳吧,因为工作需要,对接接口时要用到各种类型的时间戳,所以抽个时间把这些时间戳整理了下.如果想看看返回的时间戳对不对,这里有个在线转换工具,可以试试时间戳在线转换 获取当前的时间戳是最简单的格式如下:$test = time();它返回当前的 Unix 时间戳.这是返回的结果1487839316 ####获取当前日期下的零时零点零分的时间戳格式如下:$tmp1 = date(&amp;quot">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="ZoeSj.github.io/2018/09/25/php中时间戳等相关小概念笔记/"/>
+
+
+
+
+
+  <title>php中时间戳等相关小概念笔记 | 佳爷的后花媛</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">佳爷的后花媛</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="ZoeSj.github.io/2018/09/25/php中时间戳等相关小概念笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zoe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="佳爷的后花媛">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">php中时间戳等相关小概念笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-25T15:07:48+08:00">
+                2018-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>首先说下时间戳吧,因为工作需要,对接接口时要用到各种类型的时间戳,所以抽个时间把这些时间戳整理了下.<br><strong>如果想看看返回的时间戳对不对,这里有个在线转换工具,可以试试<a href="http://tool.lu/timestamp/" target="_blank" rel="noopener">时间戳在线转换</a></strong></p>
+<h4 id="获取当前的时间戳是最简单的"><a href="#获取当前的时间戳是最简单的" class="headerlink" title="获取当前的时间戳是最简单的"></a><strong>获取当前的时间戳是最简单的</strong></h4><p>格式如下:<br><code>$test = time();</code><br>它返回当前的 Unix 时间戳.这是返回的结果<code>1487839316</code></p>
+<p>####<strong>获取当前日期下的零时零点零分的时间戳</strong><br>格式如下:<br><code>$tmp1 = date(&quot;Y-m-d H:i:s&quot;, mktime(0, 0, 0, date(&quot;m&quot;), date(&#39;d&#39;), date(&quot;Y&quot;)));</code><br>这个获取的是当前日期下的零时零点零分的时间.打印如下结果:<code>2017-02-23 00:00:00</code><br>但是这里直接使用strtotime获取的并不是这个时间,他实际返回的是<code>2017-02-23 07:00:00</code>.这个结果和<code>mktime(0, 0, 0, date(&quot;m&quot;), date(&#39;d&#39;), date(&quot;Y&quot;))</code>是一样的.<br>如果想要得到当前日期下的零时零点零分的时间戳,需要这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$tmp = mktime(0, 0, 0, date(&quot;m&quot;), date(&apos;d&apos;), date(&quot;Y&quot;));</span><br><span class="line">$tmp1 = date(&quot;Y-m-d H:i:s&quot;, mktime(0, 0, 0, date(&quot;m&quot;), date(&apos;d&apos;), date(&quot;Y&quot;)));//显示</span><br><span class="line">$tmp2 = strtotime($tmp1)-25200;</span><br><span class="line">$tmp3 = $tmp - 25200;//等价于$tmp2</span><br><span class="line">print_r($tmp3);</span><br></pre></td></tr></table></figure></p>
+<h4 id="获取前一天-后一天-的零时零点零分的时间戳"><a href="#获取前一天-后一天-的零时零点零分的时间戳" class="headerlink" title="获取前一天(后一天)的零时零点零分的时间戳"></a><strong>获取前一天(后一天)的零时零点零分的时间戳</strong></h4><p>这个就是对上面的mktime里面的参数进行修改<br>类似这样<code>$day = date(&#39;d&#39;) + 1;</code><br>顺便说下mktime(时,分,秒,月,日,年),它是取得一个日期的 Unix 时间戳.</p>
+<h4 id="获取身份证中出生日期的时间戳"><a href="#获取身份证中出生日期的时间戳" class="headerlink" title="获取身份证中出生日期的时间戳"></a><strong>获取身份证中出生日期的时间戳</strong></h4><p>首先说下如何从身份证中获取出生日期,当然,在这之前,要知道身份证有15位的和18位的,所以如果是15位的要转换成18位的,方便计算.<br>代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public function getIDCard($idCard) &#123;</span><br><span class="line">        // 若是15位，则转换成18位；否则直接返回ID</span><br><span class="line">        if (15 == strlen ( $idCard )) &#123;</span><br><span class="line">            $W = array (7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2,1 );</span><br><span class="line">            $A = array (&quot;1&quot;,&quot;0&quot;,&quot;X&quot;,&quot;9&quot;,&quot;8&quot;,&quot;7&quot;,&quot;6&quot;,&quot;5&quot;,&quot;4&quot;,&quot;3&quot;,&quot;2&quot; );</span><br><span class="line">            $s = 0;</span><br><span class="line">            $idCard18 = substr ( $idCard, 0, 6 ) . &quot;19&quot; . substr ( $idCard, 6 );</span><br><span class="line">            $idCard18_len = strlen ( $idCard18 );</span><br><span class="line">            for($i = 0; $i &lt; $idCard18_len; $i ++) &#123;</span><br><span class="line">                $s = $s + substr ( $idCard18, $i, 1 ) * $W [$i];</span><br><span class="line">            &#125;</span><br><span class="line">            $idCard18 .= $A [$s % 11];</span><br><span class="line">           // print_r($idCard18);exit();</span><br><span class="line">            return $idCard18;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return $idCard;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后提取出生日期:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public function getAgeByID($id)</span><br><span class="line">   &#123;</span><br><span class="line">       $length = strlen($id);</span><br><span class="line">       if(empty($id))&#123;</span><br><span class="line">           return &quot;&quot;;</span><br><span class="line">       &#125;</span><br><span class="line">           if ($length == 18)&#123;</span><br><span class="line">               $date = strtotime(substr($id, 6, 8));</span><br><span class="line">               print_r($date);exit();</span><br><span class="line">               return $date;</span><br><span class="line">           &#125;elseif($length == 15)&#123;</span><br><span class="line">               $id = $this-&gt;getIDCard($id);</span><br><span class="line">               $date = strtotime(substr($id, 6, 8));</span><br><span class="line">               return $date;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></p>
+<p>后面就可以直接使用这个函数了.</p>
+<h4 id="json-encode编码有乱码怎么办"><a href="#json-encode编码有乱码怎么办" class="headerlink" title="json_encode编码有乱码怎么办"></a><strong>json_encode编码有乱码怎么办</strong></h4><p><code>json_encode($arr, JSON_UNESCAPED_UNICODE)</code></p>
+<h4 id="返回结果处理成数组"><a href="#返回结果处理成数组" class="headerlink" title="返回结果处理成数组"></a><strong>返回结果处理成数组</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * 返回参数处理，对象转化为数组</span><br><span class="line"> */</span><br><span class="line">   public function object_array($obj) &#123;</span><br><span class="line">       $_arr = is_object ( $obj ) ? get_object_vars ( $obj ) : $obj;</span><br><span class="line">       foreach ( $_arr as $key =&gt; $val ) &#123;</span><br><span class="line">           $val = (is_array ( $val ) || is_object ( $val )) ? $this-&gt;object_array ( $val ) : $val;</span><br><span class="line">           $arr [$key] = $val;</span><br><span class="line">       &#125;</span><br><span class="line">       return $arr;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/时间戳/" rel="tag"># 时间戳</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/25/tp中的M-D-C-A-I-S方法/" rel="next" title="tp中的M,D,C,A,I,S方法">
+                <i class="fa fa-chevron-left"></i> tp中的M,D,C,A,I,S方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zoe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取当前的时间戳是最简单的"><span class="nav-number">1.</span> <span class="nav-text">获取当前的时间戳是最简单的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取前一天-后一天-的零时零点零分的时间戳"><span class="nav-number">2.</span> <span class="nav-text">获取前一天(后一天)的零时零点零分的时间戳</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取身份证中出生日期的时间戳"><span class="nav-number">3.</span> <span class="nav-text">获取身份证中出生日期的时间戳</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#json-encode编码有乱码怎么办"><span class="nav-number">4.</span> <span class="nav-text">json_encode编码有乱码怎么办</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回结果处理成数组"><span class="nav-number">5.</span> <span class="nav-text">返回结果处理成数组</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zoe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

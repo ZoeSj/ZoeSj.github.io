@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="tp," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="才开始接触tp，对里面的大写字母方法不是很理解。现在清晰多了。 D方法实例化模型类的时候通常是实例化某个具体的模型类,如果仅仅是对数据表进行基本的ＣＵＲＤ操作的话，可以使用Ｍ方法．由于不要加载具体的模型类，所以性能会更好．如果D方法没有找到定义的模型类，则会自动调用M方法. M方法12345//使用M方法实例化$User = M(&amp;apos;User&amp;apos;);//和用法$User = new">
+<meta name="keywords" content="tp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tp中的M,D,C,A,I,S方法">
+<meta property="og:url" content="ZoeSj.github.io/2018/09/25/tp中的M-D-C-A-I-S方法/index.html">
+<meta property="og:site_name" content="佳爷的后花媛">
+<meta property="og:description" content="才开始接触tp，对里面的大写字母方法不是很理解。现在清晰多了。 D方法实例化模型类的时候通常是实例化某个具体的模型类,如果仅仅是对数据表进行基本的ＣＵＲＤ操作的话，可以使用Ｍ方法．由于不要加载具体的模型类，所以性能会更好．如果D方法没有找到定义的模型类，则会自动调用M方法. M方法12345//使用M方法实例化$User = M(&amp;apos;User&amp;apos;);//和用法$User = new">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-25T07:18:52.490Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tp中的M,D,C,A,I,S方法">
+<meta name="twitter:description" content="才开始接触tp，对里面的大写字母方法不是很理解。现在清晰多了。 D方法实例化模型类的时候通常是实例化某个具体的模型类,如果仅仅是对数据表进行基本的ＣＵＲＤ操作的话，可以使用Ｍ方法．由于不要加载具体的模型类，所以性能会更好．如果D方法没有找到定义的模型类，则会自动调用M方法. M方法12345//使用M方法实例化$User = M(&amp;apos;User&amp;apos;);//和用法$User = new">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="ZoeSj.github.io/2018/09/25/tp中的M-D-C-A-I-S方法/"/>
+
+
+
+
+
+  <title>tp中的M,D,C,A,I,S方法 | 佳爷的后花媛</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">佳爷的后花媛</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="ZoeSj.github.io/2018/09/25/tp中的M-D-C-A-I-S方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zoe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="佳爷的后花媛">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">tp中的M,D,C,A,I,S方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-25T15:07:31+08:00">
+                2018-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>才开始接触tp，对里面的大写字母方法不是很理解。现在清晰多了。</p>
+<p>D方法实例化模型类的时候通常是实例化某个具体的模型类,如果仅仅是对数据表进行基本的ＣＵＲＤ操作的话，可以使用Ｍ方法．由于不要加载具体的模型类，所以性能会更好．如果D方法没有找到定义的模型类，则会自动调用M方法.</p>
+<h2 id="M方法"><a href="#M方法" class="headerlink" title="M方法"></a>M方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//使用M方法实例化</span><br><span class="line">$User = M(&apos;User&apos;);</span><br><span class="line">//和用法$User = new \Think\Model (&apos;User&apos;);等效</span><br><span class="line">//执行其他的数据操作</span><br><span class="line">$User-&gt;select();</span><br></pre></td></tr></table></figure>
+<p>M 方法也支持垮库操作.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//使用M方法实例化,操作db_name中的ot_user表</span><br><span class="line">$User = M(&apos;db_name.User&apos;,&apos;ot_&apos;);</span><br><span class="line">//执行其他的数据库操作</span><br><span class="line">$User-&gt;select();</span><br></pre></td></tr></table></figure></p>
+<p>M方法的参数和\Think\Model的参数是一样的,所以我们可以这样操作:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$New = M(&apos;new&apos;,&apos;think_&apos;,$connection);</span><br><span class="line">//等效于$New = new  \Think\Model(&apos;new&apos;,&apos;think_&apos;,$connection);</span><br></pre></td></tr></table></figure></p>
+<p>M方法实例化的时候.默认的是直接实例化\Think\Model类,如果要实例化其他的公共模型类,可以使用下面:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$User = M(&apos;\Home\Model\CommonModel:User&apos;,&apos;think_&apos;,&apos;db_config&apos;);</span><br><span class="line">相当于$User = new \Home\Model\CommonModel(&apos;User&apos;,&apos;think_&apos;,&apos;db_config&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>实例化基础模型类(Model)<br>在没有定义任何模型的时候,可以使用下面的操作.这种方法简单高效,但是缺点就是没有自定义的模型类,无法写入相关的业务逻辑.只能完成基本的CURD操作.<strong>如果你的模型类中有自己的业务逻辑,是无法使用M方法的.</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//实例化User模型</span><br><span class="line">$User = new Model(&apos;User&apos;);</span><br><span class="line">//或者使用M()快捷方法实例化，和上面的方法是等效的</span><br><span class="line">$User = M(&apos;User&apos;);</span><br><span class="line">//执行其他的数据操作</span><br><span class="line">$User-&gt;select();</span><br></pre></td></tr></table></figure></p>
+<p>实例化其他模型类</p>
+<ul>
+<li><p>第一种因为没有模型类的定义,很难封装一些额外的逻辑方法.如果只是需要扩展一些通用的逻辑,可以尝试下面方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$User = new CommonModel(&apos;User&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>模型的实例化方法有三个参数,第一个参数是模型名称,第二个参数用于设置数据表的前缀(留空则取当前项目配置的表前缀),第三个参数用于设置当前使用的数据库连接信息(留空则取当前项目配置的数据库连接信息).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$User = new CommonModel(&apos;User&apos;,&apos;think_&apos;,&apos;db_config&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第三个使用M方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$User = M(&apos;CommonModel:User&apos;,&apos;think_&apos;,&apos;db_config&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Ｍ方法默认是实例化ｍｏｄｅｌ类  </p>
+<h2 id="D方法"><a href="#D方法" class="headerlink" title="D方法"></a>D方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">//实例化模型</span><br><span class="line">$User = D(&apos;User&apos;);</span><br><span class="line">//相当于$User = new \Home\Model\UserModel();</span><br><span class="line">//执行操作</span><br><span class="line">$User -&gt; select();</span><br></pre></td></tr></table></figure>
+<p>如果Home\Model\UserModel不存在的话,就会尝试实例化公共模型下的\Common\Model\UserModel类.<br>D方法的参数就是实例的名称.并且和模型类的大小写定义是一致的.</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>实例化的模型文件（假设当前模块为Home） </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User</td>
+<td>对应的模型类文件的 \Home\Model\UserModel.class.php</td>
+</tr>
+<tr>
+<td>UserType</td>
+<td>对应的模型类文件的 \Home\Model\UserTypeModel.class.php</td>
+</tr>
+</tbody>
+</table>
+<p><strong>如果在Liunx下,要注意大小写</strong></p>
+<p>D方法可以自动检测模型类,如果存在自定义的模型类,则实例化自定义模型类,如果不存在，则会实例化系统的\Think\Model基类，同时对于已实例化过的模型，<strong>不会重复去实例化</strong>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//D方法还可以跨模块调用,需要使用</span><br><span class="line">//实例化Admin的User模型</span><br><span class="line">D(&apos;Admin/User&apos;);</span><br><span class="line">//实例化Extend扩展命名空间下的Info模型</span><br><span class="line">D(&apos;Extend://Editor/Info&apos;):</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意：跨模块实例化模型类的时候，不支持自动加载公共模块的模型类。</strong></p>
+<h2 id="C方法"><a href="#C方法" class="headerlink" title="C方法"></a>C方法</h2><p> 定义了配置文件之后,可以使用系统提供的C方法来读取已有额配置.</p>
+<ul>
+<li>获取已经设置的参数值:C(‘参数名称’)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$model = C(&apos;URL_MODEL&apos;);//不区分大小写=url_model</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>but 大写是比较规范的.<br><strong>注意:配置参数名称中不能含有”.”和特殊字符</strong><br>如果URL_MODEL尚未存在设置,则返回NULL.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//如果是3.2.1版本的话,支持设置默认值.such as</span><br><span class="line">C(&apos;my_config&apos;,&apos;null&apos;,&apos;default_config&apos;);</span><br><span class="line">//如果my_config没有设置的话,则返回default_config</span><br></pre></td></tr></table></figure></p>
+<p>C方法ue可以用于读取二维配置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//获取用户配置中的用户类型设置</span><br><span class="line">C(&apos;USER_CONFIG.USER_TYPE&apos;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>因为配置参数是全局有效的,因此C方法可以在任何地方读取任何配置,即使某个设置参数以及生效过期了</strong></p>
+<h2 id="A方法"><a href="#A方法" class="headerlink" title="A方法"></a>A方法</h2><p>如果需要跨控制机调用的话,可以单独实例化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//实例化Home模块的User控制器</span><br><span class="line">$User = new \Home\Controller\UserController();</span><br><span class="line">//实例化Admin模块的blog控制器</span><br><span class="line">$Blog = new \Admin\Controller\BlogController();</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码是不是很多,这里提供了一个快捷调用方法A<br>简化后如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//假设当前模块是Home模块</span><br><span class="line">$User = A(&apos;User&apos;);</span><br><span class="line">$Blog = A(&apos;Admin/Blog&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>默认情况下,A方法实例化的是默认控制器(Controller),如果你要实例化其他的分层控制器的话,可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//假设当前模块是Home</span><br><span class="line">//实例化Event控制器</span><br><span class="line">$User  = A(&apos;User&apos;);// 等效于new \Home\Event\UserEvent();</span><br><span class="line">$Blog  = A(&apos;Admin/Blog&apos;,&apos;Event&apos;);// 等效于new \Admin\Event\BlogEvent();</span><br></pre></td></tr></table></figure></p>
+<h2 id="I方法"><a href="#I方法" class="headerlink" title="I方法"></a>I方法</h2><p>在web开发过程中,我们经常要获取系统变量或者用户提交的数据.这些数据处理不好就会引起安全隐患,所以tp给我们提供了一个变量获取功能.<br>我们先看下传统获取方式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$id = $_GET[&apos;id&apos;]; // 获取get变量</span><br><span class="line">$name = $_POST[&apos;name&apos;]; // 获取post变量</span><br><span class="line">$value = $_SESSION[&apos;var&apos;]; // 获取session变量</span><br><span class="line">$name = $_COOKIE[&apos;name&apos;]; // 获取cookie变量</span><br><span class="line">$file = $_SERVER[&apos;PHP_SELF&apos;]; // 获取server变量</span><br></pre></td></tr></table></figure></p>
+<p>传统获取方法没有统一的安全机制,后期调整比较麻烦,更好的方式是在框架中统一使用I函数进行变量获取和过滤。<br>I方法是ThinkPHP用于更加方便和安全的获取系统输入变量，可以用于任何地方，用法格式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I(&apos;变量类型.变量名/修饰符&apos;,[&apos;默认值&apos;],[&apos;过滤方法或正则&apos;],[&apos;额外数据源&apos;])</span><br></pre></td></tr></table></figure></p>
+<p>变量类型是指请求方式或者输入类型</p>
+<table>
+<thead>
+<tr>
+<th>变量类型</th>
+<th>含义 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get</td>
+<td>获取GET参数</td>
+</tr>
+<tr>
+<td>post</td>
+<td>获取POST参数</td>
+</tr>
+<tr>
+<td>param</td>
+<td>自动判断请求类型获取GET、POST或者PUT参数</td>
+</tr>
+<tr>
+<td>request</td>
+<td>获取REQUEST 参数</td>
+</tr>
+<tr>
+<td>put</td>
+<td>获取PUT 参数</td>
+</tr>
+<tr>
+<td>session</td>
+<td>获取 $_SESSION 参数</td>
+</tr>
+<tr>
+<td>cookie</td>
+<td>获取 $_COOKIE 参数</td>
+</tr>
+<tr>
+<td>server</td>
+<td>获取 $_SERVER 参数</td>
+</tr>
+<tr>
+<td>globals</td>
+<td>获取 $GLOBALS参数</td>
+</tr>
+<tr>
+<td>path</td>
+<td>获取 PATHINFO模式的URL参数</td>
+</tr>
+<tr>
+<td>data</td>
+<td>获取 其他类型的参数，需要配合额外数据源参数</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：变量类型不区分大小写，变量名则严格区分大小写。 默认值和过滤方法均属于可选参数。</strong><br>下面是I方法的范例使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo I(&apos;get.id&apos;); // 相当于 $_GET[&apos;id&apos;]</span><br><span class="line">echo I(&apos;get.name&apos;); // 相当于 $_GET[&apos;name&apos;]</span><br></pre></td></tr></table></figure></p>
+<p>支持默认值:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo I(&apos;get.id&apos;,0); // 如果不存在$_GET[&apos;id&apos;] 则返回0</span><br><span class="line">echo I(&apos;get.name&apos;,&apos;&apos;); // 如果不存在$_GET[&apos;name&apos;] 则返回空字符串</span><br></pre></td></tr></table></figure></p>
+<p>采用方法过滤:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 采用htmlspecialchars方法对$_GET[&apos;name&apos;] 进行过滤，如果不存在则返回空字符串</span><br><span class="line">echo I(&apos;get.name&apos;,&apos;&apos;,&apos;htmlspecialchars&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>支持直接获取整个变量值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 获取整个$_GET 数组</span><br><span class="line">I(&apos;get.&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>用同样的方式，我们可以获取post或者其他输入类型的变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">I(&apos;post.name&apos;,&apos;&apos;,&apos;htmlspecialchars&apos;);</span><br><span class="line"> // 采用htmlspecialchars方法对$_POST[&apos;name&apos;] 进行过滤，如果不存在则返回空字符串</span><br><span class="line">I(&apos;session.user_id&apos;,0); </span><br><span class="line">// 获取$_SESSION[&apos;user_id&apos;] 如果不存在则默认为0</span><br><span class="line">I(&apos;cookie.&apos;);</span><br><span class="line"> // 获取整个 $_COOKIE 数组</span><br><span class="line">I(&apos;server.REQUEST_METHOD&apos;);</span><br><span class="line"> // 获取 $_SERVER[&apos;REQUEST_METHOD&apos;]</span><br></pre></td></tr></table></figure></p>
+<p>param变量类型是框架特有的支持自动判断当前请求类型的变量获取方式，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo I(&apos;param.id&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>如果当前请求类型是GET，那么等效于 $_GET[‘id’]，如果当前请求类型是POST或者PUT，那么相当于获取 $_POST[‘id’] 或者 PUT参数id。<br>由于param类型是I函数默认获取的变量类型，因此事实上param变量类型的写法可以简化为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">I(&apos;id&apos;); </span><br><span class="line">// 等同于 I(&apos;param.id&apos;)</span><br><span class="line">I(&apos;name&apos;); </span><br><span class="line">// 等同于 I(&apos;param.name&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>path类型变量可以用于获取URL参数（必须是PATHINFO模式参数有效，无论是GET还是POST方式都有效），例如： 当前访问URL地址是 <a href="http://serverName/index.php/New/2013/06/01" target="_blank" rel="noopener">http://serverName/index.php/New/2013/06/01</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo I(&apos;path.1&apos;);</span><br><span class="line"> // 输出2013</span><br><span class="line">echo I(&apos;path.2&apos;);</span><br><span class="line"> // 输出06</span><br><span class="line">echo I(&apos;path.3&apos;);</span><br><span class="line"> // 输出01</span><br></pre></td></tr></table></figure></p>
+<p>data类型变量可以用于获取不支持的变量类型的读取，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I(&apos;data.file1&apos;,&apos;&apos;,&apos;&apos;,$_FILES);</span><br></pre></td></tr></table></figure></p>
+<p><strong>变量过滤</strong><br>如果你没有在调用I函数的时候指定过滤方法的话，系统会采用默认的过滤机制（由DEFAULT_FILTER配置），事实上，该参数的默认设置是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 系统默认的变量过滤机制</span><br><span class="line">&apos;DEFAULT_FILTER&apos; =&gt; &apos;htmlspecialchars&apos;</span><br></pre></td></tr></table></figure></p>
+<p>也就说，I方法的所有获取变量如果没有设置过滤方法的话都会进行<strong>htmlspecialchars</strong>过滤，那么：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 等同于 htmlspecialchars($_GET[&apos;name&apos;])</span><br><span class="line">I(&apos;get.name&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>同样，该参数也可以设置支持多个过滤，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;DEFAULT_FILTER&apos; =&gt; &apos;strip_tags,htmlspecialchars&apos;</span><br></pre></td></tr></table></figure></p>
+<p>设置后，我们在使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 等同于 htmlspecialchars(strip_tags($_GET[&apos;name&apos;]))</span><br><span class="line">I(&apos;get.name&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>如果我们在使用I方法的时候 指定了过滤方法，那么就会忽略DEFAULT_FILTER的设置，例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 等同于 strip_tags($_GET[&apos;name&apos;])</span><br><span class="line">echo I(&apos;get.name&apos;,&apos;&apos;,&apos;strip_tags&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>I方法的第三个参数如果传入函数名，则表示调用该函数对变量进行过滤并返回（在变量是数组的情况下自动使用array_map进行过滤处理），否则会调用PHP内置的filter_var方法进行过滤处理，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I(&apos;post.email&apos;,&apos;&apos;,FILTER_VALIDATE_EMAIL);</span><br></pre></td></tr></table></figure></p>
+<p>表示 会对$_POST[‘email’] 进行 格式验证，如果不符合要求的话，返回空字符串。 （关于更多的验证格式，可以参考 官方手册的filter_var用法。） 或者可以用下面的字符标识方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I(&apos;post.email&apos;,&apos;&apos;,&apos;email&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>可以支持的过滤名称必须是filter_list方法中的有效值（不同的服务器环境可能有所不同），可能支持的包括：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">int</span><br><span class="line">boolean</span><br><span class="line">float</span><br><span class="line">validate_regexp</span><br><span class="line">validate_url</span><br><span class="line">validate_email</span><br><span class="line">validate_ip</span><br><span class="line">string</span><br><span class="line">stripped</span><br><span class="line">encoded</span><br><span class="line">special_chars</span><br><span class="line">unsafe_raw</span><br><span class="line">email</span><br><span class="line">url</span><br><span class="line">number_int</span><br><span class="line">number_float</span><br><span class="line">magic_quotes</span><br><span class="line">callback</span><br></pre></td></tr></table></figure></p>
+<p>还可以支持进行正则匹配过滤，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 采用正则表达式进行变量过滤</span><br><span class="line">I(&apos;get.name&apos;,&apos;&apos;,&apos;/^[A-Za-z]+$/&apos;);</span><br><span class="line">I(&apos;get.id&apos;,0,&apos;/^\d+$/&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>如果正则匹配不通过的话，则返回默认值。<br>在有些特殊的情况下，我们不希望进行任何过滤，即使<strong>DEFAULT_FILTER</strong>已经有所设置，可以使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 下面两种方式都不采用任何过滤方法</span><br><span class="line">I(&apos;get.name&apos;,&apos;&apos;,&apos;&apos;);</span><br><span class="line">I(&apos;get.id&apos;,&apos;&apos;,false);</span><br></pre></td></tr></table></figure></p>
+<p><strong>一旦过滤参数设置为空字符串或者false，即表示不再进行任何的过滤。</strong><br>最新版本的I函数支持对变量使用修饰符功能，可以更方便的通过类型过滤变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I(&apos;变量类型.变量名/修饰符&apos;)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">I(&apos;get.id/d&apos;); </span><br><span class="line">// 强制变量转换为整型</span><br><span class="line">I(&apos;post.name/s&apos;); </span><br><span class="line">// 强制转换变量为字符串类型</span><br><span class="line">I(&apos;post.ids/a&apos;); </span><br><span class="line">// 强制变量转换为数组类型</span><br></pre></td></tr></table></figure>
+<p>可以使用的修饰符包括：</p>
+<table>
+<thead>
+<tr>
+<th>修饰符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s</td>
+<td>强制转换为字符串类型</td>
+</tr>
+<tr>
+<td>d</td>
+<td>强制转换为整型类型</td>
+</tr>
+<tr>
+<td>b</td>
+<td>强制转换为布尔类型</td>
+</tr>
+<tr>
+<td>a</td>
+<td>强制转换为数组类型</td>
+</tr>
+<tr>
+<td>f</td>
+<td>强制转换为浮点类型</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tp/" rel="tag"># tp</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/25/路由-模块化设计-命名空间/" rel="next" title="路由,模块化设计,命名空间">
+                <i class="fa fa-chevron-left"></i> 路由,模块化设计,命名空间
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/25/php中时间戳等相关小概念笔记/" rel="prev" title="php中时间戳等相关小概念笔记">
+                php中时间戳等相关小概念笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zoe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#M方法"><span class="nav-number">1.</span> <span class="nav-text">M方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D方法"><span class="nav-number">2.</span> <span class="nav-text">D方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C方法"><span class="nav-number">3.</span> <span class="nav-text">C方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A方法"><span class="nav-number">4.</span> <span class="nav-text">A方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I方法"><span class="nav-number">5.</span> <span class="nav-text">I方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zoe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
