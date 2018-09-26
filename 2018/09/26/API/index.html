@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="API 篇RESTful 是什么 RESTful是一种软件设计风格，全称是：Representational State Transfer（表现层状态转移/用URL定位资源，用HTTP动词描述操作）有哪些RESTful风格的接口？Github API   why choose RESTful ？  接口基本原则：1、安全可靠，高效易扩展2、简单明了，可读性强，没有歧义3、API风格统一，调用规则，">
+<meta name="description" content="API 篇RESTful 是什么 RESTful是一种软件设计风格，全称是：Representational State Transfer（表现层状态转移/用URL定位资源，用HTTP动词描述操作）有哪些RESTful风格的接口？Github API   why choose RESTful ？">
 <meta name="keywords" content="API">
 <meta property="og:type" content="article">
 <meta property="og:title" content="API">
 <meta property="og:url" content="ZoeSj.github.io/2018/09/26/API/index.html">
 <meta property="og:site_name" content="佳爷的后花媛">
-<meta property="og:description" content="API 篇RESTful 是什么 RESTful是一种软件设计风格，全称是：Representational State Transfer（表现层状态转移/用URL定位资源，用HTTP动词描述操作）有哪些RESTful风格的接口？Github API   why choose RESTful ？  接口基本原则：1、安全可靠，高效易扩展2、简单明了，可读性强，没有歧义3、API风格统一，调用规则，">
+<meta property="og:description" content="API 篇RESTful 是什么 RESTful是一种软件设计风格，全称是：Representational State Transfer（表现层状态转移/用URL定位资源，用HTTP动词描述操作）有哪些RESTful风格的接口？Github API   why choose RESTful ？">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://ol1lfoh6e.bkt.clouddn.com/594affbbd269aee9ac07f6ecd51f50ba.png">
-<meta property="og:updated_time" content="2018-09-26T06:39:15.672Z">
+<meta property="og:updated_time" content="2018-09-26T06:42:43.268Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="API">
-<meta name="twitter:description" content="API 篇RESTful 是什么 RESTful是一种软件设计风格，全称是：Representational State Transfer（表现层状态转移/用URL定位资源，用HTTP动词描述操作）有哪些RESTful风格的接口？Github API   why choose RESTful ？  接口基本原则：1、安全可靠，高效易扩展2、简单明了，可读性强，没有歧义3、API风格统一，调用规则，">
+<meta name="twitter:description" content="API 篇RESTful 是什么 RESTful是一种软件设计风格，全称是：Representational State Transfer（表现层状态转移/用URL定位资源，用HTTP动词描述操作）有哪些RESTful风格的接口？Github API   why choose RESTful ？">
 <meta name="twitter:image" content="http://ol1lfoh6e.bkt.clouddn.com/594affbbd269aee9ac07f6ecd51f50ba.png">
 
 
@@ -391,7 +391,7 @@
         <h1 id="API-篇"><a href="#API-篇" class="headerlink" title="API 篇"></a>API 篇</h1><h2 id="RESTful-是什么"><a href="#RESTful-是什么" class="headerlink" title="RESTful 是什么"></a>RESTful 是什么</h2><blockquote>
 <p>RESTful是一种软件设计风格，全称是：Representational State Transfer（表现层状态转移/用URL定位资源，用HTTP动词描述操作）<br>有哪些RESTful风格的接口？<br><a href="https://developer.github.com/v3/" target="_blank" rel="noopener">Github API</a></p>
 </blockquote>
-<p><strong> why choose RESTful ？ </strong></p>
+<p><strong> why choose RESTful ？ </strong><br><a id="more"></a></p>
 <h3 id="接口基本原则："><a href="#接口基本原则：" class="headerlink" title="接口基本原则："></a>接口基本原则：</h3><p>1、安全可靠，高效易扩展<br>2、简单明了，可读性强，没有歧义<br>3、API风格统一，调用规则，传入参数和返回数据有统一的标准</p>
 <h3 id="RESTful的设计理念基于HTTP协议，设计原则："><a href="#RESTful的设计理念基于HTTP协议，设计原则：" class="headerlink" title="RESTful的设计理念基于HTTP协议，设计原则："></a>RESTful的设计理念基于HTTP协议，设计原则：</h3><p><strong> 1、HTTPS </strong><br>HTTPS为接口的安全提供了保障，可以有效防止通信被窃听和篡改，可以通过<br><a href="https://certbot.eff.org/" target="_blank" rel="noopener">cerbot</a>等工具。<br>Attention：非HTTPS的API调用，不要重定向到HTTPS。而要直接返回调用错误以禁止不安全的调用。</p>
 <p><strong> 2、域名 </strong><br>应当尽可能的将API和主域名区分开，可以使用专用的域名：<br><code>https://api.zoe.com</code><br>Or<br><code>https://www.zoe.com/api</code></p>

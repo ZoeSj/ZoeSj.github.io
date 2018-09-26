@@ -88,7 +88,7 @@
 <meta property="og:description" content="编译器主要有两个部分构成的，一个是分析部分，一个是综合部分。 分析部分（analysis）分析部分吧源程序分解成多个组成要素，并在这些要素之上加上语法结构。其实最主要就是对代码进行检查，看看有没有错。没有错的话就会把各种信息存放在一个叫做符号表（symbol table）的数据结构中，符号表和中间表示形式一起传送给综合部分。 综合部分（synthesis）这时候综合部分根据符号表和中间表示形式的信">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://omn1kwvnn.bkt.clouddn.com/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-1.jpg">
-<meta property="og:updated_time" content="2018-09-26T06:33:54.927Z">
+<meta property="og:updated_time" content="2018-09-26T06:42:15.777Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个编译器的结构">
 <meta name="twitter:description" content="编译器主要有两个部分构成的，一个是分析部分，一个是综合部分。 分析部分（analysis）分析部分吧源程序分解成多个组成要素，并在这些要素之上加上语法结构。其实最主要就是对代码进行检查，看看有没有错。没有错的话就会把各种信息存放在一个叫做符号表（symbol table）的数据结构中，符号表和中间表示形式一起传送给综合部分。 综合部分（synthesis）这时候综合部分根据符号表和中间表示形式的信">
@@ -390,7 +390,7 @@
       
         <p>编译器主要有两个部分构成的，一个是分析部分，一个是综合部分。</p>
 <h2 id="分析部分（analysis）"><a href="#分析部分（analysis）" class="headerlink" title="分析部分（analysis）"></a>分析部分（analysis）</h2><p>分析部分吧源程序分解成多个组成要素，并在这些要素之上加上语法结构。其实最主要就是对代码进行检查，看看有没有错。没有错的话就会把各种信息存放在一个叫做符号表（symbol table）的数据结构中，符号表和中间表示形式一起传送给综合部分。</p>
-<h2 id="综合部分（synthesis）"><a href="#综合部分（synthesis）" class="headerlink" title="综合部分（synthesis）"></a>综合部分（synthesis）</h2><p>这时候综合部分根据符号表和中间表示形式的信息来构造用户期待的目标程序。</p>
+<h2 id="综合部分（synthesis）"><a href="#综合部分（synthesis）" class="headerlink" title="综合部分（synthesis）"></a>综合部分（synthesis）</h2><p>这时候综合部分根据符号表和中间表示形式的信息来构造用户期待的目标程序。<br><a id="more"></a></p>
 <h2 id="一个编译器的步骤"><a href="#一个编译器的步骤" class="headerlink" title="一个编译器的步骤"></a>一个编译器的步骤</h2><p>（字节流）-&gt;词法分析器-&gt;(符号流)-&gt;词法分析-&gt;（语法树）-&gt;语义分析-&gt;（语法树）-&gt;中间代码生成器-&gt;中间表示形式-&gt;机器无关代码优化器-&gt;（中间表示形式）-&gt;代码生成器-&gt;（目标机器语言）-&gt;机器相关代码生成器-&gt;（目标机器语言）</p>
 <h3 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h3><p><img src="http://omn1kwvnn.bkt.clouddn.com/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-1.jpg" alt="一个赋值语句的翻译"></p>
 

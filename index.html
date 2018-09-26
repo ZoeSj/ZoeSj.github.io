@@ -389,8 +389,7 @@
 
       
         
-          
-            <h1 id="PHP-interview-best-practices-in-China"><a href="#PHP-interview-best-practices-in-China" class="headerlink" title="PHP interview best practices in China"></a>PHP interview best practices in China</h1><h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><ul>
+          <h1 id="PHP-interview-best-practices-in-China"><a href="#PHP-interview-best-practices-in-China" class="headerlink" title="PHP interview best practices in China"></a>PHP interview best practices in China</h1><h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><ul>
 <li><a href="http://php.net/manual/zh/ref.array.php" target="_blank" rel="noopener">了解大部分数组处理函数</a></li>
 <li><a href="http://php.net/manual/zh/ref.strings.php" target="_blank" rel="noopener">字符串处理函数</a>  <a href="http://php.net/manual/zh/book.mbstring.php" target="_blank" rel="noopener">区别 mb_ 系列函数</a></li>
 <li><a href="https://secure.php.net/manual/zh/language.references.php" target="_blank" rel="noopener">&amp; 引用，结合案例分析</a></li>
@@ -408,280 +407,14 @@
 <li><a href="http://php.net/manual/en/language.oop5.magic.php#object.tostring" target="_blank" rel="noopener">__toString() 作用</a></li>
 <li><a href="https://stackoverflow.com/questions/3446216/what-is-the-difference-between-single-quoted-and-double-quoted-strings-in-php#answer-3446286" target="_blank" rel="noopener">单引号<code>&#39;</code>与双引号<code>&quot;</code>区别</a></li>
 <li><a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81" target="_blank" rel="noopener">常见 HTTP 状态码，分别代表什么含义</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/HTTP_301" target="_blank" rel="noopener">301</a> 什么意思 <a href="https://zh.wikipedia.org/wiki/HTTP_404" target="_blank" rel="noopener">404</a> 呢?</li>
-</ul>
-<h2 id="进阶篇"><a href="#进阶篇" class="headerlink" title="进阶篇"></a>进阶篇</h2><ul>
-<li>Autoload、Composer 原理 <a href="https://laravel-china.org/topics/2081/psr-specification-psr-4-automatic-loading-specification" target="_blank" rel="noopener">PSR-4</a> 、<a href="https://segmentfault.com/a/1190000014948542" target="_blank" rel="noopener">原理</a></li>
-<li>Session 共享、存活时间</li>
-<li>异常处理</li>
-<li><a href="https://secure.php.net/manual/zh/class.iterator.php" target="_blank" rel="noopener">如何 foreach 迭代对象</a></li>
-<li><a href="https://secure.php.net/manual/zh/class.arrayaccess.php" target="_blank" rel="noopener">如何数组化操作对象 <code>$obj[key];</code></a></li>
-<li><a href="http://php.net/manual/en/language.oop5.magic.php#object.invoke" target="_blank" rel="noopener">如何函数化对象 <code>$obj(123);</code></a></li>
-<li>yield 是什么，说个使用场景 <a href="https://www.oschina.net/translate/cooperative-multitasking-using-coroutines-in-php" target="_blank" rel="noopener">yield</a></li>
-<li><a href="http://psr.phphub.org/" target="_blank" rel="noopener">PSR 是什么，PSR-1, 2, 4, 7</a></li>
-<li>如何获取<a href="https://stackoverflow.com/questions/3003145/how-to-get-the-client-ip-address-in-php" target="_blank" rel="noopener">客户端 IP</a> 和 <a href="https://stackoverflow.com/questions/5800927/how-to-identify-server-ip-address-in-php" target="_blank" rel="noopener">服务端 IP</a> 地址</li>
-<li>如何开启 PHP 异常提示</li>
-<li>如何返回一个301重定向</li>
-<li>如何获取扩展安装路径</li>
-<li>字符串、数字比较大小的原理，注意 0 开头的8进制、0x 开头16进制</li>
-<li>BOM 头是什么，怎么除去</li>
-<li>什么是 MVC </li>
-<li>依赖注入实现原理</li>
-<li>如何异步执行命令</li>
-<li>模板引擎是什么，解决什么问题、实现原理（Smarty、Twig、Blade）</li>
-<li>如何实现链式操作 <code>$obj-&gt;w()-&gt;m()-&gt;d();</code></li>
-<li>Xhprof 、Xdebug 性能调试工具使用</li>
-<li>索引数组 <code>[1, 2]</code> 与关联数组 <code>[&#39;k1&#39;=&gt;1, &#39;k2&#39;=&gt;2]</code> 有什么区别</li>
-</ul>
-<h2 id="实践篇"><a href="#实践篇" class="headerlink" title="实践篇"></a>实践篇</h2><ul>
-<li>给定二维数组，根据某个字段排序</li>
-<li>如何判断上传文件类型，如：仅允许 jpg 上传</li>
-<li>不使用临时变量交换两个变量的值 <code>$a=1; $b=2;</code>  =&gt;  <code>$a=2; $b=1;</code></li>
-<li>strtoupper 在转换中文时存在乱码，你如何解决？<code>php echo strtoupper(&#39;ab你好c&#39;);</code></li>
-<li>Websocket、Long-Polling、Server-Sent Events(SSE) 区别</li>
-<li>“Headers already sent” 错误是什么意思，如何避免</li>
-</ul>
-<h2 id="算法篇"><a href="#算法篇" class="headerlink" title="算法篇"></a>算法篇</h2><ul>
-<li>快速排序（手写）</li>
-<li>冒泡排序（手写）</li>
-<li>二分查找（了解）</li>
-<li>查找算法 KMP（了解）</li>
-<li>深度、广度优先搜索（了解）</li>
-<li>LRU 缓存淘汰算法（了解，Memcached 采用该算法）</li>
-</ul>
-<h2 id="数据结构篇（了解）"><a href="#数据结构篇（了解）" class="headerlink" title="数据结构篇（了解）"></a>数据结构篇（了解）</h2><ul>
-<li>堆、栈特性</li>
-<li>队列</li>
-<li>哈希表</li>
-<li>链表</li>
-</ul>
-<h2 id="对比篇"><a href="#对比篇" class="headerlink" title="对比篇"></a>对比篇</h2><ul>
-<li>Cookie 与 Session 区别</li>
-<li><code>GET</code> 与 <code>POST</code> 区别</li>
-<li><code>include</code> 与 <code>require</code> 区别</li>
-<li><code>include_once</code> 与 <code>require_once</code> 区别</li>
-<li>Memcached 与 Redis 区别</li>
-<li>MySQL 各个存储引擎、及区别（一定会问 MyISAM 与 Innodb 区别）</li>
-<li>HTTP 与 HTTPS 区别</li>
-<li>Apache 与 Nginx 区别</li>
-<li>define() 与 const 区别</li>
-<li>traits 与 interfaces 区别 及 traits 解决了什么痛点？</li>
-<li>Git 与 SVN 区别</li>
-</ul>
-<h2 id="数据库篇"><a href="#数据库篇" class="headerlink" title="数据库篇"></a>数据库篇</h2><ul>
-<li>MySQL<ul>
-<li>CRUD</li>
-<li>JOIN、LEFT JOIN 、RIGHT JOIN、INNER JOIN</li>
-<li>UNION</li>
-<li>GROUP BY + COUNT + WHERE 组合案例</li>
-<li><a href="https://www.w3schools.com/sql/sql_ref_mysql.asp" target="_blank" rel="noopener">常用 MySQL 函数，如：now()、md5()、concat()、uuid()等</a></li>
-<li><code>1:1</code>、<code>1:n</code>、<code>n:n</code> 各自适用场景</li>
-<li>了解触发器是什么，说个使用场景</li>
-<li>数据库优化手段<ul>
-<li>索引、联合索引（命中条件）</li>
-<li>分库分表（<code>水平分表</code>、<code>垂直分表</code>）</li>
-<li>分区</li>
-<li>会使用 <code>explain</code> 分析 SQL 性能问题，了解各参数含义<ul>
-<li>重点理解 <code>type</code>、<code>rows</code>、<code>key</code></li>
-</ul>
-</li>
-<li>Slow Log（有什么用，什么时候需要）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>MSSQL(了解)<ul>
-<li>查询最新5条数据</li>
-</ul>
-</li>
-<li>NOSQL<ul>
-<li>Redis、Memcached、MongoDB</li>
-<li>对比、适用场景（可从以下维度进行对比）<ul>
-<li>持久化</li>
-<li>支持多钟数据类型</li>
-<li>可利用 CPU 多核心</li>
-<li>内存淘汰机制</li>
-<li>集群 Cluster</li>
-<li>支持 SQL</li>
-<li>性能对比</li>
-<li>支持事务</li>
-<li>应用场景</li>
-</ul>
-</li>
-<li>你之前为了解决什么问题使用的什么，为什么选它？</li>
-</ul>
-</li>
-</ul>
-<h2 id="服务器篇"><a href="#服务器篇" class="headerlink" title="服务器篇"></a>服务器篇</h2><ul>
-<li>查看 CPU、内存、时间、系统版本等信息</li>
-<li>find 、grep 查找文件</li>
-<li>awk 处理文本</li>
-<li>查看命令所在目录</li>
-<li>自己编译过 PHP 吗？如何打开 readline 功能</li>
-<li>如何查看 PHP 进程的内存、CPU 占用</li>
-<li>如何给 PHP 增加一个扩展</li>
-<li>修改 PHP Session 存储位置、修改 INI 配置参数</li>
-<li>负载均衡有哪几种，挑一种你熟悉的说明其原理</li>
-<li>数据库主从复制 M-S 是怎么同步的？是推还是拉？会不会不同步？怎么办</li>
-<li>如何保障数据的可用性，即使被删库了也能恢复到分钟级别。你会怎么做。</li>
-<li>数据库连接过多，超过最大值，如何优化架构。从哪些方便处理？</li>
-<li>502 大概什么什么原因？ 如何排查  504呢？</li>
-</ul>
-<h2 id="架构篇"><a href="#架构篇" class="headerlink" title="架构篇"></a>架构篇</h2><ul>
-<li>偏运维（了解）：<ul>
-<li>负载均衡（Nginx、HAProxy、DNS）</li>
-<li>主从复制（MySQL、Redis）</li>
-<li>数据冗余、备份（MySQL增量、全量 原理）</li>
-<li>监控检查（分存活、服务可用两个维度）</li>
-<li>MySQL、Redis、Memcached Proxy 、Cluster 目的、原理</li>
-<li>分片</li>
-<li>高可用集群</li>
-<li>RAID</li>
-<li>源代码编译、内存调优</li>
-</ul>
-</li>
-<li>缓存<ul>
-<li>工作中遇到哪里需要缓存，分别简述为什么</li>
-</ul>
-</li>
-<li>搜索解决方案</li>
-<li>性能调优</li>
-<li>各维度监控方案</li>
-<li>日志收集集中处理方案</li>
-<li>国际化</li>
-<li>数据库设计</li>
-<li>静态化方案</li>
-<li>画出常见 PHP 应用架构图</li>
-</ul>
-<h2 id="框架篇"><a href="#框架篇" class="headerlink" title="框架篇"></a>框架篇</h2><ul>
-<li>ThinkPHP（TP）、CodeIgniter（CI）、Zend（非 OOP 系列）</li>
-<li>Yaf、Phalcon（C 扩展系）</li>
-<li>Yii、Laravel、Symfony（纯 OOP 系列）</li>
-<li>Swoole、Workerman （网络编程框架）</li>
-<li>对比框架区别几个方向点<ul>
-<li>是否纯 OOP</li>
-<li>类库加载方式（自己写 autoload 对比 composer 标准）</li>
-<li>易用性方向（CI 基础框架，Laravel 这种就是高开发效率框架以及基础组件多少） </li>
-<li>黑盒（相比 C 扩展系）</li>
-<li>运行速度（如：Laravel 加载一大堆东西）</li>
-<li>内存占用</li>
-</ul>
-</li>
-</ul>
-<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><ul>
-<li>单例模式（重点）</li>
-<li>工厂模式（重点）</li>
-<li>观察者模式（重点）</li>
-<li>依赖注入（重点）</li>
-<li>装饰器模式</li>
-<li>代理模式</li>
-<li>组合模式</li>
-</ul>
-<h2 id="安全篇"><a href="#安全篇" class="headerlink" title="安全篇"></a>安全篇</h2><ul>
-<li>SQL 注入</li>
-<li>XSS 与 CSRF</li>
-<li>输入过滤</li>
-<li>Cookie 安全</li>
-<li>禁用 <code>mysql_</code> 系函数</li>
-<li>数据库存储用户密码时，应该是怎么做才安全</li>
-<li>验证码 Session 问题</li>
-<li>安全的 Session ID （让即使拦截后，也无法模拟使用）</li>
-<li>目录权限安全</li>
-<li>包含本地与远程文件</li>
-<li>文件上传 PHP 脚本</li>
-<li><code>eval</code> 函数执行脚本</li>
-<li><code>disable_functions</code> 关闭高危函数</li>
-<li>FPM 独立用户与组，给每个目录特定权限</li>
-<li>了解 Hash 与 Encrypt 区别</li>
-</ul>
-<h2 id="高阶篇"><a href="#高阶篇" class="headerlink" title="高阶篇"></a>高阶篇</h2><ul>
-<li>PHP 数组底层实现 （HashTable + Linked list）</li>
-<li>Copy on write 原理，何时 GC</li>
-<li>PHP 进程模型，进程通讯方式，进程线程区别</li>
-<li>yield 核心原理是什么</li>
-<li>PDO prepare 原理</li>
-<li>PHP 7 与 PHP 5 有什么区别</li>
-<li>Swoole 适用场景，协程实现方式</li>
-</ul>
-<h2 id="前端篇"><a href="#前端篇" class="headerlink" title="前端篇"></a>前端篇</h2><ul>
-<li>原生获取 DOM 节点，属性</li>
-<li>盒子模型</li>
-<li>CSS 文件、style 标签、行内 style 属性优先级</li>
-<li>HTML 与 JS 运行顺序（页面 JS 从上到下）</li>
-<li>JS 数组操作</li>
-<li>类型判断</li>
-<li>this 作用域</li>
-<li>.map() 与 this 具体使用场景分析</li>
-<li>Cookie 读写</li>
-<li>JQuery 操作</li>
-<li>Ajax 请求（同步、异步区别）随机数禁止缓存</li>
-<li>Bootstrap 有什么好处</li>
-<li>跨域请求 N 种解决方案</li>
-<li>新技术（了解）<ul>
-<li>ES6</li>
-<li>模块化</li>
-<li>打包</li>
-<li>构建工具</li>
-<li>vue、react、webpack、</li>
-<li>前端 mvc </li>
-</ul>
-</li>
-<li>优化<ul>
-<li>浏览器单域名并发数限制</li>
-<li>静态资源缓存 304 （If-Modified-Since 以及 Etag 原理）</li>
-<li>多个小图标合并使用 position 定位技术 减少请求</li>
-<li>静态资源合为单次请求 并压缩</li>
-<li>CDN</li>
-<li>静态资源延迟加载技术、预加载技术</li>
-<li>keep-alive</li>
-<li>CSS 在头部，JS 在尾部的优化（原理）</li>
-</ul>
-</li>
-</ul>
-<h2 id="网络篇"><a href="#网络篇" class="headerlink" title="网络篇"></a>网络篇</h2><ul>
-<li>IP 地址转 INT</li>
-<li>192.168.0.1/16 是什么意思</li>
-<li>DNS 主要作用是什么？</li>
-<li>IPv4 与 v6 区别</li>
-</ul>
-<h2 id="网络编程篇"><a href="#网络编程篇" class="headerlink" title="网络编程篇"></a>网络编程篇</h2><ul>
-<li>TCP 三次握手流程</li>
-<li>TCP、UDP 区别，分别适用场景</li>
-<li>有什么办法能保证 UDP 高可用性(了解)</li>
-<li>TCP 粘包如何解决？</li>
-<li>为什么需要心跳？</li>
-<li>什么是长连接？</li>
-<li>HTTPS 是怎么保证安全的？</li>
-<li>流与数据报的区别</li>
-<li>进程间通信几种方式，最快的是哪种？</li>
-<li><code>fork()</code> 会发生什么？</li>
-</ul>
-<h2 id="API-篇"><a href="#API-篇" class="headerlink" title="API 篇"></a>API 篇</h2><ul>
-<li>RESTful 是什么</li>
-<li>如何在不支持 <code>DELETE</code> 请求的浏览器上兼容 <code>DELETE</code> 请求</li>
-<li>常见 API 的 <code>APP_ID</code> <code>APP_SECRET</code> 主要作用是什么？阐述下流程 </li>
-<li>API 请求如何保证数据不被篡改？</li>
-<li>JSON 和 JSONP 的区别</li>
-<li>数据加密和验签的区别</li>
-<li>RSA 是什么</li>
-<li>API 版本兼容怎么处理</li>
-<li>限流（木桶、令牌桶）</li>
-<li>OAuth 2 主要用在哪些场景下</li>
-<li>JWT</li>
-<li>PHP 中 <code>json_encode([&#39;key&#39;=&gt;123]);</code> 与 <code>return json_encode([]);</code> 区别，会产生什么问题？如何解决</li>
-</ul>
-<h2 id="加分项"><a href="#加分项" class="headerlink" title="加分项"></a>加分项</h2><ul>
-<li>了解常用语言特性，及不同场景适用性。<ul>
-<li>PHP VS Golang</li>
-<li>PHP VS Python</li>
-<li>PHP VS JAVA</li>
-</ul>
-</li>
-<li>了解 PHP 扩展开发</li>
-<li>熟练掌握 C</li>
-</ul>
-
-          
+<li><a href="https://zh.wikipedia.org/wiki/HTTP_301" target="_blank" rel="noopener">301</a> 什么意思 <a href="https://zh.wikipedia.org/wiki/HTTP_404" target="_blank" rel="noopener">404</a> 呢?
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/26/PHP-Interview-Practices/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -820,78 +553,17 @@
 
       
         
-          
-            <h1 id="API-篇"><a href="#API-篇" class="headerlink" title="API 篇"></a>API 篇</h1><h2 id="RESTful-是什么"><a href="#RESTful-是什么" class="headerlink" title="RESTful 是什么"></a>RESTful 是什么</h2><blockquote>
+          <h1 id="API-篇"><a href="#API-篇" class="headerlink" title="API 篇"></a>API 篇</h1><h2 id="RESTful-是什么"><a href="#RESTful-是什么" class="headerlink" title="RESTful 是什么"></a>RESTful 是什么</h2><blockquote>
 <p>RESTful是一种软件设计风格，全称是：Representational State Transfer（表现层状态转移/用URL定位资源，用HTTP动词描述操作）<br>有哪些RESTful风格的接口？<br><a href="https://developer.github.com/v3/" target="_blank" rel="noopener">Github API</a></p>
 </blockquote>
-<p><strong> why choose RESTful ？ </strong></p>
-<h3 id="接口基本原则："><a href="#接口基本原则：" class="headerlink" title="接口基本原则："></a>接口基本原则：</h3><p>1、安全可靠，高效易扩展<br>2、简单明了，可读性强，没有歧义<br>3、API风格统一，调用规则，传入参数和返回数据有统一的标准</p>
-<h3 id="RESTful的设计理念基于HTTP协议，设计原则："><a href="#RESTful的设计理念基于HTTP协议，设计原则：" class="headerlink" title="RESTful的设计理念基于HTTP协议，设计原则："></a>RESTful的设计理念基于HTTP协议，设计原则：</h3><p><strong> 1、HTTPS </strong><br>HTTPS为接口的安全提供了保障，可以有效防止通信被窃听和篡改，可以通过<br><a href="https://certbot.eff.org/" target="_blank" rel="noopener">cerbot</a>等工具。<br>Attention：非HTTPS的API调用，不要重定向到HTTPS。而要直接返回调用错误以禁止不安全的调用。</p>
-<p><strong> 2、域名 </strong><br>应当尽可能的将API和主域名区分开，可以使用专用的域名：<br><code>https://api.zoe.com</code><br>Or<br><code>https://www.zoe.com/api</code></p>
-<p><strong> 3、版本控制 </strong><br>第一种：将版本号直接加入到URL中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://api.zoe.com/v1</span><br><span class="line">https://api.zoe.com/v2</span><br></pre></td></tr></table></figure></p>
-<p>第二种：使用http请求头的accept字段进行区分（推荐）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Https://api.zoe.com/</span><br><span class="line">		Accept:application/prs.zoe.va+json</span><br><span class="line">		Accept:application/prs.zoe.va+json</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://ol1lfoh6e.bkt.clouddn.com/594affbbd269aee9ac07f6ecd51f50ba.png" alt="postman test"></p>
-<p><strong> 4、用URL定位资源 </strong><br>在REST福利的架构中，所有的一切都表示资源，每个URL都代表一个资源（名词），而且大部分情况下资源是名词的复数，尽量不要在URL中出现动词。<br>Such as：(冒号开始的代表变量)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">GET /issues                          列出所有的 issue</span><br><span class="line">GET /orgs/:org/issues                列出某个项目的 issue</span><br><span class="line">GET /repos/:owner/:repo/issues/:number   获取某个项目的某个 issue</span><br><span class="line">POST /repos/:owner/:repo/issues          为某个项目创建 issue</span><br><span class="line">PATCH /repos/:owner/:repo/issues/:number         修改某个 issue</span><br><span class="line">PUT /repos/:owner/:repo/issues/:number/lock      锁住某个 issue</span><br><span class="line">DELETE /repos/:owner/:repo/issues/:number/lock   接收某个 issue</span><br></pre></td></tr></table></figure></p>
-<p>总结：<br>1、资源的设计可以嵌套，表明资源与资源之间的关系<br>2、大部分情况下访问的是某个资源集合，想要得到单个资源，可以通过资源的id或者number等唯一标识获取。<br>3、某些情况下，资源会是单数形式，例如某个项目某个issue的锁，每个issue只会有一把锁，所以是单数<br>错误的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST https://api.larabbs.com/createTopic</span><br><span class="line">GET https://api.larabbs.com/topic/show/1</span><br><span class="line">POST https://api.larabbs.com/topics/1/comments/create</span><br><span class="line">POST https://api.larabbs.com/topics/1/comments/100/delete</span><br></pre></td></tr></table></figure></p>
-<p>正确的例子:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST https://api.larabbs.com/topics</span><br><span class="line">GET https://api.larabbs.com/topics/1</span><br><span class="line">POST https://api.larabbs.com/topics/1/comments</span><br><span class="line">DELETE https://api.larabbs.com/topics/1/comments/100</span><br></pre></td></tr></table></figure></p>
-<p><strong> 5、用http动词描述操作 </strong><br>http设计了很多动词来表示不同的操作，RESTful吧这些利用的很好，来表明如何操作资源。<br>幂等性：指一次和多次请求某一个资源应该具有同样的副作用，也就是一次访问和多次访问，对这个资源带来的变化是相同的。<br>常见的动词及幂等性：<br>|动词|描述|是否幂等性|<br>|:—-    |:—|:—– |<br>|GET|获取资源，单个或多个|是|<br>|POST|创建资源|否|<br>|PUT|更新资源，客户端提供完整的资源数据|是|<br>|PATCH|更新资源。客户端提供部分的资源数据|否|<br>|DELETE|删除资源|是|</p>
-<p>为什么PUT是幂等而patch不是呢？因为put是根据客户端提供了完整的资源数据，客户端提交什么就更新什么，而patch有可能是根据客户端提供的参数，动态的计算出某个值，例如每次请求后资源的某个参数减1，所以多次调用，资源会有不同的变化。</p>
-<p>Attention：GET请求对于资源来说是安全的，不允许GET请求改变（更新或创建）资源，但是实际中，为了方便统计类的数据，会有一些例外，例如帖子详情，记录访问次数，每调用一次，访问次数加一。</p>
-<p><strong> 6、资源过滤 </strong><br>需要提供合理的参数供客户端过滤资源，such as：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?state=closed:不同的状态</span><br><span class="line">?page=2&amp;per_page=100:访问第几页数据，每页多少条</span><br><span class="line">?sortby=name&amp;order=asc:指定返回结果按照哪个属性排序，以及排序顺序。</span><br></pre></td></tr></table></figure></p>
-<p><strong> 7、正确使用状态码 </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">200 OK - 对成功的 GET、PUT、PATCH 或 DELETE 操作进行响应。也可以被用在不创建新资源的 POST 操作上</span><br><span class="line">201 Created - 对创建新资源的 POST 操作进行响应。应该带着指向新资源地址的 Location 头</span><br><span class="line">202 Accepted - 服务器接受了请求，但是还未处理，响应中应该包含相应的指示信息，告诉客户端该去哪里查询关于本次请求的信息</span><br><span class="line">204 No Content - 对不会返回响应体的成功请求进行响应（比如 DELETE 请求）</span><br><span class="line">304 Not Modified - HTTP缓存header生效的时候用</span><br><span class="line">400 Bad Request - 请求异常，比如请求中的body无法解析</span><br><span class="line">401 Unauthorized - 没有进行认证或者认证非法</span><br><span class="line">403 Forbidden - 服务器已经理解请求，但是拒绝执行它</span><br><span class="line">404 Not Found - 请求一个不存在的资源</span><br><span class="line">405 Method Not Allowed - 所请求的 HTTP 方法不允许当前认证用户访问</span><br><span class="line">410 Gone - 表示当前请求的资源不再可用。当调用老版本 API 的时候很有用</span><br><span class="line">415 Unsupported Media Type - 如果请求中的内容类型是错误的</span><br><span class="line">422 Unprocessable Entity - 用来表示校验错误</span><br><span class="line">429 Too Many Requests - 由于请求频次达到上限而被拒绝访问</span><br></pre></td></tr></table></figure></p>
-<p><strong> 8、数据响应格式 </strong><br>默认使用json作为数据响应格式，如果客户端需求使用其他的响应格式，例如xml，需要在accept头中指定需要的格式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Https://api.zoe.com/</span><br><span class="line">		Accept:application/prs.zoe.v1+json</span><br><span class="line">		Accept:application/prs.zoe.v1+xml</span><br></pre></td></tr></table></figure></p>
-<p>对于错误数据，默认使用如下结构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">‘message’ =&gt; ‘:message’,    //错误的具体描述</span><br><span class="line">‘errors’ =&gt; ‘:errors’,				//参数的具体错误描述，422等状态码提供</span><br><span class="line">‘code’ =&gt;’:code’ 						//自定义的异常码</span><br><span class="line">‘status_code’ =&gt; ‘:status_code’,//http状态码</span><br><span class="line">‘debug’=&gt;’:debug’,          //debug信息，非生产环境提供</span><br></pre></td></tr></table></figure></p>
-<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">		“message”:”422 Unprocessable Entity”,</span><br><span class="line">		“errors”:&#123;</span><br><span class="line">				“name”:[</span><br><span class="line">					“姓名必须好听“</span><br><span class="line">				]</span><br><span class="line">		&#125;,</span><br><span class="line">		“status+code”:422</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">		“message”:”您无权访问该订单”,</span><br><span class="line">		“status_code”:403</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong> 9、调用频率限制 </strong><br>为了防止服务器被攻击，减少服务器压力。需要对接口进行合适的限流控制，在响应头信息中加入合适的信息，告知客户端当前的限流情况：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X-RateLimit-Limit :100 最大访问次数</span><br><span class="line">X-RateLimit-Remaining :93 剩余的访问次数</span><br><span class="line">X-RateLimit-Reset :1513784506 到该时间点，访问次数会重置为 X-RateLimit-Limit</span><br></pre></td></tr></table></figure></p>
-<p>超过限流次数后，需要返回 <strong>429 Too Many Requests</strong> 错误。</p>
-<p><strong> 10、编写文档 </strong></p>
-<p>为了方便用户使用，我们需要提供清晰的文档，尽可能包括以下几点<br>    •    包括每个接口的请求参数，每个参数的类型限制，是否必填，可选的值等。<br>    •    响应结果的例子说明，包括响应结果中，每个参数的释义。<br>    •    对于某一类接口，需要有尽量详细的文字说明，比如针对一些特定场景，接口应该如何调用。</p>
-<ul>
-<li>如何在不支持 <code>DELETE</code> 请求的浏览器上兼容 <code>DELETE</code> 请求</li>
-</ul>
-<h2 id="常见-API-的-APP-ID-APP-SECRET-主要作用是什么？阐述下流程"><a href="#常见-API-的-APP-ID-APP-SECRET-主要作用是什么？阐述下流程" class="headerlink" title="常见 API 的 APP_ID APP_SECRET 主要作用是什么？阐述下流程"></a>常见 API 的 <code>APP_ID</code> <code>APP_SECRET</code> 主要作用是什么？阐述下流程</h2><ul>
-<li>客户端（app/浏览器）将用户导向第三方认证服务器</li>
-<li>用户在第三方认证服务器，选择是否给予客户端授权</li>
-<li>用户同意授权后，认证服务器将用户导向客户端事先指定的重定向URI，同时附上一个授权码。</li>
-<li>客户端将授权码发送至服务器，服务器通过授权码以及APP_SECRET向第三方服务器申请access_token</li>
-<li><p>服务器通过access_token，向第三方服务器申请用户数据，完成登陆流程，</p>
-<ol>
-<li>APP_SECRET 存储在客户端，客户端获取授权码之后，直接通过授权码和 APP_SECRET 去第三方换取 access_token。</li>
-<li>APP_SECRET 存储在服务端，客户端获取授权码之后，将授权码发送给服务器，服务器通过授权码和 APP_SECRET 去第三方换取 access_token。（推荐）</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li>API 请求如何保证数据不被篡改？</li>
-</ul>
-<h2 id="JSON-和-JSONP-的区别"><a href="#JSON-和-JSONP-的区别" class="headerlink" title="JSON 和 JSONP 的区别"></a>JSON 和 JSONP 的区别</h2><p>谈到ajax会面临两个问题，一个是：AJAX以何种格式来交换数据？另一个：跨域的需求如何解决？<br>比较推崇的方案：用json来传数据，靠jsonp来实现跨域。</p>
-<p><strong> json示例：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">// 描述一个人</span><br><span class="line"></span><br><span class="line">var person = &#123;</span><br><span class="line">    &quot;Name&quot;: &quot;Bob&quot;,</span><br><span class="line">    &quot;Age&quot;: 32,</span><br><span class="line">    &quot;Company&quot;: &quot;IBM&quot;,</span><br><span class="line">    &quot;Engineer&quot;: true</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 获取这个人的信息</span><br><span class="line"></span><br><span class="line">var personAge = person.Age;</span><br><span class="line"></span><br><span class="line">// 描述几个人</span><br><span class="line"></span><br><span class="line">var members = [</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;Name&quot;: &quot;Bob&quot;,</span><br><span class="line">        &quot;Age&quot;: 32,</span><br><span class="line">        &quot;Company&quot;: &quot;IBM&quot;,</span><br><span class="line">        &quot;Engineer&quot;: true</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;Name&quot;: &quot;John&quot;,</span><br><span class="line">        &quot;Age&quot;: 20,</span><br><span class="line">        &quot;Company&quot;: &quot;Oracle&quot;,</span><br><span class="line">        &quot;Engineer&quot;: false</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;Name&quot;: &quot;Henry&quot;,</span><br><span class="line">        &quot;Age&quot;: 45,</span><br><span class="line">        &quot;Company&quot;: &quot;Microsoft&quot;,</span><br><span class="line">        &quot;Engineer&quot;: false</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">// 读取其中John的公司名称</span><br><span class="line"></span><br><span class="line">var johnsCompany = members[1].Company;</span><br><span class="line"></span><br><span class="line">// 描述一次会议</span><br><span class="line"></span><br><span class="line">var conference = &#123;</span><br><span class="line">    &quot;Conference&quot;: &quot;Future Marketing&quot;,</span><br><span class="line">    &quot;Date&quot;: &quot;2012-6-1&quot;,</span><br><span class="line">    &quot;Address&quot;: &quot;Beijing&quot;,</span><br><span class="line">    &quot;Members&quot;: </span><br><span class="line">    [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Name&quot;: &quot;Bob&quot;,</span><br><span class="line">            &quot;Age&quot;: 32,</span><br><span class="line">            &quot;Company&quot;: &quot;IBM&quot;,</span><br><span class="line">            &quot;Engineer&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Name&quot;: &quot;John&quot;,</span><br><span class="line">            &quot;Age&quot;: 20,</span><br><span class="line">            &quot;Company&quot;: &quot;Oracle&quot;,</span><br><span class="line">            &quot;Engineer&quot;: false</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Name&quot;: &quot;Henry&quot;,</span><br><span class="line">            &quot;Age&quot;: 45,</span><br><span class="line">            &quot;Company&quot;: &quot;Microsoft&quot;,</span><br><span class="line">            &quot;Engineer&quot;: false</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 读取参会者Henry是否工程师</span><br><span class="line"></span><br><span class="line">var henryIsAnEngineer = conference.Members[2].Engineer;</span><br></pre></td></tr></table></figure></p>
-<p><strong> JSONP </strong></p>
-<blockquote>
-<p>Ajax直接请求普通文件存在跨域无权限访问的问题，无论是静态页面还是动态页面，web服务，WCF（？），但是在web页面上调用js文件时不受到跨域的影响（凡是yongyousrc属性的都有跨域的神奇能力），所以可以通过在远程服务器上设法把数据装进js格式的文件里，供客户端调用和进一步处理，而处理这些数据的格式可以是json，而且json还被原生js支持，很完美了。</p>
-</blockquote>
-<p>方案如下：<br>Web客户端通过与调用脚本一模一样的方式，来调用跨域服务器上动态生成的js格式文件，客户端在对json文件成功调用之后，获得了自己所需的数据，这就是jsonp，该协议的一个要点就是允许用户传递一个callback参数给服务端，然后服务端返回数据时会将这个callback参数作为函数名来包裹住json数据，这样客户端就可以随意定制函数来自动处理返回数据。</p>
-<p>具体实现示例：<br>喵喵：远程服务器。cat.com<br>汪汪：本地服务器.dag.com<br>1  miaomiao.js是cat.com根目录下的一个js文件。<br>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(‘喵呜，我是喵喵’);</span><br></pre></td></tr></table></figure></p>
-<p>Jsonp.html是dag.com下的一个页面：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;http://cat.com/miaomiao.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这里会弹出弹窗，现实跨域成功。</p>
-<p>2  在jsonp.html页面定义一个函数。然后在远程文件miaomiao.js中传入数据进行调用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    var localHandler = function(data)&#123;</span><br><span class="line">        alert(&apos;我是dog函数，可以被跨域猫的miaomiao.js文件调用，远程js带来的数据是：&apos; + data.result);</span><br><span class="line">    &#125;;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;http://cat.com/miaomiao.js”&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>miaomiao.js:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localHandler(&#123;&quot;result&quot;:&quot;我是远程猫js带来的数据&quot;&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>运行之后，显示本地调用成功，并且获取数据。但是如何让miaomiao知道它调用的dog函数叫什么呢？毕竟附近的dog太多了。</p>
-<p>3 喵喵和汪汪想了一个办法，如果汪汪想要调用喵喵，就在返回的骨头上加一个标志，说我想调用XXX函数的js代码，你丫别给我传错了啊。于是喵喵就按照骨头上的需求来生成js脚本并且给汪汪一个响应“拿好你的骨头，别搞丢了”<br>汪汪的jsonp.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    // 得到骨头信息查询结果后的回调函数</span><br><span class="line">    var boneHandler = function(data)&#123;</span><br><span class="line">        alert(&apos;你查询的肉骨头结果是：骨头价格 &apos; + data.price + &apos; 元，&apos; + &apos;余骨 &apos; + data.nums + &apos; 块。’);</span><br><span class="line">    &#125;;</span><br><span class="line">    // 提供jsonp服务的url地址（不管是什么类型的地址，最终生成的返回值都是一段javascript代码）</span><br><span class="line">    var url = &quot;http://cat.com/jsonp/boneResult.aspx?code=pig&amp;callback=boneHandler&quot;;</span><br><span class="line">    // 创建script标签，设置其属性</span><br><span class="line">    var script = document.createElement(&apos;script&apos;);</span><br><span class="line">    script.setAttribute(&apos;src&apos;, url);</span><br><span class="line">    // 把script标签加入head，此时调用开始</span><br><span class="line">    document.getElementsByTagName(&apos;head&apos;)[0].appendChild(script); </span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>上面实现的是编码动态查询，也是jsonp客户端实现的核心。下面是如何完成jsonp调用的全过程。<br>上面url中的code参数表示dog告诉cat我要查询附近猪骨的信息，并且把一个叫callback的骨头给cat，说这是我们的暗号（boneHandler），别和其他狗子搞混了，你把结果都放到这块骨头的这个暗号中给我传过来。于是这个叫做boneResult.aspx的页面生成了一段这样的代码提供给jsonp.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">boneHandler(&#123;</span><br><span class="line">    &quot;code&quot;: &quot;CA1998&quot;,</span><br><span class="line">    &quot;price&quot;: 1780,</span><br><span class="line">    &quot;tickets&quot;: 5</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>4 如何用jquery实现？<br>Attention:jquery在处理jsonp类型的ajax时（虽然jquery也把jsonp归入了ajax，但其实它们真的不是一回事儿），自动帮你生成回调函数并把数据取出来供success属性方法来调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line"> &lt;head&gt;</span><br><span class="line">     &lt;title&gt;Untitled Page&lt;/title&gt;</span><br><span class="line">      &lt;script type=&quot;text/javascript&quot; src=jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">      &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">     jQuery(document).ready(function()&#123; </span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">             type: &quot;get&quot;,</span><br><span class="line">             async: false,</span><br><span class="line">             url: &quot;http://cat.com/jsonp/boneResult.aspx?code=pig”,</span><br><span class="line">             dataType: &quot;jsonp&quot;,</span><br><span class="line">             jsonp: &quot;callback&quot;,//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)</span><br><span class="line">             jsonpCallback:”boneHandler&quot;,//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写&quot;?&quot;，jQuery会自动为你处理数据</span><br><span class="line">             success: function(json)&#123;</span><br><span class="line">                 alert(&apos;您查询到骨头信息：骨头价格： &apos; + json.price + &apos; 元，余骨： &apos; + json.nums + &apos; 块。’);</span><br><span class="line">             &#125;,</span><br><span class="line">             error: function()&#123;</span><br><span class="line">                 alert(&apos;fail&apos;);</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;);</span><br><span class="line">     &#125;);</span><br><span class="line">     &lt;/script&gt;</span><br><span class="line">     &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line"> &lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>1、ajax和jsonp这两种技术在调用方式上“看起来”很像，目的也一样，都是请求一个url，然后把服务器返回的数据进行处理，因此jquery和ext(?)等框架都把jsonp作为ajax的一种形式进行了封装；<br>2、但ajax和jsonp其实本质上是不同的东西。ajax的核心是通过XmlHttpRequest获取非本页内容，而jsonp的核心则是动态添加<script>标签来调用服务器提供的js脚本。<br>3、其实ajax与jsonp的区别不在于是否跨域，ajax通过服务端代理一样可以实现跨域，jsonp本身也不排斥同域的数据的获取。<br>4、还有就是，jsonp是一种方式或者说非强制性协议，如同ajax一样，它也不一定非要用json格式来传递数据，如果你愿意，字符串都行，只不过这样不利于用jsonp提供公开服务。<br>总而言之，jsonp不是ajax的一个特例，哪怕jquery等巨头把jsonp封装进了ajax，也不能改变着一点！</p>
-<ul>
-<li>数据加密和验签的区别</li>
-<li>RSA 是什么</li>
-<li>API 版本兼容怎么处理</li>
-<li>限流（木桶、令牌桶）</li>
-<li>OAuth 2 主要用在哪些场景下</li>
-<li>JWT</li>
-<li>PHP 中 <code>json_encode([&#39;key&#39;=&gt;123]);</code> 与 <code>return json_encode([]);</code> 区别，会产生什么问题？如何解决</li>
-</ul>
-</script></p>
-          
+<p><strong> why choose RESTful ？ </strong><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/26/API/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1030,14 +702,16 @@
 
       
         
-          
-            <p>编译器主要有两个部分构成的，一个是分析部分，一个是综合部分。</p>
+          <p>编译器主要有两个部分构成的，一个是分析部分，一个是综合部分。</p>
 <h2 id="分析部分（analysis）"><a href="#分析部分（analysis）" class="headerlink" title="分析部分（analysis）"></a>分析部分（analysis）</h2><p>分析部分吧源程序分解成多个组成要素，并在这些要素之上加上语法结构。其实最主要就是对代码进行检查，看看有没有错。没有错的话就会把各种信息存放在一个叫做符号表（symbol table）的数据结构中，符号表和中间表示形式一起传送给综合部分。</p>
-<h2 id="综合部分（synthesis）"><a href="#综合部分（synthesis）" class="headerlink" title="综合部分（synthesis）"></a>综合部分（synthesis）</h2><p>这时候综合部分根据符号表和中间表示形式的信息来构造用户期待的目标程序。</p>
-<h2 id="一个编译器的步骤"><a href="#一个编译器的步骤" class="headerlink" title="一个编译器的步骤"></a>一个编译器的步骤</h2><p>（字节流）-&gt;词法分析器-&gt;(符号流)-&gt;词法分析-&gt;（语法树）-&gt;语义分析-&gt;（语法树）-&gt;中间代码生成器-&gt;中间表示形式-&gt;机器无关代码优化器-&gt;（中间表示形式）-&gt;代码生成器-&gt;（目标机器语言）-&gt;机器相关代码生成器-&gt;（目标机器语言）</p>
-<h3 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h3><p><img src="http://omn1kwvnn.bkt.clouddn.com/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-1.jpg" alt="一个赋值语句的翻译"></p>
-
-          
+<h2 id="综合部分（synthesis）"><a href="#综合部分（synthesis）" class="headerlink" title="综合部分（synthesis）"></a>综合部分（synthesis）</h2><p>这时候综合部分根据符号表和中间表示形式的信息来构造用户期待的目标程序。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/26/一个编译器的结构/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
