@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="API," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="API 篇RESTful 是什么 RESTful是一种软件设计风格，全称是：Representational State Transfer（表现层状态转移/用URL定位资源，用HTTP动词描述操作）有哪些RESTful风格的接口？Github API   why choose RESTful ？  接口基本原则：1、安全可靠，高效易扩展2、简单明了，可读性强，没有歧义3、API风格统一，调用规则，">
+<meta name="keywords" content="API">
+<meta property="og:type" content="article">
+<meta property="og:title" content="API">
+<meta property="og:url" content="ZoeSj.github.io/2018/09/26/API/index.html">
+<meta property="og:site_name" content="佳爷的后花媛">
+<meta property="og:description" content="API 篇RESTful 是什么 RESTful是一种软件设计风格，全称是：Representational State Transfer（表现层状态转移/用URL定位资源，用HTTP动词描述操作）有哪些RESTful风格的接口？Github API   why choose RESTful ？  接口基本原则：1、安全可靠，高效易扩展2、简单明了，可读性强，没有歧义3、API风格统一，调用规则，">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://ol1lfoh6e.bkt.clouddn.com/594affbbd269aee9ac07f6ecd51f50ba.png">
+<meta property="og:updated_time" content="2018-09-26T06:39:15.672Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="API">
+<meta name="twitter:description" content="API 篇RESTful 是什么 RESTful是一种软件设计风格，全称是：Representational State Transfer（表现层状态转移/用URL定位资源，用HTTP动词描述操作）有哪些RESTful风格的接口？Github API   why choose RESTful ？  接口基本原则：1、安全可靠，高效易扩展2、简单明了，可读性强，没有歧义3、API风格统一，调用规则，">
+<meta name="twitter:image" content="http://ol1lfoh6e.bkt.clouddn.com/594affbbd269aee9ac07f6ecd51f50ba.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="ZoeSj.github.io/2018/09/26/API/"/>
+
+
+
+
+
+  <title>API | 佳爷的后花媛</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">佳爷的后花媛</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="ZoeSj.github.io/2018/09/26/API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zoe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="佳爷的后花媛">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">API</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-26T14:37:27+08:00">
+                2018-09-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="API-篇"><a href="#API-篇" class="headerlink" title="API 篇"></a>API 篇</h1><h2 id="RESTful-是什么"><a href="#RESTful-是什么" class="headerlink" title="RESTful 是什么"></a>RESTful 是什么</h2><blockquote>
+<p>RESTful是一种软件设计风格，全称是：Representational State Transfer（表现层状态转移/用URL定位资源，用HTTP动词描述操作）<br>有哪些RESTful风格的接口？<br><a href="https://developer.github.com/v3/" target="_blank" rel="noopener">Github API</a></p>
+</blockquote>
+<p><strong> why choose RESTful ？ </strong></p>
+<h3 id="接口基本原则："><a href="#接口基本原则：" class="headerlink" title="接口基本原则："></a>接口基本原则：</h3><p>1、安全可靠，高效易扩展<br>2、简单明了，可读性强，没有歧义<br>3、API风格统一，调用规则，传入参数和返回数据有统一的标准</p>
+<h3 id="RESTful的设计理念基于HTTP协议，设计原则："><a href="#RESTful的设计理念基于HTTP协议，设计原则：" class="headerlink" title="RESTful的设计理念基于HTTP协议，设计原则："></a>RESTful的设计理念基于HTTP协议，设计原则：</h3><p><strong> 1、HTTPS </strong><br>HTTPS为接口的安全提供了保障，可以有效防止通信被窃听和篡改，可以通过<br><a href="https://certbot.eff.org/" target="_blank" rel="noopener">cerbot</a>等工具。<br>Attention：非HTTPS的API调用，不要重定向到HTTPS。而要直接返回调用错误以禁止不安全的调用。</p>
+<p><strong> 2、域名 </strong><br>应当尽可能的将API和主域名区分开，可以使用专用的域名：<br><code>https://api.zoe.com</code><br>Or<br><code>https://www.zoe.com/api</code></p>
+<p><strong> 3、版本控制 </strong><br>第一种：将版本号直接加入到URL中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://api.zoe.com/v1</span><br><span class="line">https://api.zoe.com/v2</span><br></pre></td></tr></table></figure></p>
+<p>第二种：使用http请求头的accept字段进行区分（推荐）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Https://api.zoe.com/</span><br><span class="line">		Accept:application/prs.zoe.va+json</span><br><span class="line">		Accept:application/prs.zoe.va+json</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://ol1lfoh6e.bkt.clouddn.com/594affbbd269aee9ac07f6ecd51f50ba.png" alt="postman test"></p>
+<p><strong> 4、用URL定位资源 </strong><br>在REST福利的架构中，所有的一切都表示资源，每个URL都代表一个资源（名词），而且大部分情况下资源是名词的复数，尽量不要在URL中出现动词。<br>Such as：(冒号开始的代表变量)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">GET /issues                          列出所有的 issue</span><br><span class="line">GET /orgs/:org/issues                列出某个项目的 issue</span><br><span class="line">GET /repos/:owner/:repo/issues/:number   获取某个项目的某个 issue</span><br><span class="line">POST /repos/:owner/:repo/issues          为某个项目创建 issue</span><br><span class="line">PATCH /repos/:owner/:repo/issues/:number         修改某个 issue</span><br><span class="line">PUT /repos/:owner/:repo/issues/:number/lock      锁住某个 issue</span><br><span class="line">DELETE /repos/:owner/:repo/issues/:number/lock   接收某个 issue</span><br></pre></td></tr></table></figure></p>
+<p>总结：<br>1、资源的设计可以嵌套，表明资源与资源之间的关系<br>2、大部分情况下访问的是某个资源集合，想要得到单个资源，可以通过资源的id或者number等唯一标识获取。<br>3、某些情况下，资源会是单数形式，例如某个项目某个issue的锁，每个issue只会有一把锁，所以是单数<br>错误的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST https://api.larabbs.com/createTopic</span><br><span class="line">GET https://api.larabbs.com/topic/show/1</span><br><span class="line">POST https://api.larabbs.com/topics/1/comments/create</span><br><span class="line">POST https://api.larabbs.com/topics/1/comments/100/delete</span><br></pre></td></tr></table></figure></p>
+<p>正确的例子:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST https://api.larabbs.com/topics</span><br><span class="line">GET https://api.larabbs.com/topics/1</span><br><span class="line">POST https://api.larabbs.com/topics/1/comments</span><br><span class="line">DELETE https://api.larabbs.com/topics/1/comments/100</span><br></pre></td></tr></table></figure></p>
+<p><strong> 5、用http动词描述操作 </strong><br>http设计了很多动词来表示不同的操作，RESTful吧这些利用的很好，来表明如何操作资源。<br>幂等性：指一次和多次请求某一个资源应该具有同样的副作用，也就是一次访问和多次访问，对这个资源带来的变化是相同的。<br>常见的动词及幂等性：<br>|动词|描述|是否幂等性|<br>|:—-    |:—|:—– |<br>|GET|获取资源，单个或多个|是|<br>|POST|创建资源|否|<br>|PUT|更新资源，客户端提供完整的资源数据|是|<br>|PATCH|更新资源。客户端提供部分的资源数据|否|<br>|DELETE|删除资源|是|</p>
+<p>为什么PUT是幂等而patch不是呢？因为put是根据客户端提供了完整的资源数据，客户端提交什么就更新什么，而patch有可能是根据客户端提供的参数，动态的计算出某个值，例如每次请求后资源的某个参数减1，所以多次调用，资源会有不同的变化。</p>
+<p>Attention：GET请求对于资源来说是安全的，不允许GET请求改变（更新或创建）资源，但是实际中，为了方便统计类的数据，会有一些例外，例如帖子详情，记录访问次数，每调用一次，访问次数加一。</p>
+<p><strong> 6、资源过滤 </strong><br>需要提供合理的参数供客户端过滤资源，such as：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?state=closed:不同的状态</span><br><span class="line">?page=2&amp;per_page=100:访问第几页数据，每页多少条</span><br><span class="line">?sortby=name&amp;order=asc:指定返回结果按照哪个属性排序，以及排序顺序。</span><br></pre></td></tr></table></figure></p>
+<p><strong> 7、正确使用状态码 </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">200 OK - 对成功的 GET、PUT、PATCH 或 DELETE 操作进行响应。也可以被用在不创建新资源的 POST 操作上</span><br><span class="line">201 Created - 对创建新资源的 POST 操作进行响应。应该带着指向新资源地址的 Location 头</span><br><span class="line">202 Accepted - 服务器接受了请求，但是还未处理，响应中应该包含相应的指示信息，告诉客户端该去哪里查询关于本次请求的信息</span><br><span class="line">204 No Content - 对不会返回响应体的成功请求进行响应（比如 DELETE 请求）</span><br><span class="line">304 Not Modified - HTTP缓存header生效的时候用</span><br><span class="line">400 Bad Request - 请求异常，比如请求中的body无法解析</span><br><span class="line">401 Unauthorized - 没有进行认证或者认证非法</span><br><span class="line">403 Forbidden - 服务器已经理解请求，但是拒绝执行它</span><br><span class="line">404 Not Found - 请求一个不存在的资源</span><br><span class="line">405 Method Not Allowed - 所请求的 HTTP 方法不允许当前认证用户访问</span><br><span class="line">410 Gone - 表示当前请求的资源不再可用。当调用老版本 API 的时候很有用</span><br><span class="line">415 Unsupported Media Type - 如果请求中的内容类型是错误的</span><br><span class="line">422 Unprocessable Entity - 用来表示校验错误</span><br><span class="line">429 Too Many Requests - 由于请求频次达到上限而被拒绝访问</span><br></pre></td></tr></table></figure></p>
+<p><strong> 8、数据响应格式 </strong><br>默认使用json作为数据响应格式，如果客户端需求使用其他的响应格式，例如xml，需要在accept头中指定需要的格式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Https://api.zoe.com/</span><br><span class="line">		Accept:application/prs.zoe.v1+json</span><br><span class="line">		Accept:application/prs.zoe.v1+xml</span><br></pre></td></tr></table></figure></p>
+<p>对于错误数据，默认使用如下结构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">‘message’ =&gt; ‘:message’,    //错误的具体描述</span><br><span class="line">‘errors’ =&gt; ‘:errors’,				//参数的具体错误描述，422等状态码提供</span><br><span class="line">‘code’ =&gt;’:code’ 						//自定义的异常码</span><br><span class="line">‘status_code’ =&gt; ‘:status_code’,//http状态码</span><br><span class="line">‘debug’=&gt;’:debug’,          //debug信息，非生产环境提供</span><br></pre></td></tr></table></figure></p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">		“message”:”422 Unprocessable Entity”,</span><br><span class="line">		“errors”:&#123;</span><br><span class="line">				“name”:[</span><br><span class="line">					“姓名必须好听“</span><br><span class="line">				]</span><br><span class="line">		&#125;,</span><br><span class="line">		“status+code”:422</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">		“message”:”您无权访问该订单”,</span><br><span class="line">		“status_code”:403</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> 9、调用频率限制 </strong><br>为了防止服务器被攻击，减少服务器压力。需要对接口进行合适的限流控制，在响应头信息中加入合适的信息，告知客户端当前的限流情况：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X-RateLimit-Limit :100 最大访问次数</span><br><span class="line">X-RateLimit-Remaining :93 剩余的访问次数</span><br><span class="line">X-RateLimit-Reset :1513784506 到该时间点，访问次数会重置为 X-RateLimit-Limit</span><br></pre></td></tr></table></figure></p>
+<p>超过限流次数后，需要返回 <strong>429 Too Many Requests</strong> 错误。</p>
+<p><strong> 10、编写文档 </strong></p>
+<p>为了方便用户使用，我们需要提供清晰的文档，尽可能包括以下几点<br>    •    包括每个接口的请求参数，每个参数的类型限制，是否必填，可选的值等。<br>    •    响应结果的例子说明，包括响应结果中，每个参数的释义。<br>    •    对于某一类接口，需要有尽量详细的文字说明，比如针对一些特定场景，接口应该如何调用。</p>
+<ul>
+<li>如何在不支持 <code>DELETE</code> 请求的浏览器上兼容 <code>DELETE</code> 请求</li>
+</ul>
+<h2 id="常见-API-的-APP-ID-APP-SECRET-主要作用是什么？阐述下流程"><a href="#常见-API-的-APP-ID-APP-SECRET-主要作用是什么？阐述下流程" class="headerlink" title="常见 API 的 APP_ID APP_SECRET 主要作用是什么？阐述下流程"></a>常见 API 的 <code>APP_ID</code> <code>APP_SECRET</code> 主要作用是什么？阐述下流程</h2><ul>
+<li>客户端（app/浏览器）将用户导向第三方认证服务器</li>
+<li>用户在第三方认证服务器，选择是否给予客户端授权</li>
+<li>用户同意授权后，认证服务器将用户导向客户端事先指定的重定向URI，同时附上一个授权码。</li>
+<li>客户端将授权码发送至服务器，服务器通过授权码以及APP_SECRET向第三方服务器申请access_token</li>
+<li><p>服务器通过access_token，向第三方服务器申请用户数据，完成登陆流程，</p>
+<ol>
+<li>APP_SECRET 存储在客户端，客户端获取授权码之后，直接通过授权码和 APP_SECRET 去第三方换取 access_token。</li>
+<li>APP_SECRET 存储在服务端，客户端获取授权码之后，将授权码发送给服务器，服务器通过授权码和 APP_SECRET 去第三方换取 access_token。（推荐）</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>API 请求如何保证数据不被篡改？</li>
+</ul>
+<h2 id="JSON-和-JSONP-的区别"><a href="#JSON-和-JSONP-的区别" class="headerlink" title="JSON 和 JSONP 的区别"></a>JSON 和 JSONP 的区别</h2><p>谈到ajax会面临两个问题，一个是：AJAX以何种格式来交换数据？另一个：跨域的需求如何解决？<br>比较推崇的方案：用json来传数据，靠jsonp来实现跨域。</p>
+<p><strong> json示例：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">// 描述一个人</span><br><span class="line"></span><br><span class="line">var person = &#123;</span><br><span class="line">    &quot;Name&quot;: &quot;Bob&quot;,</span><br><span class="line">    &quot;Age&quot;: 32,</span><br><span class="line">    &quot;Company&quot;: &quot;IBM&quot;,</span><br><span class="line">    &quot;Engineer&quot;: true</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 获取这个人的信息</span><br><span class="line"></span><br><span class="line">var personAge = person.Age;</span><br><span class="line"></span><br><span class="line">// 描述几个人</span><br><span class="line"></span><br><span class="line">var members = [</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;Name&quot;: &quot;Bob&quot;,</span><br><span class="line">        &quot;Age&quot;: 32,</span><br><span class="line">        &quot;Company&quot;: &quot;IBM&quot;,</span><br><span class="line">        &quot;Engineer&quot;: true</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;Name&quot;: &quot;John&quot;,</span><br><span class="line">        &quot;Age&quot;: 20,</span><br><span class="line">        &quot;Company&quot;: &quot;Oracle&quot;,</span><br><span class="line">        &quot;Engineer&quot;: false</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;Name&quot;: &quot;Henry&quot;,</span><br><span class="line">        &quot;Age&quot;: 45,</span><br><span class="line">        &quot;Company&quot;: &quot;Microsoft&quot;,</span><br><span class="line">        &quot;Engineer&quot;: false</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">// 读取其中John的公司名称</span><br><span class="line"></span><br><span class="line">var johnsCompany = members[1].Company;</span><br><span class="line"></span><br><span class="line">// 描述一次会议</span><br><span class="line"></span><br><span class="line">var conference = &#123;</span><br><span class="line">    &quot;Conference&quot;: &quot;Future Marketing&quot;,</span><br><span class="line">    &quot;Date&quot;: &quot;2012-6-1&quot;,</span><br><span class="line">    &quot;Address&quot;: &quot;Beijing&quot;,</span><br><span class="line">    &quot;Members&quot;: </span><br><span class="line">    [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Name&quot;: &quot;Bob&quot;,</span><br><span class="line">            &quot;Age&quot;: 32,</span><br><span class="line">            &quot;Company&quot;: &quot;IBM&quot;,</span><br><span class="line">            &quot;Engineer&quot;: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Name&quot;: &quot;John&quot;,</span><br><span class="line">            &quot;Age&quot;: 20,</span><br><span class="line">            &quot;Company&quot;: &quot;Oracle&quot;,</span><br><span class="line">            &quot;Engineer&quot;: false</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;Name&quot;: &quot;Henry&quot;,</span><br><span class="line">            &quot;Age&quot;: 45,</span><br><span class="line">            &quot;Company&quot;: &quot;Microsoft&quot;,</span><br><span class="line">            &quot;Engineer&quot;: false</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 读取参会者Henry是否工程师</span><br><span class="line"></span><br><span class="line">var henryIsAnEngineer = conference.Members[2].Engineer;</span><br></pre></td></tr></table></figure></p>
+<p><strong> JSONP </strong></p>
+<blockquote>
+<p>Ajax直接请求普通文件存在跨域无权限访问的问题，无论是静态页面还是动态页面，web服务，WCF（？），但是在web页面上调用js文件时不受到跨域的影响（凡是yongyousrc属性的都有跨域的神奇能力），所以可以通过在远程服务器上设法把数据装进js格式的文件里，供客户端调用和进一步处理，而处理这些数据的格式可以是json，而且json还被原生js支持，很完美了。</p>
+</blockquote>
+<p>方案如下：<br>Web客户端通过与调用脚本一模一样的方式，来调用跨域服务器上动态生成的js格式文件，客户端在对json文件成功调用之后，获得了自己所需的数据，这就是jsonp，该协议的一个要点就是允许用户传递一个callback参数给服务端，然后服务端返回数据时会将这个callback参数作为函数名来包裹住json数据，这样客户端就可以随意定制函数来自动处理返回数据。</p>
+<p>具体实现示例：<br>喵喵：远程服务器。cat.com<br>汪汪：本地服务器.dag.com<br>1  miaomiao.js是cat.com根目录下的一个js文件。<br>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(‘喵呜，我是喵喵’);</span><br></pre></td></tr></table></figure></p>
+<p>Jsonp.html是dag.com下的一个页面：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;http://cat.com/miaomiao.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这里会弹出弹窗，现实跨域成功。</p>
+<p>2  在jsonp.html页面定义一个函数。然后在远程文件miaomiao.js中传入数据进行调用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    var localHandler = function(data)&#123;</span><br><span class="line">        alert(&apos;我是dog函数，可以被跨域猫的miaomiao.js文件调用，远程js带来的数据是：&apos; + data.result);</span><br><span class="line">    &#125;;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;http://cat.com/miaomiao.js”&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>miaomiao.js:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localHandler(&#123;&quot;result&quot;:&quot;我是远程猫js带来的数据&quot;&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>运行之后，显示本地调用成功，并且获取数据。但是如何让miaomiao知道它调用的dog函数叫什么呢？毕竟附近的dog太多了。</p>
+<p>3 喵喵和汪汪想了一个办法，如果汪汪想要调用喵喵，就在返回的骨头上加一个标志，说我想调用XXX函数的js代码，你丫别给我传错了啊。于是喵喵就按照骨头上的需求来生成js脚本并且给汪汪一个响应“拿好你的骨头，别搞丢了”<br>汪汪的jsonp.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    // 得到骨头信息查询结果后的回调函数</span><br><span class="line">    var boneHandler = function(data)&#123;</span><br><span class="line">        alert(&apos;你查询的肉骨头结果是：骨头价格 &apos; + data.price + &apos; 元，&apos; + &apos;余骨 &apos; + data.nums + &apos; 块。’);</span><br><span class="line">    &#125;;</span><br><span class="line">    // 提供jsonp服务的url地址（不管是什么类型的地址，最终生成的返回值都是一段javascript代码）</span><br><span class="line">    var url = &quot;http://cat.com/jsonp/boneResult.aspx?code=pig&amp;callback=boneHandler&quot;;</span><br><span class="line">    // 创建script标签，设置其属性</span><br><span class="line">    var script = document.createElement(&apos;script&apos;);</span><br><span class="line">    script.setAttribute(&apos;src&apos;, url);</span><br><span class="line">    // 把script标签加入head，此时调用开始</span><br><span class="line">    document.getElementsByTagName(&apos;head&apos;)[0].appendChild(script); </span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>上面实现的是编码动态查询，也是jsonp客户端实现的核心。下面是如何完成jsonp调用的全过程。<br>上面url中的code参数表示dog告诉cat我要查询附近猪骨的信息，并且把一个叫callback的骨头给cat，说这是我们的暗号（boneHandler），别和其他狗子搞混了，你把结果都放到这块骨头的这个暗号中给我传过来。于是这个叫做boneResult.aspx的页面生成了一段这样的代码提供给jsonp.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">boneHandler(&#123;</span><br><span class="line">    &quot;code&quot;: &quot;CA1998&quot;,</span><br><span class="line">    &quot;price&quot;: 1780,</span><br><span class="line">    &quot;tickets&quot;: 5</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>4 如何用jquery实现？<br>Attention:jquery在处理jsonp类型的ajax时（虽然jquery也把jsonp归入了ajax，但其实它们真的不是一回事儿），自动帮你生成回调函数并把数据取出来供success属性方法来调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line"> &lt;head&gt;</span><br><span class="line">     &lt;title&gt;Untitled Page&lt;/title&gt;</span><br><span class="line">      &lt;script type=&quot;text/javascript&quot; src=jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">      &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">     jQuery(document).ready(function()&#123; </span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">             type: &quot;get&quot;,</span><br><span class="line">             async: false,</span><br><span class="line">             url: &quot;http://cat.com/jsonp/boneResult.aspx?code=pig”,</span><br><span class="line">             dataType: &quot;jsonp&quot;,</span><br><span class="line">             jsonp: &quot;callback&quot;,//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)</span><br><span class="line">             jsonpCallback:”boneHandler&quot;,//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写&quot;?&quot;，jQuery会自动为你处理数据</span><br><span class="line">             success: function(json)&#123;</span><br><span class="line">                 alert(&apos;您查询到骨头信息：骨头价格： &apos; + json.price + &apos; 元，余骨： &apos; + json.nums + &apos; 块。’);</span><br><span class="line">             &#125;,</span><br><span class="line">             error: function()&#123;</span><br><span class="line">                 alert(&apos;fail&apos;);</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;);</span><br><span class="line">     &#125;);</span><br><span class="line">     &lt;/script&gt;</span><br><span class="line">     &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line"> &lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>1、ajax和jsonp这两种技术在调用方式上“看起来”很像，目的也一样，都是请求一个url，然后把服务器返回的数据进行处理，因此jquery和ext(?)等框架都把jsonp作为ajax的一种形式进行了封装；<br>2、但ajax和jsonp其实本质上是不同的东西。ajax的核心是通过XmlHttpRequest获取非本页内容，而jsonp的核心则是动态添加<script>标签来调用服务器提供的js脚本。<br>3、其实ajax与jsonp的区别不在于是否跨域，ajax通过服务端代理一样可以实现跨域，jsonp本身也不排斥同域的数据的获取。<br>4、还有就是，jsonp是一种方式或者说非强制性协议，如同ajax一样，它也不一定非要用json格式来传递数据，如果你愿意，字符串都行，只不过这样不利于用jsonp提供公开服务。<br>总而言之，jsonp不是ajax的一个特例，哪怕jquery等巨头把jsonp封装进了ajax，也不能改变着一点！</p>
+<ul>
+<li>数据加密和验签的区别</li>
+<li>RSA 是什么</li>
+<li>API 版本兼容怎么处理</li>
+<li>限流（木桶、令牌桶）</li>
+<li>OAuth 2 主要用在哪些场景下</li>
+<li>JWT</li>
+<li>PHP 中 <code>json_encode([&#39;key&#39;=&gt;123]);</code> 与 <code>return json_encode([]);</code> 区别，会产生什么问题？如何解决</li>
+</ul>
+</script></p>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/API/" rel="tag"># API</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/26/一个编译器的结构/" rel="next" title="一个编译器的结构">
+                <i class="fa fa-chevron-left"></i> 一个编译器的结构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/26/PHP-Interview-Practices/" rel="prev" title="PHP-Interview-Practices">
+                PHP-Interview-Practices <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zoe</p>
+              <p class="site-description motion-element" itemprop="description">get busy living or busy dying</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ZoeSj" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#API-篇"><span class="nav-number">1.</span> <span class="nav-text">API 篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RESTful-是什么"><span class="nav-number">1.1.</span> <span class="nav-text">RESTful 是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#接口基本原则："><span class="nav-number">1.1.1.</span> <span class="nav-text">接口基本原则：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RESTful的设计理念基于HTTP协议，设计原则："><span class="nav-number">1.1.2.</span> <span class="nav-text">RESTful的设计理念基于HTTP协议，设计原则：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见-API-的-APP-ID-APP-SECRET-主要作用是什么？阐述下流程"><span class="nav-number">1.2.</span> <span class="nav-text">常见 API 的 APP_ID APP_SECRET 主要作用是什么？阐述下流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON-和-JSONP-的区别"><span class="nav-number">1.3.</span> <span class="nav-text">JSON 和 JSONP 的区别</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zoe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

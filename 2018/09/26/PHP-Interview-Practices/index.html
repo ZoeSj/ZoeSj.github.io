@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="公钥,私钥," />
+  <meta name="keywords" content="面试," />
 
 
 
@@ -79,22 +79,18 @@
 
 
 
-<meta name="description" content="最近公司业务需要用到公钥和私钥,之前接触的很少,不是很了解,刚刚上网了解了下.发现很多地方都要用到加密.有对称加密算法（ DES,AES）[加密和解密都使用一个密钥]和不对称加密算法(RSA).这里说的是RSA（非对称加密算法）.RSA就涉及到公钥和私钥.要记住的就是:公钥加密,私钥解密.私钥加密,公钥解密.">
-<meta name="keywords" content="公钥,私钥">
+<meta name="description" content="PHP interview best practices in China基础篇 了解大部分数组处理函数 字符串处理函数  区别 mb_ 系列函数 &amp;amp; 引用，结合案例分析 == 与 === 区别 isset 与 empty 区别 全部魔术函数理解 static、$this、self 区别 private、protected、public、final 区别 OOP 思想 抽象类、接口 分别使">
+<meta name="keywords" content="面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="php中的公钥和私钥">
-<meta property="og:url" content="ZoeSj.github.io/2018/09/25/php中的公钥和私钥/index.html">
+<meta property="og:title" content="PHP-Interview-Practices">
+<meta property="og:url" content="ZoeSj.github.io/2018/09/26/PHP-Interview-Practices/index.html">
 <meta property="og:site_name" content="佳爷的后花媛">
-<meta property="og:description" content="最近公司业务需要用到公钥和私钥,之前接触的很少,不是很了解,刚刚上网了解了下.发现很多地方都要用到加密.有对称加密算法（ DES,AES）[加密和解密都使用一个密钥]和不对称加密算法(RSA).这里说的是RSA（非对称加密算法）.RSA就涉及到公钥和私钥.要记住的就是:公钥加密,私钥解密.私钥加密,公钥解密.">
+<meta property="og:description" content="PHP interview best practices in China基础篇 了解大部分数组处理函数 字符串处理函数  区别 mb_ 系列函数 &amp;amp; 引用，结合案例分析 == 与 === 区别 isset 与 empty 区别 全部魔术函数理解 static、$this、self 区别 private、protected、public、final 区别 OOP 思想 抽象类、接口 分别使">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-524c5da9c0886c87?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-87c2f3af80b4098b?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-bf57ed896c991101.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-09-26T04:46:03.391Z">
+<meta property="og:updated_time" content="2018-09-26T06:40:33.722Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="php中的公钥和私钥">
-<meta name="twitter:description" content="最近公司业务需要用到公钥和私钥,之前接触的很少,不是很了解,刚刚上网了解了下.发现很多地方都要用到加密.有对称加密算法（ DES,AES）[加密和解密都使用一个密钥]和不对称加密算法(RSA).这里说的是RSA（非对称加密算法）.RSA就涉及到公钥和私钥.要记住的就是:公钥加密,私钥解密.私钥加密,公钥解密.">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3162008-524c5da9c0886c87?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="PHP-Interview-Practices">
+<meta name="twitter:description" content="PHP interview best practices in China基础篇 了解大部分数组处理函数 字符串处理函数  区别 mb_ 系列函数 &amp;amp; 引用，结合案例分析 == 与 === 区别 isset 与 empty 区别 全部魔术函数理解 static、$this、self 区别 private、protected、public、final 区别 OOP 思想 抽象类、接口 分别使">
 
 
 
@@ -124,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="ZoeSj.github.io/2018/09/25/php中的公钥和私钥/"/>
+  <link rel="canonical" href="ZoeSj.github.io/2018/09/26/PHP-Interview-Practices/"/>
 
 
 
 
 
-  <title>php中的公钥和私钥 | 佳爷的后花媛</title>
+  <title>PHP-Interview-Practices | 佳爷的后花媛</title>
   
 
 
@@ -301,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="ZoeSj.github.io/2018/09/25/php中的公钥和私钥/">
+    <link itemprop="mainEntityOfPage" href="ZoeSj.github.io/2018/09/26/PHP-Interview-Practices/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zoe">
@@ -318,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">php中的公钥和私钥</h1>
+          <h1 class="post-title" itemprop="name headline">PHP-Interview-Practices</h1>
         
 
         <div class="post-meta">
@@ -330,8 +326,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-25T15:06:58+08:00">
-                2018-09-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-26T14:38:03+08:00">
+                2018-09-26
               </time>
             
 
@@ -390,17 +386,296 @@
       
 
       
-        <p>最近公司业务需要用到公钥和私钥,之前接触的很少,不是很了解,刚刚上网了解了下.发现很多地方都要用到加密.有对称加密算法（ DES,AES）<em>[加密和解密都使用一个密钥]</em>和不对称加密算法(RSA).这里说的是RSA（非对称加密算法）.<br>RSA就涉及到公钥和私钥.<br><img src="http://upload-images.jianshu.io/upload_images/3162008-524c5da9c0886c87?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"><br><img src="http://upload-images.jianshu.io/upload_images/3162008-87c2f3af80b4098b?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"><br>要记住的就是:公钥加密,私钥解密.私钥加密,公钥解密.<br><a id="more"></a></p>
-<h2 id="RSA加密"><a href="#RSA加密" class="headerlink" title="RSA加密:"></a>RSA加密:</h2><p>SHA-1(杀one)中的RSA算法核心特点:有一个公钥,有一个私钥,二者是一套,且每一套都是独一无二的.再无第二套一模一样的.<br>公钥可以随便给人,但私钥确是不可外传的.<br>公钥私钥都可以进行加密解密,哪个加的密,就必须用这一套的另外一个钥进行解密.钥的加密实际就是一个规则</p>
-<h3 id="什么是公钥加密"><a href="#什么是公钥加密" class="headerlink" title="什么是公钥加密?"></a>什么是公钥加密?</h3><p>假设一下，两个字母，一个是a，一个是b。我喜欢b这个数字，就保留起来，不告诉你们(私钥），然后我告诉大家，a是我的公钥。<br>我有一个文件，不能让别人看，我就用1加密了。别人找到了这个文件，但是他不知道b就是解密的私钥啊，所以他解不开，只有我可以用<br>数字b，就是我的私钥，来解密。这样我就可以保护数据了。<br>某人用我的公钥a加密了字符hello，加密后成了xxxxx，放在网上。别人偷到了这个文件，但是别人解不开，因为别人不知道b就是我的私钥，<br>只有我才能解密，解密后就得到hello。这样，我们就可以传送加密的数据了。</p>
-<h3 id="私钥签名"><a href="#私钥签名" class="headerlink" title="私钥签名"></a>私钥签名</h3><p>如果我用私钥加密一段数据（当然只有我可以用私钥加密，因为只有我知道b是我的私钥），结果所有的人都看到我的内容了，因为他们都知道我的公钥是a，那么这种加密有什么用处呢？<br>某人说有人冒充我给他发信。怎么办呢？我把我要发的信，内容是c，用我的私钥b，加密，加密后的内容是d，发给某人，再告诉他解密看是不是c。他用我的公钥a解密，发现果然是c。这个时候，他会想到，能够用我的公钥解密的数据，必然是用我的私钥加的密。只有我知道我得私钥，因此他就可以确认确实是我发的东西。这样我们就能确认发送方身份了。这个过程叫做数字签名。当然具体的过程要稍微复杂一些。用私钥来加密数据，用途就是<strong>数字签名</strong>。<br>公钥和私钥是成对的，它们互相解密。<br>公钥加密，私钥解密。<br>私钥数字签名，公钥验证。<br><img src="http://upload-images.jianshu.io/upload_images/3162008-bf57ed896c991101.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"></p>
-<p>下面贴上php中使用公钥私钥加密解密的代码以及其中需要注意的地方:<br>首先公钥和私钥存放的方式有文件和字符串的形式.不过作为小白要注意的是,公钥私钥无论是放在文件中还是字符串里面,千万要记得分行.我刚开始一直不分行,然后就是老是出错,后来才知道要分行.而且不要忘了前后的注释行.<strong>—–BEGIN PUBLIC KEY—–</strong><br>下面这段是错误的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-----BEGIN PUBLIC KEY-----</span><br><span class="line">MIGfMA0GCSqGSIb3DQEBAQUAA4GNADxdfxfgcghCBiQKBgQCIgm80UzfD9lQ/tnASRCapNNaoTcodUfDzNYLWAxEMp8EtWkD4eZmWbMdaWKyShIOGS48NKdVGsAB+F4usW1VFtrbqOfKgBUxMJKz1YcciBiV3kvhHZI4/jq94E0qy1jxTNdralRhe+0/JklopEM9QWZScpBT4IXBfbMJ3JD5doQIDAQAB</span><br><span class="line">-----END PUBLIC KEY-----</span><br></pre></td></tr></table></figure></p>
-<p><strong>这段代码形式才是正确的</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-----BEGIN PUBLIC KEY-----</span><br><span class="line">MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCIgm80UzfD9lQ/tnASRCapNNao</span><br><span class="line">TcodUfDzNYLWAxEMp8EtWkD4eZmWbMdaWKyShIOGS48NKdVGsAB+F4usW1VFtrbq</span><br><span class="line">OfKgBUxMJKz1YcciBiV3kvhHZI4/jq94E0qy1jxTNdralRhe+0/JklopEM9QWZSc</span><br><span class="line">pBT4IXBfbMJ3JD5doQIDAQAB</span><br><span class="line">-----END PUBLIC KEY-----</span><br></pre></td></tr></table></figure></p>
-<p>解决的公钥私钥的存放,然后就是代码中需要用到的加密解密了,加签解签了.其中用到的函数可以直接在php手册加密中查看<a href="http://php.net/manual/zh/refs.crypto.php" target="_blank" rel="noopener">http://php.net/manual/zh/refs.crypto.php</a><br>首先是公钥加密:这里用到的函数是openssl_public_encrypt(<a href="http://php.net/manual/zh/function.openssl-public-encrypt.php" target="_blank" rel="noopener">http://php.net/manual/zh/function.openssl-public-encrypt.php</a>)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public function encrypt($data,$key_path)&#123;   </span><br><span class="line"> $key = file_get_contents($key_path);</span><br><span class="line">    $encryptedList = array();</span><br><span class="line">    $step          = 117; </span><br><span class="line">    $encryptedData = &apos;&apos;; </span><br><span class="line">    $len = strlen($data); </span><br><span class="line">    for ($i = 0; $i &lt; $len; $i += $step) &#123;        </span><br><span class="line">       $tmpData   = substr($data, $i, $step); </span><br><span class="line">       $encrypted = &apos;&apos;;</span><br><span class="line">        openssl_public_encrypt($tmpData, $encrypted, $key,OPENSSL_PKCS1_PADDING); </span><br><span class="line">       $encryptedList[] = ($encrypted);</span><br><span class="line">    &#125;    </span><br><span class="line">     $encryptedData = base64_encode(join(&apos;&apos;, $encryptedList));</span><br><span class="line">    return $encryptedData;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>用私钥解密(用到的函数openssl_private_decrypt)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">private function decrypt($encryptedData)&#123;</span><br><span class="line">       if (empty($encryptedData)) &#123;</span><br><span class="line">           return &apos;&apos;;</span><br><span class="line">       &#125;</span><br><span class="line">       $encryptedData = base64_decode($encryptedData);</span><br><span class="line">       $decryptedList = array();</span><br><span class="line">       $step          = 128;</span><br><span class="line">       $len = strlen($encryptedData);</span><br><span class="line">       for ($i = 0; $i &lt; $len; $i += $step) &#123;</span><br><span class="line">           $data      = substr($encryptedData, $i, $step);</span><br><span class="line">           $decrypted = &apos;&apos;;</span><br><span class="line">           openssl_private_decrypt($data, $decrypted, file_get_contents($this-&gt;_key_pri), OPENSSL_PKCS1_PADDING);</span><br><span class="line">           $decryptedList[] = $decrypted;</span><br><span class="line">       &#125;</span><br><span class="line">       return join(&apos;&apos;, $decryptedList);</span><br></pre></td></tr></table></figure></p>
-<p>用私钥加签,用到的函数(openssl_get_privatekey)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">private function rsa_sign($data)&#123;</span><br><span class="line">       //私钥加签</span><br><span class="line">       $res = openssl_get_privatekey(file_get_contents($this-&gt;_key_priva_mime));</span><br><span class="line">       openssl_sign($data, $sign, $res, OPENSSL_ALGO_SHA1);</span><br><span class="line">       openssl_free_key($res);</span><br><span class="line">       $sign = base64_encode($sign);</span><br><span class="line">       return $sign;</span><br></pre></td></tr></table></figure></p>
-<p>公钥验签(openssl_get_publickey)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">private function _rsaCheckSign($data, $sign)&#123;</span><br><span class="line">        $pubKey = file_get_contents($this-&gt;_key_pub_mime);</span><br><span class="line">	    $res = openssl_get_publickey($pubKey);</span><br><span class="line">	    $result = (bool)openssl_verify($data, base64_decode($sign), $res);</span><br><span class="line">	    openssl_free_key($res);    </span><br><span class="line">	    return $result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>ps:如果是文件形式的公私钥,需要使用file_get_contents,括号中可以是地址.</p>
+        <h1 id="PHP-interview-best-practices-in-China"><a href="#PHP-interview-best-practices-in-China" class="headerlink" title="PHP interview best practices in China"></a>PHP interview best practices in China</h1><h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><ul>
+<li><a href="http://php.net/manual/zh/ref.array.php" target="_blank" rel="noopener">了解大部分数组处理函数</a></li>
+<li><a href="http://php.net/manual/zh/ref.strings.php" target="_blank" rel="noopener">字符串处理函数</a>  <a href="http://php.net/manual/zh/book.mbstring.php" target="_blank" rel="noopener">区别 mb_ 系列函数</a></li>
+<li><a href="https://secure.php.net/manual/zh/language.references.php" target="_blank" rel="noopener">&amp; 引用，结合案例分析</a></li>
+<li><a href="https://stackoverflow.com/questions/80646/how-do-the-php-equality-double-equals-and-identity-triple-equals-comp" target="_blank" rel="noopener">== 与 === 区别</a></li>
+<li><a href="https://stackoverflow.com/questions/1219542/in-where-shall-i-use-isset-and-empty" target="_blank" rel="noopener">isset 与 empty 区别</a></li>
+<li><a href="http://php.net/manual/zh/language.oop5.magic.php" target="_blank" rel="noopener">全部魔术函数理解</a></li>
+<li><a href="https://stackoverflow.com/questions/4718808/php-can-static-replace-self" target="_blank" rel="noopener">static、$this、self 区别</a></li>
+<li>private、protected、public、final 区别</li>
+<li>OOP 思想</li>
+<li>抽象类、接口 分别使用场景</li>
+<li><a href="http://php.net/manual/zh/language.oop5.traits.php" target="_blank" rel="noopener">Trait 是什么东西</a></li>
+<li><a href="https://stackoverflow.com/questions/1647322/whats-the-difference-between-echo-print-and-print-r-in-php" target="_blank" rel="noopener">echo、print、print_r 区别(区分出表达式与语句的区别)</a></li>
+<li><a href="http://php.net/manual/zh/language.oop5.decon.php" target="_blank" rel="noopener"><strong>construct 与 </strong>destruct 区别</a></li>
+<li>static 作用（区分类与函数内）<a href="http://php.net/manual/zh/language.oop5.static.php" target="_blank" rel="noopener">手册</a> 、<a href="https://stackoverflow.com/questions/7508284/static-variables-in-php" target="_blank" rel="noopener">SOF</a></li>
+<li><a href="http://php.net/manual/en/language.oop5.magic.php#object.tostring" target="_blank" rel="noopener">__toString() 作用</a></li>
+<li><a href="https://stackoverflow.com/questions/3446216/what-is-the-difference-between-single-quoted-and-double-quoted-strings-in-php#answer-3446286" target="_blank" rel="noopener">单引号<code>&#39;</code>与双引号<code>&quot;</code>区别</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81" target="_blank" rel="noopener">常见 HTTP 状态码，分别代表什么含义</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/HTTP_301" target="_blank" rel="noopener">301</a> 什么意思 <a href="https://zh.wikipedia.org/wiki/HTTP_404" target="_blank" rel="noopener">404</a> 呢?</li>
+</ul>
+<h2 id="进阶篇"><a href="#进阶篇" class="headerlink" title="进阶篇"></a>进阶篇</h2><ul>
+<li>Autoload、Composer 原理 <a href="https://laravel-china.org/topics/2081/psr-specification-psr-4-automatic-loading-specification" target="_blank" rel="noopener">PSR-4</a> 、<a href="https://segmentfault.com/a/1190000014948542" target="_blank" rel="noopener">原理</a></li>
+<li>Session 共享、存活时间</li>
+<li>异常处理</li>
+<li><a href="https://secure.php.net/manual/zh/class.iterator.php" target="_blank" rel="noopener">如何 foreach 迭代对象</a></li>
+<li><a href="https://secure.php.net/manual/zh/class.arrayaccess.php" target="_blank" rel="noopener">如何数组化操作对象 <code>$obj[key];</code></a></li>
+<li><a href="http://php.net/manual/en/language.oop5.magic.php#object.invoke" target="_blank" rel="noopener">如何函数化对象 <code>$obj(123);</code></a></li>
+<li>yield 是什么，说个使用场景 <a href="https://www.oschina.net/translate/cooperative-multitasking-using-coroutines-in-php" target="_blank" rel="noopener">yield</a></li>
+<li><a href="http://psr.phphub.org/" target="_blank" rel="noopener">PSR 是什么，PSR-1, 2, 4, 7</a></li>
+<li>如何获取<a href="https://stackoverflow.com/questions/3003145/how-to-get-the-client-ip-address-in-php" target="_blank" rel="noopener">客户端 IP</a> 和 <a href="https://stackoverflow.com/questions/5800927/how-to-identify-server-ip-address-in-php" target="_blank" rel="noopener">服务端 IP</a> 地址</li>
+<li>如何开启 PHP 异常提示</li>
+<li>如何返回一个301重定向</li>
+<li>如何获取扩展安装路径</li>
+<li>字符串、数字比较大小的原理，注意 0 开头的8进制、0x 开头16进制</li>
+<li>BOM 头是什么，怎么除去</li>
+<li>什么是 MVC </li>
+<li>依赖注入实现原理</li>
+<li>如何异步执行命令</li>
+<li>模板引擎是什么，解决什么问题、实现原理（Smarty、Twig、Blade）</li>
+<li>如何实现链式操作 <code>$obj-&gt;w()-&gt;m()-&gt;d();</code></li>
+<li>Xhprof 、Xdebug 性能调试工具使用</li>
+<li>索引数组 <code>[1, 2]</code> 与关联数组 <code>[&#39;k1&#39;=&gt;1, &#39;k2&#39;=&gt;2]</code> 有什么区别</li>
+</ul>
+<h2 id="实践篇"><a href="#实践篇" class="headerlink" title="实践篇"></a>实践篇</h2><ul>
+<li>给定二维数组，根据某个字段排序</li>
+<li>如何判断上传文件类型，如：仅允许 jpg 上传</li>
+<li>不使用临时变量交换两个变量的值 <code>$a=1; $b=2;</code>  =&gt;  <code>$a=2; $b=1;</code></li>
+<li>strtoupper 在转换中文时存在乱码，你如何解决？<code>php echo strtoupper(&#39;ab你好c&#39;);</code></li>
+<li>Websocket、Long-Polling、Server-Sent Events(SSE) 区别</li>
+<li>“Headers already sent” 错误是什么意思，如何避免</li>
+</ul>
+<h2 id="算法篇"><a href="#算法篇" class="headerlink" title="算法篇"></a>算法篇</h2><ul>
+<li>快速排序（手写）</li>
+<li>冒泡排序（手写）</li>
+<li>二分查找（了解）</li>
+<li>查找算法 KMP（了解）</li>
+<li>深度、广度优先搜索（了解）</li>
+<li>LRU 缓存淘汰算法（了解，Memcached 采用该算法）</li>
+</ul>
+<h2 id="数据结构篇（了解）"><a href="#数据结构篇（了解）" class="headerlink" title="数据结构篇（了解）"></a>数据结构篇（了解）</h2><ul>
+<li>堆、栈特性</li>
+<li>队列</li>
+<li>哈希表</li>
+<li>链表</li>
+</ul>
+<h2 id="对比篇"><a href="#对比篇" class="headerlink" title="对比篇"></a>对比篇</h2><ul>
+<li>Cookie 与 Session 区别</li>
+<li><code>GET</code> 与 <code>POST</code> 区别</li>
+<li><code>include</code> 与 <code>require</code> 区别</li>
+<li><code>include_once</code> 与 <code>require_once</code> 区别</li>
+<li>Memcached 与 Redis 区别</li>
+<li>MySQL 各个存储引擎、及区别（一定会问 MyISAM 与 Innodb 区别）</li>
+<li>HTTP 与 HTTPS 区别</li>
+<li>Apache 与 Nginx 区别</li>
+<li>define() 与 const 区别</li>
+<li>traits 与 interfaces 区别 及 traits 解决了什么痛点？</li>
+<li>Git 与 SVN 区别</li>
+</ul>
+<h2 id="数据库篇"><a href="#数据库篇" class="headerlink" title="数据库篇"></a>数据库篇</h2><ul>
+<li>MySQL<ul>
+<li>CRUD</li>
+<li>JOIN、LEFT JOIN 、RIGHT JOIN、INNER JOIN</li>
+<li>UNION</li>
+<li>GROUP BY + COUNT + WHERE 组合案例</li>
+<li><a href="https://www.w3schools.com/sql/sql_ref_mysql.asp" target="_blank" rel="noopener">常用 MySQL 函数，如：now()、md5()、concat()、uuid()等</a></li>
+<li><code>1:1</code>、<code>1:n</code>、<code>n:n</code> 各自适用场景</li>
+<li>了解触发器是什么，说个使用场景</li>
+<li>数据库优化手段<ul>
+<li>索引、联合索引（命中条件）</li>
+<li>分库分表（<code>水平分表</code>、<code>垂直分表</code>）</li>
+<li>分区</li>
+<li>会使用 <code>explain</code> 分析 SQL 性能问题，了解各参数含义<ul>
+<li>重点理解 <code>type</code>、<code>rows</code>、<code>key</code></li>
+</ul>
+</li>
+<li>Slow Log（有什么用，什么时候需要）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>MSSQL(了解)<ul>
+<li>查询最新5条数据</li>
+</ul>
+</li>
+<li>NOSQL<ul>
+<li>Redis、Memcached、MongoDB</li>
+<li>对比、适用场景（可从以下维度进行对比）<ul>
+<li>持久化</li>
+<li>支持多钟数据类型</li>
+<li>可利用 CPU 多核心</li>
+<li>内存淘汰机制</li>
+<li>集群 Cluster</li>
+<li>支持 SQL</li>
+<li>性能对比</li>
+<li>支持事务</li>
+<li>应用场景</li>
+</ul>
+</li>
+<li>你之前为了解决什么问题使用的什么，为什么选它？</li>
+</ul>
+</li>
+</ul>
+<h2 id="服务器篇"><a href="#服务器篇" class="headerlink" title="服务器篇"></a>服务器篇</h2><ul>
+<li>查看 CPU、内存、时间、系统版本等信息</li>
+<li>find 、grep 查找文件</li>
+<li>awk 处理文本</li>
+<li>查看命令所在目录</li>
+<li>自己编译过 PHP 吗？如何打开 readline 功能</li>
+<li>如何查看 PHP 进程的内存、CPU 占用</li>
+<li>如何给 PHP 增加一个扩展</li>
+<li>修改 PHP Session 存储位置、修改 INI 配置参数</li>
+<li>负载均衡有哪几种，挑一种你熟悉的说明其原理</li>
+<li>数据库主从复制 M-S 是怎么同步的？是推还是拉？会不会不同步？怎么办</li>
+<li>如何保障数据的可用性，即使被删库了也能恢复到分钟级别。你会怎么做。</li>
+<li>数据库连接过多，超过最大值，如何优化架构。从哪些方便处理？</li>
+<li>502 大概什么什么原因？ 如何排查  504呢？</li>
+</ul>
+<h2 id="架构篇"><a href="#架构篇" class="headerlink" title="架构篇"></a>架构篇</h2><ul>
+<li>偏运维（了解）：<ul>
+<li>负载均衡（Nginx、HAProxy、DNS）</li>
+<li>主从复制（MySQL、Redis）</li>
+<li>数据冗余、备份（MySQL增量、全量 原理）</li>
+<li>监控检查（分存活、服务可用两个维度）</li>
+<li>MySQL、Redis、Memcached Proxy 、Cluster 目的、原理</li>
+<li>分片</li>
+<li>高可用集群</li>
+<li>RAID</li>
+<li>源代码编译、内存调优</li>
+</ul>
+</li>
+<li>缓存<ul>
+<li>工作中遇到哪里需要缓存，分别简述为什么</li>
+</ul>
+</li>
+<li>搜索解决方案</li>
+<li>性能调优</li>
+<li>各维度监控方案</li>
+<li>日志收集集中处理方案</li>
+<li>国际化</li>
+<li>数据库设计</li>
+<li>静态化方案</li>
+<li>画出常见 PHP 应用架构图</li>
+</ul>
+<h2 id="框架篇"><a href="#框架篇" class="headerlink" title="框架篇"></a>框架篇</h2><ul>
+<li>ThinkPHP（TP）、CodeIgniter（CI）、Zend（非 OOP 系列）</li>
+<li>Yaf、Phalcon（C 扩展系）</li>
+<li>Yii、Laravel、Symfony（纯 OOP 系列）</li>
+<li>Swoole、Workerman （网络编程框架）</li>
+<li>对比框架区别几个方向点<ul>
+<li>是否纯 OOP</li>
+<li>类库加载方式（自己写 autoload 对比 composer 标准）</li>
+<li>易用性方向（CI 基础框架，Laravel 这种就是高开发效率框架以及基础组件多少） </li>
+<li>黑盒（相比 C 扩展系）</li>
+<li>运行速度（如：Laravel 加载一大堆东西）</li>
+<li>内存占用</li>
+</ul>
+</li>
+</ul>
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><ul>
+<li>单例模式（重点）</li>
+<li>工厂模式（重点）</li>
+<li>观察者模式（重点）</li>
+<li>依赖注入（重点）</li>
+<li>装饰器模式</li>
+<li>代理模式</li>
+<li>组合模式</li>
+</ul>
+<h2 id="安全篇"><a href="#安全篇" class="headerlink" title="安全篇"></a>安全篇</h2><ul>
+<li>SQL 注入</li>
+<li>XSS 与 CSRF</li>
+<li>输入过滤</li>
+<li>Cookie 安全</li>
+<li>禁用 <code>mysql_</code> 系函数</li>
+<li>数据库存储用户密码时，应该是怎么做才安全</li>
+<li>验证码 Session 问题</li>
+<li>安全的 Session ID （让即使拦截后，也无法模拟使用）</li>
+<li>目录权限安全</li>
+<li>包含本地与远程文件</li>
+<li>文件上传 PHP 脚本</li>
+<li><code>eval</code> 函数执行脚本</li>
+<li><code>disable_functions</code> 关闭高危函数</li>
+<li>FPM 独立用户与组，给每个目录特定权限</li>
+<li>了解 Hash 与 Encrypt 区别</li>
+</ul>
+<h2 id="高阶篇"><a href="#高阶篇" class="headerlink" title="高阶篇"></a>高阶篇</h2><ul>
+<li>PHP 数组底层实现 （HashTable + Linked list）</li>
+<li>Copy on write 原理，何时 GC</li>
+<li>PHP 进程模型，进程通讯方式，进程线程区别</li>
+<li>yield 核心原理是什么</li>
+<li>PDO prepare 原理</li>
+<li>PHP 7 与 PHP 5 有什么区别</li>
+<li>Swoole 适用场景，协程实现方式</li>
+</ul>
+<h2 id="前端篇"><a href="#前端篇" class="headerlink" title="前端篇"></a>前端篇</h2><ul>
+<li>原生获取 DOM 节点，属性</li>
+<li>盒子模型</li>
+<li>CSS 文件、style 标签、行内 style 属性优先级</li>
+<li>HTML 与 JS 运行顺序（页面 JS 从上到下）</li>
+<li>JS 数组操作</li>
+<li>类型判断</li>
+<li>this 作用域</li>
+<li>.map() 与 this 具体使用场景分析</li>
+<li>Cookie 读写</li>
+<li>JQuery 操作</li>
+<li>Ajax 请求（同步、异步区别）随机数禁止缓存</li>
+<li>Bootstrap 有什么好处</li>
+<li>跨域请求 N 种解决方案</li>
+<li>新技术（了解）<ul>
+<li>ES6</li>
+<li>模块化</li>
+<li>打包</li>
+<li>构建工具</li>
+<li>vue、react、webpack、</li>
+<li>前端 mvc </li>
+</ul>
+</li>
+<li>优化<ul>
+<li>浏览器单域名并发数限制</li>
+<li>静态资源缓存 304 （If-Modified-Since 以及 Etag 原理）</li>
+<li>多个小图标合并使用 position 定位技术 减少请求</li>
+<li>静态资源合为单次请求 并压缩</li>
+<li>CDN</li>
+<li>静态资源延迟加载技术、预加载技术</li>
+<li>keep-alive</li>
+<li>CSS 在头部，JS 在尾部的优化（原理）</li>
+</ul>
+</li>
+</ul>
+<h2 id="网络篇"><a href="#网络篇" class="headerlink" title="网络篇"></a>网络篇</h2><ul>
+<li>IP 地址转 INT</li>
+<li>192.168.0.1/16 是什么意思</li>
+<li>DNS 主要作用是什么？</li>
+<li>IPv4 与 v6 区别</li>
+</ul>
+<h2 id="网络编程篇"><a href="#网络编程篇" class="headerlink" title="网络编程篇"></a>网络编程篇</h2><ul>
+<li>TCP 三次握手流程</li>
+<li>TCP、UDP 区别，分别适用场景</li>
+<li>有什么办法能保证 UDP 高可用性(了解)</li>
+<li>TCP 粘包如何解决？</li>
+<li>为什么需要心跳？</li>
+<li>什么是长连接？</li>
+<li>HTTPS 是怎么保证安全的？</li>
+<li>流与数据报的区别</li>
+<li>进程间通信几种方式，最快的是哪种？</li>
+<li><code>fork()</code> 会发生什么？</li>
+</ul>
+<h2 id="API-篇"><a href="#API-篇" class="headerlink" title="API 篇"></a>API 篇</h2><ul>
+<li>RESTful 是什么</li>
+<li>如何在不支持 <code>DELETE</code> 请求的浏览器上兼容 <code>DELETE</code> 请求</li>
+<li>常见 API 的 <code>APP_ID</code> <code>APP_SECRET</code> 主要作用是什么？阐述下流程 </li>
+<li>API 请求如何保证数据不被篡改？</li>
+<li>JSON 和 JSONP 的区别</li>
+<li>数据加密和验签的区别</li>
+<li>RSA 是什么</li>
+<li>API 版本兼容怎么处理</li>
+<li>限流（木桶、令牌桶）</li>
+<li>OAuth 2 主要用在哪些场景下</li>
+<li>JWT</li>
+<li>PHP 中 <code>json_encode([&#39;key&#39;=&gt;123]);</code> 与 <code>return json_encode([]);</code> 区别，会产生什么问题？如何解决</li>
+</ul>
+<h2 id="加分项"><a href="#加分项" class="headerlink" title="加分项"></a>加分项</h2><ul>
+<li>了解常用语言特性，及不同场景适用性。<ul>
+<li>PHP VS Golang</li>
+<li>PHP VS Python</li>
+<li>PHP VS JAVA</li>
+</ul>
+</li>
+<li>了解 PHP 扩展开发</li>
+<li>熟练掌握 C</li>
+</ul>
 
       
     </div>
@@ -418,9 +693,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/公钥/" rel="tag"># 公钥</a>
-          
-            <a href="/tags/私钥/" rel="tag"># 私钥</a>
+            <a href="/tags/面试/" rel="tag"># 面试</a>
           
         </div>
       
@@ -433,8 +706,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/25/tp中遇到的相关方法/" rel="next" title="tp中遇到的相关方法">
-                <i class="fa fa-chevron-left"></i> tp中遇到的相关方法
+              <a href="/2018/09/26/API/" rel="next" title="API">
+                <i class="fa fa-chevron-left"></i> API
               </a>
             
           </div>
@@ -442,10 +715,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/25/路由-模块化设计-命名空间/" rel="prev" title="路由,模块化设计,命名空间">
-                路由,模块化设计,命名空间 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -587,7 +856,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA加密"><span class="nav-number">1.</span> <span class="nav-text">RSA加密:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是公钥加密"><span class="nav-number">1.1.</span> <span class="nav-text">什么是公钥加密?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#私钥签名"><span class="nav-number">1.2.</span> <span class="nav-text">私钥签名</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP-interview-best-practices-in-China"><span class="nav-number">1.</span> <span class="nav-text">PHP interview best practices in China</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础篇"><span class="nav-number">1.1.</span> <span class="nav-text">基础篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶篇"><span class="nav-number">1.2.</span> <span class="nav-text">进阶篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实践篇"><span class="nav-number">1.3.</span> <span class="nav-text">实践篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法篇"><span class="nav-number">1.4.</span> <span class="nav-text">算法篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构篇（了解）"><span class="nav-number">1.5.</span> <span class="nav-text">数据结构篇（了解）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对比篇"><span class="nav-number">1.6.</span> <span class="nav-text">对比篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库篇"><span class="nav-number">1.7.</span> <span class="nav-text">数据库篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器篇"><span class="nav-number">1.8.</span> <span class="nav-text">服务器篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构篇"><span class="nav-number">1.9.</span> <span class="nav-text">架构篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#框架篇"><span class="nav-number">1.10.</span> <span class="nav-text">框架篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计模式"><span class="nav-number">1.11.</span> <span class="nav-text">设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全篇"><span class="nav-number">1.12.</span> <span class="nav-text">安全篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高阶篇"><span class="nav-number">1.13.</span> <span class="nav-text">高阶篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端篇"><span class="nav-number">1.14.</span> <span class="nav-text">前端篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络篇"><span class="nav-number">1.15.</span> <span class="nav-text">网络篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络编程篇"><span class="nav-number">1.16.</span> <span class="nav-text">网络编程篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API-篇"><span class="nav-number">1.17.</span> <span class="nav-text">API 篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加分项"><span class="nav-number">1.18.</span> <span class="nav-text">加分项</span></a></li></ol></li></ol></div>
             
 
           </div>
