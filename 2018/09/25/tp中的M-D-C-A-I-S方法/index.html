@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="才开始接触tp，对里面的大写字母方法不是很理解。现在清晰多了。 D方法实例化模型类的时候通常是实例化某个具体的模型类,如果仅仅是对数据表进行基本的ＣＵＲＤ操作的话，可以使用Ｍ方法．由于不要加载具体的模型类，所以性能会更好．如果D方法没有找到定义的模型类，则会自动调用M方法. M方法12345//使用M方法实例化$User = M(&amp;apos;User&amp;apos;);//和用法$User = new">
+<meta name="description" content="才开始接触tp，对里面的大写字母方法不是很理解。现在清晰多了。 D方法实例化模型类的时候通常是实例化某个具体的模型类,如果仅仅是对数据表进行基本的ＣＵＲＤ操作的话，可以使用Ｍ方法．由于不要加载具体的模型类，所以性能会更好．如果D方法没有找到定义的模型类，则会自动调用M方法.">
 <meta name="keywords" content="tp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tp中的M,D,C,A,I,S方法">
 <meta property="og:url" content="ZoeSj.github.io/2018/09/25/tp中的M-D-C-A-I-S方法/index.html">
 <meta property="og:site_name" content="佳爷的后花媛">
-<meta property="og:description" content="才开始接触tp，对里面的大写字母方法不是很理解。现在清晰多了。 D方法实例化模型类的时候通常是实例化某个具体的模型类,如果仅仅是对数据表进行基本的ＣＵＲＤ操作的话，可以使用Ｍ方法．由于不要加载具体的模型类，所以性能会更好．如果D方法没有找到定义的模型类，则会自动调用M方法. M方法12345//使用M方法实例化$User = M(&amp;apos;User&amp;apos;);//和用法$User = new">
+<meta property="og:description" content="才开始接触tp，对里面的大写字母方法不是很理解。现在清晰多了。 D方法实例化模型类的时候通常是实例化某个具体的模型类,如果仅仅是对数据表进行基本的ＣＵＲＤ操作的话，可以使用Ｍ方法．由于不要加载具体的模型类，所以性能会更好．如果D方法没有找到定义的模型类，则会自动调用M方法.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-25T07:18:52.490Z">
+<meta property="og:updated_time" content="2018-09-26T04:46:23.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tp中的M,D,C,A,I,S方法">
-<meta name="twitter:description" content="才开始接触tp，对里面的大写字母方法不是很理解。现在清晰多了。 D方法实例化模型类的时候通常是实例化某个具体的模型类,如果仅仅是对数据表进行基本的ＣＵＲＤ操作的话，可以使用Ｍ方法．由于不要加载具体的模型类，所以性能会更好．如果D方法没有找到定义的模型类，则会自动调用M方法. M方法12345//使用M方法实例化$User = M(&amp;apos;User&amp;apos;);//和用法$User = new">
+<meta name="twitter:description" content="才开始接触tp，对里面的大写字母方法不是很理解。现在清晰多了。 D方法实例化模型类的时候通常是实例化某个具体的模型类,如果仅仅是对数据表进行基本的ＣＵＲＤ操作的话，可以使用Ｍ方法．由于不要加载具体的模型类，所以性能会更好．如果D方法没有找到定义的模型类，则会自动调用M方法.">
 
 
 
@@ -365,7 +365,7 @@
 
       
         <p>才开始接触tp，对里面的大写字母方法不是很理解。现在清晰多了。</p>
-<p>D方法实例化模型类的时候通常是实例化某个具体的模型类,如果仅仅是对数据表进行基本的ＣＵＲＤ操作的话，可以使用Ｍ方法．由于不要加载具体的模型类，所以性能会更好．如果D方法没有找到定义的模型类，则会自动调用M方法.</p>
+<p>D方法实例化模型类的时候通常是实例化某个具体的模型类,如果仅仅是对数据表进行基本的ＣＵＲＤ操作的话，可以使用Ｍ方法．由于不要加载具体的模型类，所以性能会更好．如果D方法没有找到定义的模型类，则会自动调用M方法.<br><a id="more"></a></p>
 <h2 id="M方法"><a href="#M方法" class="headerlink" title="M方法"></a>M方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//使用M方法实例化</span><br><span class="line">$User = M(&apos;User&apos;);</span><br><span class="line">//和用法$User = new \Think\Model (&apos;User&apos;);等效</span><br><span class="line">//执行其他的数据操作</span><br><span class="line">$User-&gt;select();</span><br></pre></td></tr></table></figure>
 <p>M 方法也支持垮库操作.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//使用M方法实例化,操作db_name中的ot_user表</span><br><span class="line">$User = M(&apos;db_name.User&apos;,&apos;ot_&apos;);</span><br><span class="line">//执行其他的数据库操作</span><br><span class="line">$User-&gt;select();</span><br></pre></td></tr></table></figure></p>
 <p>M方法的参数和\Think\Model的参数是一样的,所以我们可以这样操作:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$New = M(&apos;new&apos;,&apos;think_&apos;,$connection);</span><br><span class="line">//等效于$New = new  \Think\Model(&apos;new&apos;,&apos;think_&apos;,$connection);</span><br></pre></td></tr></table></figure></p>

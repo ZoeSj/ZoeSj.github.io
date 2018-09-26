@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="对于JSON和JSONP，应该都不陌生，咳咳，不过最初对JSONP有点误解，以为是JSON的另外一个别名，其实二者风马牛不相及。 谈到Json和jsonp就不可避免要提到跨域这个话题了，以前对跨域的理解都是比较模糊的，还以为域名不同就是跨域了，那太狭隘了。非同源请求，均为跨域。 不过为什么会出现跨域？出于浏览器的同源策略限制，浏览器会拒绝跨域请求。 严格的说，浏览器并不是拒绝所有的跨域请求，实际上">
+<meta name="description" content="对于JSON和JSONP，应该都不陌生，咳咳，不过最初对JSONP有点误解，以为是JSON的另外一个别名，其实二者风马牛不相及。 谈到Json和jsonp就不可避免要提到跨域这个话题了，以前对跨域的理解都是比较模糊的，还以为域名不同就是跨域了，那太狭隘了。非同源请求，均为跨域。 不过为什么会出现跨域？出于浏览器的同源策略限制，浏览器会拒绝跨域请求。">
 <meta name="keywords" content="jsop,jsonp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="json &amp; jsonp">
 <meta property="og:url" content="ZoeSj.github.io/2018/09/25/json & jsonp/index.html">
 <meta property="og:site_name" content="佳爷的后花媛">
-<meta property="og:description" content="对于JSON和JSONP，应该都不陌生，咳咳，不过最初对JSONP有点误解，以为是JSON的另外一个别名，其实二者风马牛不相及。 谈到Json和jsonp就不可避免要提到跨域这个话题了，以前对跨域的理解都是比较模糊的，还以为域名不同就是跨域了，那太狭隘了。非同源请求，均为跨域。 不过为什么会出现跨域？出于浏览器的同源策略限制，浏览器会拒绝跨域请求。 严格的说，浏览器并不是拒绝所有的跨域请求，实际上">
+<meta property="og:description" content="对于JSON和JSONP，应该都不陌生，咳咳，不过最初对JSONP有点误解，以为是JSON的另外一个别名，其实二者风马牛不相及。 谈到Json和jsonp就不可避免要提到跨域这个话题了，以前对跨域的理解都是比较模糊的，还以为域名不同就是跨域了，那太狭隘了。非同源请求，均为跨域。 不过为什么会出现跨域？出于浏览器的同源策略限制，浏览器会拒绝跨域请求。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-7fe64a4f493ca68d?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-4e52e3682f058235?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -101,10 +101,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-7cef53394359fb40?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-0ea88a5898a203eb?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-f9dfecb72bafb6c6?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-09-25T07:09:25.682Z">
+<meta property="og:updated_time" content="2018-09-26T04:45:52.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="json &amp; jsonp">
-<meta name="twitter:description" content="对于JSON和JSONP，应该都不陌生，咳咳，不过最初对JSONP有点误解，以为是JSON的另外一个别名，其实二者风马牛不相及。 谈到Json和jsonp就不可避免要提到跨域这个话题了，以前对跨域的理解都是比较模糊的，还以为域名不同就是跨域了，那太狭隘了。非同源请求，均为跨域。 不过为什么会出现跨域？出于浏览器的同源策略限制，浏览器会拒绝跨域请求。 严格的说，浏览器并不是拒绝所有的跨域请求，实际上">
+<meta name="twitter:description" content="对于JSON和JSONP，应该都不陌生，咳咳，不过最初对JSONP有点误解，以为是JSON的另外一个别名，其实二者风马牛不相及。 谈到Json和jsonp就不可避免要提到跨域这个话题了，以前对跨域的理解都是比较模糊的，还以为域名不同就是跨域了，那太狭隘了。非同源请求，均为跨域。 不过为什么会出现跨域？出于浏览器的同源策略限制，浏览器会拒绝跨域请求。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3162008-7fe64a4f493ca68d?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -403,8 +403,7 @@
       
         <p><img src="http://upload-images.jianshu.io/upload_images/3162008-7fe64a4f493ca68d?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image" title="a6cq0b0888445948544.gif"><br>对于JSON和JSONP，应该都不陌生，咳咳，不过最初对JSONP有点误解，以为是JSON的另外一个别名，其实二者风马牛不相及。</p>
 <p>谈到Json和jsonp就不可避免要提到跨域这个话题了，以前对跨域的理解都是比较模糊的，还以为域名不同就是跨域了，那太狭隘了。非同源请求，均为跨域。</p>
-<p>不过为什么会出现跨域？出于浏览器的同源策略限制，浏览器会拒绝跨域请求。</p>
-<p>严格的说，浏览器并不是拒绝所有的跨域请求，实际上拒绝的是跨域的读操作。浏览器的同源限制策略是这样执行的：</p>
+<p>不过为什么会出现跨域？出于浏览器的同源策略限制，浏览器会拒绝跨域请求。<br><a id="more"></a><br>严格的说，浏览器并不是拒绝所有的跨域请求，实际上拒绝的是跨域的读操作。浏览器的同源限制策略是这样执行的：</p>
 <ul>
 <li><p>通常浏览器允许进行跨域写操作（Cross-origin writes），如链接，重定向；</p>
 </li>

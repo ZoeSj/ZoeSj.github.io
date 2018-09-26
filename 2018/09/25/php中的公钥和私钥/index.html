@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="最近公司业务需要用到公钥和私钥,之前接触的很少,不是很了解,刚刚上网了解了下.发现很多地方都要用到加密.有对称加密算法（ DES,AES）[加密和解密都使用一个密钥]和不对称加密算法(RSA).这里说的是RSA（非对称加密算法）.RSA就涉及到公钥和私钥.要记住的就是:公钥加密,私钥解密.私钥加密,公钥解密. RSA加密:SHA-1(杀one)中的RSA算法核心特点:有一个公钥,有一个私钥,二者是">
+<meta name="description" content="最近公司业务需要用到公钥和私钥,之前接触的很少,不是很了解,刚刚上网了解了下.发现很多地方都要用到加密.有对称加密算法（ DES,AES）[加密和解密都使用一个密钥]和不对称加密算法(RSA).这里说的是RSA（非对称加密算法）.RSA就涉及到公钥和私钥.要记住的就是:公钥加密,私钥解密.私钥加密,公钥解密.">
 <meta name="keywords" content="公钥,私钥">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php中的公钥和私钥">
 <meta property="og:url" content="ZoeSj.github.io/2018/09/25/php中的公钥和私钥/index.html">
 <meta property="og:site_name" content="佳爷的后花媛">
-<meta property="og:description" content="最近公司业务需要用到公钥和私钥,之前接触的很少,不是很了解,刚刚上网了解了下.发现很多地方都要用到加密.有对称加密算法（ DES,AES）[加密和解密都使用一个密钥]和不对称加密算法(RSA).这里说的是RSA（非对称加密算法）.RSA就涉及到公钥和私钥.要记住的就是:公钥加密,私钥解密.私钥加密,公钥解密. RSA加密:SHA-1(杀one)中的RSA算法核心特点:有一个公钥,有一个私钥,二者是">
+<meta property="og:description" content="最近公司业务需要用到公钥和私钥,之前接触的很少,不是很了解,刚刚上网了解了下.发现很多地方都要用到加密.有对称加密算法（ DES,AES）[加密和解密都使用一个密钥]和不对称加密算法(RSA).这里说的是RSA（非对称加密算法）.RSA就涉及到公钥和私钥.要记住的就是:公钥加密,私钥解密.私钥加密,公钥解密.">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-524c5da9c0886c87?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-87c2f3af80b4098b?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3162008-bf57ed896c991101.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-09-25T07:17:49.387Z">
+<meta property="og:updated_time" content="2018-09-26T04:46:03.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php中的公钥和私钥">
-<meta name="twitter:description" content="最近公司业务需要用到公钥和私钥,之前接触的很少,不是很了解,刚刚上网了解了下.发现很多地方都要用到加密.有对称加密算法（ DES,AES）[加密和解密都使用一个密钥]和不对称加密算法(RSA).这里说的是RSA（非对称加密算法）.RSA就涉及到公钥和私钥.要记住的就是:公钥加密,私钥解密.私钥加密,公钥解密. RSA加密:SHA-1(杀one)中的RSA算法核心特点:有一个公钥,有一个私钥,二者是">
+<meta name="twitter:description" content="最近公司业务需要用到公钥和私钥,之前接触的很少,不是很了解,刚刚上网了解了下.发现很多地方都要用到加密.有对称加密算法（ DES,AES）[加密和解密都使用一个密钥]和不对称加密算法(RSA).这里说的是RSA（非对称加密算法）.RSA就涉及到公钥和私钥.要记住的就是:公钥加密,私钥解密.私钥加密,公钥解密.">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3162008-524c5da9c0886c87?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -390,7 +390,7 @@
       
 
       
-        <p>最近公司业务需要用到公钥和私钥,之前接触的很少,不是很了解,刚刚上网了解了下.发现很多地方都要用到加密.有对称加密算法（ DES,AES）<em>[加密和解密都使用一个密钥]</em>和不对称加密算法(RSA).这里说的是RSA（非对称加密算法）.<br>RSA就涉及到公钥和私钥.<br><img src="http://upload-images.jianshu.io/upload_images/3162008-524c5da9c0886c87?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"><br><img src="http://upload-images.jianshu.io/upload_images/3162008-87c2f3af80b4098b?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"><br>要记住的就是:公钥加密,私钥解密.私钥加密,公钥解密.</p>
+        <p>最近公司业务需要用到公钥和私钥,之前接触的很少,不是很了解,刚刚上网了解了下.发现很多地方都要用到加密.有对称加密算法（ DES,AES）<em>[加密和解密都使用一个密钥]</em>和不对称加密算法(RSA).这里说的是RSA（非对称加密算法）.<br>RSA就涉及到公钥和私钥.<br><img src="http://upload-images.jianshu.io/upload_images/3162008-524c5da9c0886c87?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"><br><img src="http://upload-images.jianshu.io/upload_images/3162008-87c2f3af80b4098b?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"><br>要记住的就是:公钥加密,私钥解密.私钥加密,公钥解密.<br><a id="more"></a></p>
 <h2 id="RSA加密"><a href="#RSA加密" class="headerlink" title="RSA加密:"></a>RSA加密:</h2><p>SHA-1(杀one)中的RSA算法核心特点:有一个公钥,有一个私钥,二者是一套,且每一套都是独一无二的.再无第二套一模一样的.<br>公钥可以随便给人,但私钥确是不可外传的.<br>公钥私钥都可以进行加密解密,哪个加的密,就必须用这一套的另外一个钥进行解密.钥的加密实际就是一个规则</p>
 <h3 id="什么是公钥加密"><a href="#什么是公钥加密" class="headerlink" title="什么是公钥加密?"></a>什么是公钥加密?</h3><p>假设一下，两个字母，一个是a，一个是b。我喜欢b这个数字，就保留起来，不告诉你们(私钥），然后我告诉大家，a是我的公钥。<br>我有一个文件，不能让别人看，我就用1加密了。别人找到了这个文件，但是他不知道b就是解密的私钥啊，所以他解不开，只有我可以用<br>数字b，就是我的私钥，来解密。这样我就可以保护数据了。<br>某人用我的公钥a加密了字符hello，加密后成了xxxxx，放在网上。别人偷到了这个文件，但是别人解不开，因为别人不知道b就是我的私钥，<br>只有我才能解密，解密后就得到hello。这样，我们就可以传送加密的数据了。</p>
 <h3 id="私钥签名"><a href="#私钥签名" class="headerlink" title="私钥签名"></a>私钥签名</h3><p>如果我用私钥加密一段数据（当然只有我可以用私钥加密，因为只有我知道b是我的私钥），结果所有的人都看到我的内容了，因为他们都知道我的公钥是a，那么这种加密有什么用处呢？<br>某人说有人冒充我给他发信。怎么办呢？我把我要发的信，内容是c，用我的私钥b，加密，加密后的内容是d，发给某人，再告诉他解密看是不是c。他用我的公钥a解密，发现果然是c。这个时候，他会想到，能够用我的公钥解密的数据，必然是用我的私钥加的密。只有我知道我得私钥，因此他就可以确认确实是我发的东西。这样我们就能确认发送方身份了。这个过程叫做数字签名。当然具体的过程要稍微复杂一些。用私钥来加密数据，用途就是<strong>数字签名</strong>。<br>公钥和私钥是成对的，它们互相解密。<br>公钥加密，私钥解密。<br>私钥数字签名，公钥验证。<br><img src="http://upload-images.jianshu.io/upload_images/3162008-bf57ed896c991101.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"></p>

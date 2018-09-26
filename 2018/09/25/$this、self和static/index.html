@@ -79,22 +79,22 @@
 
 
 
-<meta name="description" content="$this 只有在类产生实例之后才会存在，我们只是设置一个属性，此时不存在 $this,下图会产生语法错误。  记得这种情况不要使用[0]，[1] 这种写法，全都用常量代替，还有获取一个 pubblic static 属性不需要 new一个实例，app(classA)  这个方式 ==  new classA   修改如下： 关于类属性、方法调用有3个$this、self、static$this-">
+<meta name="description" content="$this 只有在类产生实例之后才会存在，我们只是设置一个属性，此时不存在 $this,下图会产生语法错误。">
 <meta name="keywords" content="self,static">
 <meta property="og:type" content="article">
 <meta property="og:title" content="$this、self和static">
 <meta property="og:url" content="ZoeSj.github.io/2018/09/25/$this、self和static/index.html">
 <meta property="og:site_name" content="佳爷的后花媛">
-<meta property="og:description" content="$this 只有在类产生实例之后才会存在，我们只是设置一个属性，此时不存在 $this,下图会产生语法错误。  记得这种情况不要使用[0]，[1] 这种写法，全都用常量代替，还有获取一个 pubblic static 属性不需要 new一个实例，app(classA)  这个方式 ==  new classA   修改如下： 关于类属性、方法调用有3个$this、self、static$this-">
+<meta property="og:description" content="$this 只有在类产生实例之后才会存在，我们只是设置一个属性，此时不存在 $this,下图会产生语法错误。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-116ea67c26e44a9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-1237f5e72cf748ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-e8840d5ccfb73424.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-f6ff215ed4783d6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-09-25T07:09:56.524Z">
+<meta property="og:updated_time" content="2018-09-26T04:45:38.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="$this、self和static">
-<meta name="twitter:description" content="$this 只有在类产生实例之后才会存在，我们只是设置一个属性，此时不存在 $this,下图会产生语法错误。  记得这种情况不要使用[0]，[1] 这种写法，全都用常量代替，还有获取一个 pubblic static 属性不需要 new一个实例，app(classA)  这个方式 ==  new classA   修改如下： 关于类属性、方法调用有3个$this、self、static$this-">
+<meta name="twitter:description" content="$this 只有在类产生实例之后才会存在，我们只是设置一个属性，此时不存在 $this,下图会产生语法错误。">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/3162008-116ea67c26e44a9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -391,7 +391,7 @@
       
 
       
-        <p><code>$this</code> 只有在类产生实例之后才会存在，我们只是设置一个属性，此时不存在 <code>$this</code>,下图会产生语法错误。<br><img src="https://upload-images.jianshu.io/upload_images/3162008-116ea67c26e44a9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/3162008-1237f5e72cf748ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/3162008-e8840d5ccfb73424.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+        <p><code>$this</code> 只有在类产生实例之后才会存在，我们只是设置一个属性，此时不存在 <code>$this</code>,下图会产生语法错误。<br><img src="https://upload-images.jianshu.io/upload_images/3162008-116ea67c26e44a9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/3162008-1237f5e72cf748ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/3162008-e8840d5ccfb73424.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><a id="more"></a></p>
 <blockquote>
 <p>记得这种情况不要使用[0]，[1] 这种写法，全都用常量代替，还有获取一个 pubblic static 属性不需要 new一个实例，app(classA)  这个方式 ==  new classA </p>
 </blockquote>
