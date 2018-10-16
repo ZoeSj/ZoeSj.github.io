@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="佳爷的后花媛">
 <meta property="og:description" content="逆波兰表示法逆波兰表示法（Reverse Polish notation，RPN，或逆波兰记法），是一种是由波兰数学家扬·武卡谢维奇1920年引入的数学表达式方式，在逆波兰记法中，所有操作符置于操作数的后面，因此也被称为后缀表示法。逆波兰记法不需要括号来标识操作符的优先级。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-16T03:35:51.179Z">
+<meta property="og:updated_time" content="2018-10-16T03:37:51.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逆波兰表达">
 <meta name="twitter:description" content="逆波兰表示法逆波兰表示法（Reverse Polish notation，RPN，或逆波兰记法），是一种是由波兰数学家扬·武卡谢维奇1920年引入的数学表达式方式，在逆波兰记法中，所有操作符置于操作数的后面，因此也被称为后缀表示法。逆波兰记法不需要括号来标识操作符的优先级。">
@@ -418,7 +418,74 @@
     -    这个值就是整个计算式的结果
 -    ELSE多于一个值
     -    （错误） 用户输入了多余的操作数
-</code></pre><p>例子<br>中缀表达式“5 + ((1 + 2) <em> 4) − 3”写作5 1 2 + 4 </em> + 3 −<br>下表给出了该逆波兰表达式从左至右求值的过程，堆栈栏给出了中间值，用于跟踪算法。<br>|输入|操作|堆栈|注释|<br>|:—-    |:—|:—– ||:—– |<br>|5|入栈|5 ||<br>|1|入栈|5，1 | |<br>|2|入栈|5，1，2 | |<br>|+|加法运算|5，3|(1,2)出栈；将结果(3)入栈|<br>|4|入栈|5，3，4 | |<br>|<em>|乘法运算|5，12|(3,4)出栈；将结果(12)入栈|<br>|+|加法运算|17|(5,12)出栈；将结果(17)入栈|<br>|2|入栈|17，3 | |<br>|-|减法运算|14|(17,3)出栈；将结果(14)入栈|<br>计算完成时，栈内只有一个操作数，这就是表达式的结果：14<br>上述运算可以重写为如下运算链方法（用于HP的逆波兰计算器）：<br>1 2 + 4 </em> 5 + 3 −</p>
+</code></pre><p>例子<br>中缀表达式“5 + ((1 + 2) <em> 4) − 3”写作5 1 2 + 4 </em> + 3 −<br>下表给出了该逆波兰表达式从左至右求值的过程，堆栈栏给出了中间值，用于跟踪算法。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">输入</th>
+<th style="text-align:left">操作</th>
+<th style="text-align:left">堆栈</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left">入栈</td>
+<td style="text-align:left">5</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">入栈</td>
+<td style="text-align:left">5，1</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">入栈</td>
+<td style="text-align:left">5，1，2</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:left">加法运算</td>
+<td style="text-align:left">5，3</td>
+<td>(1,2)出栈；将结果(3)入栈</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left">入栈</td>
+<td style="text-align:left">5，3，4</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">*</td>
+<td style="text-align:left">乘法运算</td>
+<td style="text-align:left">5，12</td>
+<td>(3,4)出栈；将结果(12)入栈</td>
+</tr>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:left">加法运算</td>
+<td style="text-align:left">17</td>
+<td>(5,12)出栈；将结果(17)入栈</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">入栈</td>
+<td style="text-align:left">17，3</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">-</td>
+<td style="text-align:left">减法运算</td>
+<td style="text-align:left">14</td>
+<td>(17,3)出栈；将结果(14)入栈</td>
+</tr>
+</tbody>
+</table>
+<p>计算完成时，栈内只有一个操作数，这就是表达式的结果：14<br>上述运算可以重写为如下运算链方法（用于HP的逆波兰计算器）：<br>1 2 + 4 * 5 + 3 −</p>
 <h3 id="实际意义"><a href="#实际意义" class="headerlink" title="实际意义"></a>实际意义</h3><pre><code>-    当有操作符时就计算，因此，表达式并不是从右至左整体计算而是每次由中心向外计算一部分，这样在复杂运算中就很少导致操作符错误。
 -    堆栈自动记录中间结果，这就是为什么逆波兰计算器能容易对任意复杂的表达式求值。与普通科学计算器不同，它对表达式的复杂性没有限制。
 -    逆波兰表达式中不需要括号，用户只需按照表达式顺序求值，让堆栈自动记录中间结果；同样的，也不需要指定操作符的优先级。
