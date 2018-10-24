@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="旅游," />
+  <meta name="keywords" content="哈希," />
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="我喜欢旅游，背上包，带着相机，拖着行李箱就走。高中毕业后，感受到了自由的气息，记得那年暑假，想要来一场毕业旅行，但是父母不放心一个女孩子家家的到处跑，最后也只能约了三个小伙伴一起去爬黄山了，在西递宏村赏赏夜景。也是从那时开始，就想赶紧长大，这样就可以一个人去旅行了。">
-<meta name="keywords" content="旅游">
+<meta name="description" content="PHP的哈希实现PHP内核中的哈希表是十分重要的数据结构，PHP的大部分语言特性都是基于哈希表实现的，例如：变量的作用域，寒暑表，类的属性，方法等，zend引擎内部的很多数据都是保存在哈希表中的。 数据结构及说明PHP中的哈希表就是使用链表来存储哈希到同一个槽位的数据，zend为了保存数据之间的关系使用了双向链表来链接元素。">
+<meta name="keywords" content="哈希">
 <meta property="og:type" content="article">
-<meta property="og:title" content="世界这么大">
-<meta property="og:url" content="ZoeSj.github.io/2018/10/11/世界这么大/index.html">
+<meta property="og:title" content="PHP的哈希表实现">
+<meta property="og:url" content="ZoeSj.github.io/2018/10/23/PHP的哈希实现/index.html">
 <meta property="og:site_name" content="佳爷的后花媛">
-<meta property="og:description" content="我喜欢旅游，背上包，带着相机，拖着行李箱就走。高中毕业后，感受到了自由的气息，记得那年暑假，想要来一场毕业旅行，但是父母不放心一个女孩子家家的到处跑，最后也只能约了三个小伙伴一起去爬黄山了，在西递宏村赏赏夜景。也是从那时开始，就想赶紧长大，这样就可以一个人去旅行了。">
+<meta property="og:description" content="PHP的哈希实现PHP内核中的哈希表是十分重要的数据结构，PHP的大部分语言特性都是基于哈希表实现的，例如：变量的作用域，寒暑表，类的属性，方法等，zend引擎内部的很多数据都是保存在哈希表中的。 数据结构及说明PHP中的哈希表就是使用链表来存储哈希到同一个槽位的数据，zend为了保存数据之间的关系使用了双向链表来链接元素。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-24T05:40:01.670Z">
+<meta property="og:image" content="http://www.php-internals.com/images/book/chapt03/03-01-02-zend_hashtable.png">
+<meta property="og:updated_time" content="2018-10-24T06:55:52.928Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="世界这么大">
-<meta name="twitter:description" content="我喜欢旅游，背上包，带着相机，拖着行李箱就走。高中毕业后，感受到了自由的气息，记得那年暑假，想要来一场毕业旅行，但是父母不放心一个女孩子家家的到处跑，最后也只能约了三个小伙伴一起去爬黄山了，在西递宏村赏赏夜景。也是从那时开始，就想赶紧长大，这样就可以一个人去旅行了。">
+<meta name="twitter:title" content="PHP的哈希表实现">
+<meta name="twitter:description" content="PHP的哈希实现PHP内核中的哈希表是十分重要的数据结构，PHP的大部分语言特性都是基于哈希表实现的，例如：变量的作用域，寒暑表，类的属性，方法等，zend引擎内部的很多数据都是保存在哈希表中的。 数据结构及说明PHP中的哈希表就是使用链表来存储哈希到同一个槽位的数据，zend为了保存数据之间的关系使用了双向链表来链接元素。">
+<meta name="twitter:image" content="http://www.php-internals.com/images/book/chapt03/03-01-02-zend_hashtable.png">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="ZoeSj.github.io/2018/10/11/世界这么大/"/>
+  <link rel="canonical" href="ZoeSj.github.io/2018/10/23/PHP的哈希实现/"/>
 
 
 
 
 
-  <title>世界这么大 | 佳爷的后花媛</title>
+  <title>PHP的哈希表实现 | 佳爷的后花媛</title>
   
 
 
@@ -297,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="ZoeSj.github.io/2018/10/11/世界这么大/">
+    <link itemprop="mainEntityOfPage" href="ZoeSj.github.io/2018/10/23/PHP的哈希实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zoe">
@@ -314,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">世界这么大</h1>
+          <h1 class="post-title" itemprop="name headline">PHP的哈希表实现</h1>
         
 
         <div class="post-meta">
@@ -326,8 +328,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-11T15:09:50+08:00">
-                2018-10-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-23T10:11:11+08:00">
+                2018-10-23
               </time>
             
 
@@ -349,8 +351,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/物语/" itemprop="url" rel="index">
-                    <span itemprop="name">物语</span>
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
                   </a>
                 </span>
 
@@ -366,7 +368,7 @@
 
           
           
-             <span id="/2018/10/11/世界这么大/" class="leancloud_visitors" data-flag-title="世界这么大">
+             <span id="/2018/10/23/PHP的哈希实现/" class="leancloud_visitors" data-flag-title="PHP的哈希表实现">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -397,7 +399,63 @@
       
 
       
-        <p>我喜欢旅游，背上包，带着相机，拖着行李箱就走。<br>高中毕业后，感受到了自由的气息，记得那年暑假，想要来一场毕业旅行，但是父母不放心一个女孩子家家的到处跑，最后也只能约了三个小伙伴一起去爬黄山了，在西递宏村赏赏夜景。也是从那时开始，就想赶紧长大，这样就可以一个人去旅行了。<br><a id="more"></a><br>可能是性格原因吧，不太习惯和情侣或者其他人一起出去旅游，还是一个人最舒服，累了，就停下来休息，想玩就去玩，自由自在的。唯一麻烦的就是拍照了，一个人拍照大部分都是自拍，那个时候手机像素还很渣，很多美景也只能沉淀在记忆中了，一直想着买个单反，把这个美好的世界装进我的相机中。<br>十九岁那年，一心想出去玩，老爸老妈看着我召集了三个小伙伴，才放心让我蹦跶，揣着一丢丢money，就奔赴黄山了，之前毕业后班级组织过一次漂流，好像也是在那，记忆不是很清楚了。这次去的人比较少，去之前仔细的规划了路程，不过还是没什么经验，宾馆什么的也没有提前预定，还好人不是很多。非常幸运的是，在去的大巴上，坐在我旁边的一个小伙子和我聊天，发现我是去黄山玩的，超级热心的给我联系了住宿的地方，打了半折，还记得那个双人间是八十一晚，很优惠了，超级nice。<br>想着去黄山顶上看日出，但是没有买帐篷，山顶的住宿又特别贵，最后放弃了，我想，后面有时间，还是要去看看，五岳泰山，黄山，都要攀登下。当初年少，还想要攀爬珠穆朗玛峰，现在想想，真逗。<br>估计我上辈子是个猴子，爬黄山的时候，完全没有想象中的累，蹦蹦跳跳的上去了，下来的时候，为了赶时间，一路上都是跑下去的，现在回想起来，都觉得自己强悍到不行，完全没想过摔跤，同行的小伙伴为了看松鼠，一个不留神摔了一跤，膝盖都流血了，吓坏我了，后面也没跑了。看着黄山阶梯上的挑脚夫，真佩服，很多人没什么包袱都爬不动，但是他们挑着那么多东西还走那么多。<br>自从毕业后，感觉身体没有以前那么灵活了，所以还是要多运动。<br>后来步入大学，哇，脱了缰的哈士奇，可以学跳舞了，可以练习书法了，可以看帅哥了，真好。<br>大一那年吧，老爸老妈还在老家吃喝玩乐，我买了张票就去上海了，那是第一次开始一个人的旅途，带着孤独出发，去知会好友，一路上充斥着欢快，窗外的景色也格外的自由，后来一发不可收拾。心情不好的时候，或者找不到方向的时候，就会背上包，来一场说走就走的旅程。<br>生活这么美好，何必拘束在一个圈中，出来看看，才发现还有更多好玩的事，还有更多美景等着本姑凉去赏。<br>后来</p>
+        <h2 id="PHP的哈希实现"><a href="#PHP的哈希实现" class="headerlink" title="PHP的哈希实现"></a>PHP的哈希实现</h2><p>PHP内核中的哈希表是十分重要的数据结构，PHP的大部分语言特性都是基于哈希表实现的，例如：变量的作用域，寒暑表，类的属性，方法等，zend引擎内部的很多数据都是保存在哈希表中的。</p>
+<h3 id="数据结构及说明"><a href="#数据结构及说明" class="headerlink" title="数据结构及说明"></a>数据结构及说明</h3><p>PHP中的哈希表就是使用链表来存储哈希到同一个槽位的数据，zend为了保存数据之间的关系使用了双向链表来链接元素。<br><a id="more"></a></p>
+<h4 id="哈希表结构"><a href="#哈希表结构" class="headerlink" title="哈希表结构"></a>哈希表结构</h4><p>PHP中的哈希表实现在Zend/zend_hash.c中，先看看PHP使用如下两个数据结构来实现哈希表，HashTable结构体用于保存整个哈希表需要的基本信息，而Bucket结构体用于保存具体的数据内容，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">typedef struct _hashtable&#123;</span><br><span class="line">	uint nTableSize; //hash Bucket 的大小。最小为8，以2x增长</span><br><span class="line">	uint nTableMask; //nTableSize-1,索引取值的优化</span><br><span class="line">	uint nNumOfElements; //hash Bucket中当前存在的元素个数，count（）函数会直接返回此值。</span><br><span class="line">	ulong nNextFreeElement; //下一个数字索引的位置</span><br><span class="line">	Bucket *pInternalPointer;//当前遍历的指针（foreach比for快的原因之一）</span><br><span class="line">	Bucket *pListHead;//存储数组头元素指针</span><br><span class="line">	Bucket *pListTail;//存储数组尾元素指针</span><br><span class="line">	Bucket **arBuckets;//存储hash数组</span><br><span class="line">	dtor_func_t pDestructor; //在删除元素时执行的回调函数，用于资源的释放</span><br><span class="line">	zend_bool persistent;//指出了Bucket内存分配的方式，如果persistent为True,则使用操作系统本身的内存分配函数为Bucket分配内存，否则使用PHP的内存分配函数。</span><br><span class="line">	unsigned char nApplyCount;//标记了当前hash Bucket被递归访问的次数，防止多次递归。</span><br><span class="line">	zend_bool bApplyProtection;//标记当前hash桶允许不允许多次访问，不允许时，最多只能递归3次</span><br><span class="line">#if ZEND_DEBUG</span><br><span class="line">	int inconsistent;</span><br><span class="line">#endif</span><br><span class="line">&#125; HashTable;</span><br></pre></td></tr></table></figure></p>
+<p>nTableSize字段用于标示哈希表的容量，哈希表的初始容量最小为8。首先看看哈希表的初始化函数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">ZEND_API int _zend_hash_init(HashTable *ht, uint nSize, hash_func_t pHashFunction, dtor_func_t pDestructor,zend_bool persistent ZEND_FILE_LINE_DC)</span><br><span class="line">&#123;</span><br><span class="line">	uint i = 3;</span><br><span class="line">	if(nSize &gt;= 0x80000000);</span><br><span class="line">	/* prevent overflow*/</span><br><span class="line">	ht-&gt;nTableSize = 0x80000000;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">	while((1U &lt;&lt; i)&lt; nSize)&#123;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	ht-&gt;nTableSize = 1 &lt;&lt; i;</span><br><span class="line">&#125;</span><br><span class="line">ht-&gt;nTableMask = ht-&gt;nTableSize - 1;</span><br><span class="line"></span><br><span class="line">/* Uses ecalloc() so that Bucket* == NULL */</span><br><span class="line">if (persistent )&#123;</span><br><span class="line">	tmp = (Bucket **)calloc(ht-&gt;nTableSize, sizeof(Bucket *));</span><br><span class="line">	if(!tmp)&#123;</span><br><span class="line">		return FALLURE;</span><br><span class="line">	&#125;</span><br><span class="line">	ht-&gt;arBuckets = tmp;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">	tmp = (Bucket **) ecalloc_rel(ht-&gt;nTableSize, sizeof(Bucket *));</span><br><span class="line">	if(tmp)&#123;</span><br><span class="line">		ht-&gt;arBuckets = tmp;</span><br><span class="line">	&#125;</span><br><span class="line">	return SUCCESS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果设置出事大小为10 ，则上面的算法将会将大小调整为16，也就是始终将大小调整为接近初始大小的2的整数次方。</p>
+<p><strong>为什么会做这样的调整？</strong><br>我们先看看HashTable将哈希值映射到槽位的方法，上一小节我们使用了取模的方式来将哈希值 映射到槽位，例如大小为8的哈希表，哈希值为100， 则映射的槽位索引为: 100 % 8 = 4，由于索引通常从0开始， 所以槽位的索引值为3，在PHP中使用如下的方式计算索引：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">H = zend_inline_hash_func(arKey, nKeyLength);</span><br><span class="line">nIndex = h &amp; ht-&gt;nTableMask;</span><br></pre></td></tr></table></figure>
+<p>从上面的_zend_hash_int()函数可知，ht-&gt;nTableMask的大小为ht-&gt;nTableSize-1.这里使用&amp;操作而不是使用取模，是因为相对来说，驱魔操作的消耗和按位与的操作大很多。</p>
+<blockquote>
+<p>mask的作用就是将哈希值映射到槽位所能存储的索引范围内。 例如：某个key的索引值是21， 哈希表的大小为8，则mask为7，则求与时的二进制表示为： 10101 &amp; 111 = 101 也就是十进制的5。 因为2的整数次方-1的二进制比较特殊：后面N位的值都是1，这样比较容易能将值进行映射， 如果是普通数字进行了二进制与之后会影响哈希值的结果。那么哈希函数计算的值的平均分布就可能出现影响。</p>
+</blockquote>
+<p>设置好哈希表大小之后就需要为哈希表申请存储数据的空间了，如上面初始化的代码，根据是否需要持久保存而调用了不同的内存申请方法，<br>HashTable中的nNumOfElemnets字段很好理解，每插入一个元素或者unset删除元素时会更新这个字段，这样在进行count（）函数统计数组元素个数时就能快速的返回。</p>
+<p>nNextFreeElement字段非常有用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$a = array(10=&gt;’Hello);</span><br><span class="line">$a[] = ‘TIPI’;</span><br><span class="line">var_dump($a);</span><br><span class="line"></span><br><span class="line">//output</span><br><span class="line">array(2)&#123;</span><br><span class="line">	[10]=&gt;string(5) “Hello”</span><br><span class="line">	[11]=&gt;string(5) “TIPI”</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>PHP中可以不指定索引值向数组中添加元素，这是将默认使用数字作为索引，和C语言中的枚举类似，而这个元素的索引到底是多少就由nNextFreeElement字段决定了，如果数组中存在了数字key，则默认使用最新使用的key+1，例如上面已经存在了作为10为key的元素，这样新插入的默认索引就是11了。</p>
+<h4 id="数据容器：槽位"><a href="#数据容器：槽位" class="headerlink" title="数据容器：槽位"></a>数据容器：槽位</h4><p>保存哈希表数据的槽位数据结构体：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">typeof struct bucket&#123;</span><br><span class="line">	ulong h;//对char *key进行hash后的值，或者是用户指定的数字索引值</span><br><span class="line">	uint nKeyLength;//hash关键字的长度，如果数组索引为数字，此值为0</span><br><span class="line">	void *pData; //指向value。一般是用户数据的副本，如果是指针数据，则指向pDataPtr</span><br><span class="line">	struct bucket *pListNext;//整个hash表的下一个元素</span><br><span class="line">	struct bucket *pListLast;//整个哈希表该元素的上一个元素</span><br><span class="line">	struct bucket *pNext;//存放在同一个hash Bucket内的下一个元素</span><br><span class="line">	struct bucket *pList;//同一个哈希bucket的上一个元素</span><br><span class="line">	//保存当前值所对于的key字符串，这个字段只能定义在最后，实现变长结构体。</span><br><span class="line">	char arkey[1];</span><br><span class="line">&#125;Bucket;</span><br></pre></td></tr></table></figure>
+<p>如上面各字段的注释。h字段保存哈希表key哈希后的值。这里保存的哈希值而不是在哈希表中的索引值， 这是因为索引值和哈希表的容量有直接关系，如果哈希表扩容了，那么这些索引还得重新进行哈希在进行索引映射， 这也是一种优化手段。 在PHP中可以使用字符串或者数字作为数组的索引。 数字索引直接就可以作为哈希表的索引，数字也无需进行哈希处理。h字段后面的nKeyLength字段是作为key长度的标示， 如果索引是数字的话，则nKeyLength为0。在PHP数组中如果索引字符串可以被转换成数字也会被转换成数字索引。 所以在PHP中例如’10’，’11’这类的字符索引和数字索引10， 11没有区别。</p>
+<p>上面结构体的最后一个字段用来保存key的字符串，而这个字段却申明为只有一个字符的数组， 其实这里是一种长见的变长结构体，主要的目的是增加灵活性。 以下为哈希表插入新元素时申请空间的代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">P = (Bucket *) pemalloc(sizeof(Bucket) - 1 + nKeyLength, ht-&gt;persistent );</span><br><span class="line">if(!p)&#123;</span><br><span class="line">	return FALLURE;</span><br><span class="line">&#125;</span><br><span class="line">memcpy(p-&gt;arKey, arKey, nKeyLength);</span><br></pre></td></tr></table></figure>
+<p>如代码，申请的空间大小加上了字符串key的长度，然后把key拷贝到新申请的空间里。 在后面比如需要进行hash查找的时候就需要对比key这样就可以通过对比p-&gt;arKey和查找的key是否一样来进行数据的 查找。申请空间的大小-1是因为结构体内本身的那个字节还是可以使用的。</p>
+<blockquote>
+<p>在PHP5.4中将这个字段定义成const char* arKey类型了。</p>
+</blockquote>
+<p><img src="http://www.php-internals.com/images/book/chapt03/03-01-02-zend_hashtable.png" alt="Zend引擎哈希表结构和关系"><br>上图来源于网络。</p>
+<ul>
+<li>Bucket结构体维护了两个双向链表，pNext和pLast指针分别指向本槽位所在的链表的关系。</li>
+<li>而pListNext和pListLast指针指向的则是整个哈希表所有的数据之间的链接关系。 HashTable结构体中的pListHead和pListTail则维护整个哈希表的头元素指针和最后一个元素的指针。</li>
+</ul>
+<blockquote>
+<p>PHP中数组的操作函数非常多，例如：array_shift()和array_pop()函数，分别从数组的头部和尾部弹出元素。 哈希表中保存了头部和尾部指针，这样在执行这些操作时就能在常数时间内找到目标。 PHP中还有一些使用的相对不那么多的数组操作函数：next()，prev()等的循环中， 哈希表的另外一个指针就能发挥作用了：pInternalPointer，这个用于保存当前哈希表内部的指针。 这在循环时就非常有用。</p>
+</blockquote>
+<p>如图中左下角的假设，假设依次插入了Bucket1，Bucket2，Bucket3三个元素：</p>
+<pre><code>1.    插入Bucket1时，哈希表为空，经过哈希后定位到索引为1的槽位。此时的1槽位只有一个元素Bucket1。 其中Bucket1的pData或者pDataPtr指向的是Bucket1所存储的数据。此时由于没有链接关系。pNext， pLast，pListNext，pListLast指针均为空。同时在HashTable结构体中也保存了整个哈希表的第一个元素指针， 和最后一个元素指针，此时HashTable的pListHead和pListTail指针均指向Bucket1。
+2.    插入Bucket2时，由于Bucket2的key和Bucket1的key出现冲突，此时将Bucket2放在双链表的前面。 由于Bucket2后插入并置于链表的前端，此时Bucket2.pNext指向Bucket1，由于Bucket2后插入。 Bucket1.pListNext指向Bucket2，这时Bucket2就是哈希表的最后一个元素，这是HashTable.pListTail指向Bucket2。
+3.    插入Bucket3，该key没有哈希到槽位1，这时Bucket2.pListNext指向Bucket3，因为Bucket3后插入。 同时HashTable.pListTail改为指向Bucket3。
+</code></pre><p>简单来说就是哈希表的Bucket结构维护了哈希表中插入元素的先后顺序，哈希表结构维护了整个哈希表的头和尾。 在操作哈希表的过程中始终保持预算之间的关系。</p>
+<blockquote>
+<p>简单来说就是哈希表的Bucket结构维护了哈希表中插入元素的先后顺序，哈希表结构维护了整个哈希表的头和尾。 在操作哈希表的过程中始终保持预算之间的关系。</p>
+</blockquote>
+<h4 id="哈希表的操作接口"><a href="#哈希表的操作接口" class="headerlink" title="哈希表的操作接口"></a>哈希表的操作接口</h4><p>PHP哈希表的操作接口实现：</p>
+<ul>
+<li>初始化操作，例如zend_hash_init()函数，用于初始化哈希表接口，分配空间等。</li>
+<li>查找，插入，删除和更新操作接口，这是比较常规的操作。</li>
+<li>迭代和循环，这类的接口用于循环对哈希表进行操作。</li>
+<li>复制，排序，倒置，销毁等操作</li>
+</ul>
+<p>本小节选取其中的插入操作进行介绍。 在PHP中不管是对数组的添加操作（zend_hash_add），还是对数组的更新操作（zend_hash_update）， 其最终都是调用_zend_hash_add_or_update函数完成，这在面向对象编程中相当于两个公有方法和一个公共的私有方法的结构， 以实现一定程度上的代码复用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">ZEND_API int _zend_hash_add_or_update(HashTable *ht, const char *arKey, uint nKeyLength, void *pData, uint nDataSize, void **pDest, int flag ZEND_FILE_LINE_DC)&#123;</span><br><span class="line">	//。。。省略变量初始化和nKeyLength &lt;= 0 的异常处理</span><br><span class="line">	h = zend_inline_hash_func(arkey, nKeyLength);</span><br><span class="line">	nIndex = h &amp; ht-&gt;nTableMask;</span><br><span class="line"></span><br><span class="line">	p = ht-&gt;arBuckets(nIndex);</span><br><span class="line">	while(p != NULL)&#123;</span><br><span class="line">		if((p-&gt;h == h) &amp;&amp; (p-&gt;nKeyLength == nKeyLength))&#123;</span><br><span class="line">			if(flag &amp; HASH_ADD)&#123;</span><br><span class="line">				return FALLURE;</span><br><span class="line">			&#125;</span><br><span class="line">			HANDLE_BLOCK_INTERRUPTIONS();</span><br><span class="line"></span><br><span class="line">			//省略debug输出</span><br><span class="line">			if(ht-&gt;pDetructor)&#123;</span><br><span class="line">				ht-&gt;pDestructor(p-&gt;pData);</span><br><span class="line">			&#125;</span><br><span class="line">			UPDATE_DATA(ht, p, pData, nDataSize);</span><br><span class="line">			if(pDest)&#123;</span><br><span class="line">				*pDest = p-&gt;pData;</span><br><span class="line">			&#125;</span><br><span class="line">			HANDLE_UNBLOCK_INTERRUPTIONS();</span><br><span class="line">			return SUCCESS;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	p = p-&gt;pNext;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">P = (Bucket *)pemalloc(sizeof(Bucket) - 1 + nKeyLength, ht-&gt;persistent );</span><br><span class="line">if(!p)&#123;</span><br><span class="line">	return FALLURE;</span><br><span class="line">&#125;</span><br><span class="line">memcpy(p-&gt;arKey, arKey, nKeyLenghth);</span><br><span class="line">P-&gt;nKeyLength = nKeyLength;</span><br><span class="line">INIT_DATA(ht, p, pData, nDataSize);</span><br><span class="line">p-&gt;h = h;</span><br><span class="line">CONNECT_TO_BUCKET_DLLIST(p, ht-&gt;arBuckets[nIndex]);//Bucket双向链表操作</span><br><span class="line">if(pDest)&#123;</span><br><span class="line">	*pDest = p-&gt;pData;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">HANDLE_BLOCK_INTERRUPTIONS();</span><br><span class="line">CONNECT_TO_GLOBAL_DLLIST(p, ht);//将新的Bucket元素添加到数组的链接表的最后面</span><br><span class="line">Ht-&gt;arBuckets[nIndex] = p;</span><br><span class="line">HANDLE_UNBLOCK_INTERRUPTIONS();</span><br><span class="line"></span><br><span class="line">Ht-&gt;nNumOfElements++;</span><br><span class="line">ZEND_HASH_IF_FULL_DO_RESIZE(ht);//如果此时数组的容量满了，则对其进行扩容</span><br><span class="line">return SUCCESS;</span><br></pre></td></tr></table></figure>
+<p>整个写入或更新的操作流程如下：</p>
+<pre><code>1.    生成hash值，通过与nTableMask执行与操作，获取在arBuckets数组中的Bucket。
+2.    如果Bucket中已经存在元素，则遍历整个Bucket，查找是否存在相同的key值元素，如果有并且是update调用，则执行update数据操作。
+3.    创建新的Bucket元素，初始化数据，并将新元素添加到当前hash值对应的Bucket链表的最前面（CONNECT_TO_BUCKET_DLLIST）。
+4.    将新的Bucket元素添加到数组的链接表的最后面（CONNECT_TO_GLOBAL_DLLIST）。
+5.    将元素个数加1，如果此时数组的容量满了，则对其进行扩容。这里的判断是依据nNumOfElements和nTableSize的大小。 如果nNumOfElements &gt; nTableSize则会调用zend_hash_do_resize以2X的方式扩容（nTableSize &lt;&lt; 1）。
+</code></pre><p>文章来源：《深入理解PHP内核》</p>
 
       
     </div>
@@ -415,7 +473,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/旅游/" rel="tag"># 旅游</a>
+            <a href="/tags/哈希/" rel="tag"># 哈希</a>
           
         </div>
       
@@ -428,8 +486,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/10/程序员职业素养之读后感/" rel="next" title="程序员职业素养之读后感">
-                <i class="fa fa-chevron-left"></i> 程序员职业素养之读后感
+              <a href="/2018/10/22/PHP中的hash/" rel="next" title="PHP中的hash">
+                <i class="fa fa-chevron-left"></i> PHP中的hash
               </a>
             
           </div>
@@ -437,10 +495,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/16/逆波兰表达/" rel="prev" title="逆波兰表达">
-                逆波兰表达 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -492,8 +546,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -563,6 +626,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP的哈希实现"><span class="nav-number">1.</span> <span class="nav-text">PHP的哈希实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构及说明"><span class="nav-number">1.1.</span> <span class="nav-text">数据结构及说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#哈希表结构"><span class="nav-number">1.1.1.</span> <span class="nav-text">哈希表结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据容器：槽位"><span class="nav-number">1.1.2.</span> <span class="nav-text">数据容器：槽位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哈希表的操作接口"><span class="nav-number">1.1.3.</span> <span class="nav-text">哈希表的操作接口</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

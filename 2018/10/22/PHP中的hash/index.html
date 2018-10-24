@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="佳爷的后花媛">
 <meta property="og:description" content="hash table哈希表通常提供查找，插入，删除等操作。这些操作在最坏的情况下和链表的性能一样为O(n)。 不过通常并不会这么坏，合理设计的哈希算法能有效的避免这类情况，通常哈希表的这些操作时间复杂度为O(1)。 哈希表是一种通过哈希函数，将特定的键映射到特定值的一种数据结构，它维护键和值之间一一对应关系。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-22T12:25:36.737Z">
+<meta property="og:updated_time" content="2018-10-23T02:12:50.861Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP中的hash">
 <meta name="twitter:description" content="hash table哈希表通常提供查找，插入，删除等操作。这些操作在最坏的情况下和链表的性能一样为O(n)。 不过通常并不会这么坏，合理设计的哈希算法能有效的避免这类情况，通常哈希表的这些操作时间复杂度为O(1)。 哈希表是一种通过哈希函数，将特定的键映射到特定值的一种数据结构，它维护键和值之间一一对应关系。">
@@ -431,6 +431,7 @@
 <p>在查找时也使用插入同样的策略，找到元素所在的位置，如果存在元素， 则将该链表的所有元素的key和要查找的key依次对比， 直到找到一致的元素，否则说明该值没有匹配的内容。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">int hash_lookup(HashTable *ht, char *key, void **result)</span><br><span class="line">&#123;</span><br><span class="line">    int index = HASH_INDEX(ht, key);</span><br><span class="line">    Bucket *bucket = ht-&gt;buckets[index];</span><br><span class="line"> </span><br><span class="line">    if(bucket == NULL) goto failed;</span><br><span class="line"> </span><br><span class="line">    while(bucket)</span><br><span class="line">    &#123;</span><br><span class="line">        if(strcmp(bucket-&gt;key, key) == 0)</span><br><span class="line">        &#123; </span><br><span class="line">            LOG_MSG(&quot;[lookup]\t found %s\tindex:%i value: %p\n&quot;,</span><br><span class="line">                key, index, bucket-&gt;value);</span><br><span class="line">            *result = bucket-&gt;value;</span><br><span class="line"> </span><br><span class="line">            return SUCCESS;</span><br><span class="line">        &#125; </span><br><span class="line"> </span><br><span class="line">        bucket = bucket-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">failed:</span><br><span class="line">    LOG_MSG(&quot;[lookup]\t key:%s\tfailed\t\n&quot;, key);</span><br><span class="line">    return FAILED;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>PHP中数组是基于哈希表实现的，依次给数组添加元素时，元素之间是有先后顺序的， 而这里的哈希表在物理位置上显然是接近平均分布的，这样是无法根据插入的先后顺序获取到这些元素的， 在PHP的实现中Bucket结构体还维护了另一个指针字段来维护元素之间的关系</p>
+<p>参考教材：《深入理解PHP内核》</p>
 
       
     </div>
@@ -470,6 +471,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/23/PHP的哈希实现/" rel="prev" title="PHP的哈希表实现">
+                PHP的哈希表实现 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -546,7 +551,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -568,7 +573,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
