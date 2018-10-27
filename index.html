@@ -379,7 +379,7 @@
       
         
           
-            
+            <a id="more"></a>
           
         
       
@@ -508,13 +508,16 @@
 
       
         
-          
-            <h2 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h2><ul>
+          <h2 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h2><ul>
 <li>对象可以采用的值，例如很多数据模型包含具有整数值的对象，数据模型的这个方面是静态的，它告诉我们对象能接受哪些值，编程语言数据模型的这一静态部分通常被称为类型系统。</li>
-<li>数据的运算。例如执行加法这样的运算。模型的这一方面是动态的，它告诉我们改变值和创建新值得方式。</li>
-</ul>
-<h2 id="解释数据模型静态方面和动态方面的差异"><a href="#解释数据模型静态方面和动态方面的差异" class="headerlink" title="解释数据模型静态方面和动态方面的差异"></a>解释数据模型静态方面和动态方面的差异</h2><h2 id="描述最喜欢的视频游戏的数据模型，区分其模型的静态方面和动态方面。提示：静态部分不仅是指计分牌上不会移动的部分。例如：在《吃豆人》游戏里，静态部分不仅包括地图，还包括强化药丸和怪物等。"><a href="#描述最喜欢的视频游戏的数据模型，区分其模型的静态方面和动态方面。提示：静态部分不仅是指计分牌上不会移动的部分。例如：在《吃豆人》游戏里，静态部分不仅包括地图，还包括强化药丸和怪物等。" class="headerlink" title="描述最喜欢的视频游戏的数据模型，区分其模型的静态方面和动态方面。提示：静态部分不仅是指计分牌上不会移动的部分。例如：在《吃豆人》游戏里，静态部分不仅包括地图，还包括强化药丸和怪物等。"></a>描述最喜欢的视频游戏的数据模型，区分其模型的静态方面和动态方面。提示：静态部分不仅是指计分牌上不会移动的部分。例如：在《吃豆人》游戏里，静态部分不仅包括地图，还包括强化药丸和怪物等。</h2><h2 id="描述最喜欢的文本编辑器的数据模型"><a href="#描述最喜欢的文本编辑器的数据模型" class="headerlink" title="描述最喜欢的文本编辑器的数据模型"></a>描述最喜欢的文本编辑器的数据模型</h2><h2 id="描述电子表格程序的数据模型"><a href="#描述电子表格程序的数据模型" class="headerlink" title="描述电子表格程序的数据模型"></a>描述电子表格程序的数据模型</h2>
-          
+<li>数据的运算。例如执行加法这样的运算。模型的这一方面是动态的，它告诉我们改变值和创建新值得方式。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/26/数据模型/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -642,34 +645,15 @@
 
       
         
-          
-            <h3 id="静态"><a href="#静态" class="headerlink" title="静态"></a>静态</h3><p>指程序执行之前，从代码中就可以知道一切，程序静态的部分包括变量，方法的名称和类型以及控制程序的结构等等。</p>
-<h3 id="动态"><a href="#动态" class="headerlink" title="动态"></a>动态</h3><p>指在程序执行之前有些地方是不知道的，程序动态的部分包括变量的值，执行时间和使用的内存等等。</p>
-<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><p>类型的产生是由于：计算机可以处理的类型只有二进制，在计算机可以直接操作的汇编语言中，数据类型都是整数，其他类型的数据都用整数来表现，这种处理方法很低级，他要求人要理解，记忆用整数来表达所有类型数据的方法。负担比较大，所以编程语言就进化了。</p>
-<h4 id="静态类型"><a href="#静态类型" class="headerlink" title="静态类型"></a>静态类型</h4><p>FORTRAN（Formula Translator）世界上最初的编程语言诞生了，引入了变量和算式的类型，在程序中，变量只能用整数赋值，数组只能是浮点数的数组等，可以指定数据类型，这是静态数据类型的开始，这种队数据类型的定义称为类型定义。</p>
-<blockquote>
-<p>静态类型最大的优点就是能在编译时发现类型不匹配的错误。而动态语言只能发现程序错误。</p>
-</blockquote>
-<blockquote>
-<p>静态语言的缺点一个是若不指定类型就写不了程序，另外就是灵活性的问题，静态语言本身限制了给某个变量只能赋值某种类型的对象，这种限制可能成为妨碍将来变化的枷锁。</p>
-</blockquote>
-<h4 id="动态类型"><a href="#动态类型" class="headerlink" title="动态类型"></a>动态类型</h4><p>后来出现了Lisp编程语言（List Processor）。刚出现时，Lisp只支持列表（list）和原子（atom）两个数据类型。<br>列表是可以由两个引用的节点（node）构成的单项列表，比如像（5 13）这样的数据。原子比较难说明，简单地说就是指list以外的数据类型，比如数值和字符串都是原子。<br>Lisp的每个节点，历史上称为cons单元，可以引用其他的cons单元货原子。cons单元可以有两个引用，因为历史的原因，前面的称为car，后面的称为cdr。<br>在Lisp中程序好数据如果不能用文字来表现的话会很麻烦。所以Lisp用字符串来表现名为S式的列表，S式是用以下规则把列表转换成字符串的。</p>
-<ul>
-<li>cons单元中，car的值和cdr的值用点连接，再用括号括起来</li>
-<li>cdr如果是列表的话，省略括号</li>
-<li>末尾的cdr如果是nil，那么省略.nil。</li>
-</ul>
-<p>Lisp的数据用列表，程序也用列表，所有的东西都用列表来表示，Lisp用S式表示的列表构造本身就是程序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(defun fact (n)</span><br><span class="line">	(if (= n 0)</span><br><span class="line">		1</span><br><span class="line">	(* n (fact (- n 1)))))</span><br><span class="line">//计算阶乘</span><br></pre></td></tr></table></figure></p>
-<p>Lisp的列表中的各个cons单元是指向cons单元还是原子，事先是不知道的。列表中cons单元和原子混杂存在。从本质上就可以说是堕胎的数据结构。</p>
-<p>动态语言最大的优点就是源代码变得很整洁。但是动态语言运行要比静态语言缓慢些。另外就是灵活性比静态语言好。但是最大的缺点即使不执行就检测不出错误。</p>
-<h3 id="Duck-Typing"><a href="#Duck-Typing" class="headerlink" title="Duck Typing"></a>Duck Typing</h3><p>表达动态类型灵活性的概念就是Duck Typing。<br>If it walks like a duck and quacks like a duck ,it must be a duck.<br>如果行为像鸭子，不管他是什么，就把他看做鸭子。根本不考虑一个对象属于什么类，只关心它有什么样的行为（它有哪些方法），这就是Duck Typing.<br>静态语言的输出一般都限定了类型，如果想要输出其他类型的，就要重新写代码。但是动态语言不关心类型。</p>
-<p><code>`</code></p>
-<p>#使用stringIO类库<br>require ‘stringio’</p>
-<p>#生成stringIO对象<br>out = StringIO()</p>
-<p>#和文件一样输出<br>log_puts(out, “message”)</p>
-<p>#表示字符串结果<br>puts out.string<br><code>`</code>s</p>
-
-          
+          <h3 id="静态"><a href="#静态" class="headerlink" title="静态"></a>静态</h3><p>指程序执行之前，从代码中就可以知道一切，程序静态的部分包括变量，方法的名称和类型以及控制程序的结构等等。</p>
+<h3 id="动态"><a href="#动态" class="headerlink" title="动态"></a>动态</h3><p>指在程序执行之前有些地方是不知道的，程序动态的部分包括变量的值，执行时间和使用的内存等等。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/26/Typing/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
