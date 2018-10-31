@@ -362,6 +362,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/25/自由软件许可证GPL/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/25/自由软件许可证GPL/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -470,6 +480,9 @@ GPL许可证，允许任何人观看、修改，并散播程序软件里的原�
           
 
   
+    <div class="comments" id="comments">
+    </div>
+  
 
 
 
@@ -508,7 +521,7 @@ GPL许可证，允许任何人观看、修改，并散播程序软件里的原�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -519,7 +532,7 @@ GPL许可证，允许任何人观看、修改，并散播程序软件里的原�
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -530,7 +543,7 @@ GPL许可证，允许任何人观看、修改，并散播程序软件里的原�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -738,6 +751,28 @@ GPL许可证，允许任何人观看、修改，并散播程序软件里的原�
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'M9zF9jhgARYPcA8eLpOWCEvO-gzGzoHsz',
+        appKey: 'AqU96O5n0kwNjmqT5PU4S7WK',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
