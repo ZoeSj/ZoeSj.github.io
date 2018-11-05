@@ -1,9 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[centos安装python]]></title>
+    <url>%2F2018%2F11%2F05%2Fcentos%E5%AE%89%E8%A3%85python%2F</url>
+    <content type="text"><![CDATA[确认当前python版本12345[root@centos Python-3.6.1]# pythonPython 2.7.5 (default, Nov 6 2016, 00:28:07) [GCC 4.8.5 20150623 (Red Hat 4.8.5-11)] on linux2Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.&gt;&gt;&gt; 以上输出Python 2.7.5表示当前版本，因为yum使用的是Python2.7因此不能删除，所以只能重新安装一个替换版本。输入以下命令查看目前系统使用的Python以及安装目录，接下来将要对该目录下的Python进行修改123456[root@centos ~]# which python/usr/bin/python[root@centos ~]# ll /usr/bin/python*lrwxrwxrwx. 1 root root 7 May 30 05:52 /usr/bin/python -&gt; python2lrwxrwxrwx. 1 root root 9 May 30 05:52 /usr/bin/python2 -&gt; python2.7-rwxr-xr-x. 1 root root 7136 Nov 6 2016 /usr/bin/python2.7 下载安装下载插件根据官网提示，在centos下安装python3版本需要提前安装如下插件：yum install gcc openssl-devel bzip2-devel expat-devel gdbm-devel readline-devel sqlite-devel libffi-devel -y 下载python切换到/root/Downloads/目录,下载最新的3.7版本python[root@localhost Downloads]# wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0a1.tgz 解压安装包并迁移至/usr/local[root@localhost Downloads]# tar -zxvf Python-3.7.0a1.tgz[root@localhost Downloads]# mv Python-3.7.0a1 /usr/local[root@localhost Downloads]# cd /usr/local/ 创建Python3目录，以免覆盖Python2[root@localhost Downloads]# mkdir python3[root@localhost Downloads]# cd Python-3.7.0a1/[root@localhost Python-3.7.0a1]# ./configure –prefix=/usr/local/python3 确认无误后，执行编译[root@localhost Python-3.7.0a1]# make 确认无误后，执行编译安装[root@localhost Python-3.7.0a1]# make install 此时没有覆盖老版本，再将原来/usr/bin/python链接改为别的名字mv /usr/bin/python /usr/bin/old_python 再建立新版本python的链接ln -s /usr/local/python3/bin/python3 /usr/bin/python 查看版本，直接输入python -V解决升级Python后yum不能用的问题升级Python后运行yum会报错vi /user/bin/yum 编辑yum的执行文件，更改首行的/usr/bin/python 为上面重命名的名字或/usr/bin/目录下指向Python2.7的名字，之后再运行yum就正常了]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+      <tags>
+        <tag>小概念</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Question]]></title>
+    <url>%2F2018%2F11%2F05%2FQuestion%2F</url>
+    <content type="text"><![CDATA[虚拟化技术是什么？计算虚拟化或者服务器虚拟化是什么？虚拟化和云计算有什么区别？应用虚拟化和平台虚拟化又是啥？完全虚拟化，硬件辅助虚拟化，部分虚拟化，超虚拟化，操作系统级虚拟化，这些都是什么鬼？虚拟机到底是啥？ 虚拟机镜像是什么？计算机中的各种实体资源有哪些？怎样将它们抽象？单根多IO虚拟化？啥玩意云服务的东西都存放在哪里？断网了还能继续使用么？云上的环境是大家通用和共享的么？云计算是什么？容器虚拟化又是什么？Apache2.0协议是什么？Linux基金会是啥玩意封装是怎样封装的，装到哪里？分发是给谁分发，怎样发？部署怎么部署，部署到哪？需要哪些步骤？生命周期有哪些Linux容器技术是啥（Linux container，LXC）指令级模拟是啥？即时编译是什么？解释机制又是啥？准虚拟化（paravirtualization）是什么？什么是沙盒？沙盒原理是啥在云平台的应用都放哪？怎么运行？整个生命周期是怎样的？啥是分布式？镜像是什么？里面都有些啥？怎样打包镜像？是压缩么？内核级的虚拟化是啥？一台主机运行上千个docker容器，会影响主机本身的性能么？容器们消耗的是主机的啥Dockerfile配置文件怎样配置docker的？隔离主要隔得是啥？docker有哪些版本？操作系统有哪些版本？docker用go写的，怎么写的？cgroups是什么Linux namespaces是什么AUFS是啥Union FS是啥操作系统层面的虚拟化技术是什么？libcontainer是啥runc是什么containerd是啥？黑箱镜像是什么？啥是黑箱操作docker build的工作原理Docker Remote APIDebian是什么数据卷干嘛的？docker可以直接下载镜像，就可以直接应用，那么镜像里面都是什么？就像可以直接在github上git clone相关的项目，在本地直接运行么？？轻量级的沙箱？沙箱是干么的？容器和镜像是什么关系？容器里面包含什么东西？进程空间，用户空间，网络空间，这些空间是怎么区分的？都分配了多少？镜像启动的一个流程是什么，分别都打开了啥？镜像有多少层？每一层都有什么？docker仓库和注册服务器registry有什么区别？关于下载指令：apt-get yum wget brew url等的区别和用途？为什么是docker运行容器但是需要的是本地的镜像？而不是docker运行镜像？程序设计与计算机系统—深入理解计算机系统什么是数字的机器表示方式？对真值的有限近似值是什么？编译系统包括几个阶段（预处理器，编译器，汇编器，链接器）GUN是什么？GUN环境包括哪些功能？一个函数调用的开销有多大？while循环比for循环更有效么？指针引用比数组索引更有效吗？为什么将循环求和的结果放到一个本地变量中，与将其放到一个通过引用传递过来的参数相比，运行速度要快很多呢？为什么只是简单的重新排列一下一个算数表达式中的括号就能让一个函数运行的更快？静态库和动态库的区别是什么？在命令行上排列库的顺序有什么影响？为什么有些链接错误知道运行时才会出现？静态变量和全局变量的区别是什么？静态和动态有什么区别？区别在哪？安全漏洞到底是啥？怎么造成的?如何避免？？怎样限制从不受信任的站点接收数据？数据和控制信息存储在程序栈上的方式有哪些？什么是正确的？？缓冲区在哪？？？数据信息放在磁盘上是怎样存放的？？shell是什么？为什么可以在这里执行目标文件？硬件系统组织包括哪些组织？？]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+      <tags>
+        <tag>小概念</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[漫漫]]></title>
+    <url>%2F2018%2F11%2F02%2F%E6%BC%AB%E6%BC%AB%2F</url>
+    <content type="text"><![CDATA[有朋友曾和我说：曾经千方百计想得到的东西到最后一定会以最不经意的方式来到你的身边，所以“慢慢来，不要急&quot;这几个字不是没有道理的。 可能因为毛多吧，所以毛手毛脚在自己身上表现的淋漓尽致，但是好在岁月总会改变很多，如果有心想要改变。 我一直提醒自己一件事情，千万不要自己感动了自己，大部分人看似的努力不过时愚蠢导致的，人难免天生有自怜的情绪，唯有时刻保持清醒，才能看清真正的价值在哪。 （待续）]]></content>
+      <categories>
+        <category>物语</category>
+      </categories>
+      <tags>
+        <tag>物语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何使用hexo快速搭建个人blog]]></title>
+    <url>%2F2018%2F11%2F02%2F%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hexo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BAblog%2F</url>
+    <content type="text"><![CDATA[环境准备我本地的环境：12node -vv7.6.0 1macOS 10.13.4 12npm -v4.1.2 hexo介绍Hexo是基于NodeJs的静态博客框架，简单、轻量，其生成的静态网页可以托管在Github和Heroku上。 • 超快速度 • 支持MarkDown • 一键部署 • 丰富的插件可以看我的blog 佳爷的后花媛 安装hexo1npm install hexo-cli -g 如果没有权限，需要加上sudo1sudo npm install hexo-cli -g 创建blog目录youridname.github.io123$ hexo init youridname.github.io$ cd youridname.github.io$ npm install 生成静态页面123$ hexo clean$ hexo g//g 即generate 运行12$ hexo s//s 即server 然后打开浏览器，输入地址 localhost:4000(默认端口是4000，如果被占用了，可以更改端口号) 即可看到效果 发一篇文章试试相关命令123$ hexo new test此时会在source/_posts目录下生成test.md文件，输入些许内容，然后保存.生成下，看看效果 1234$ hexo clean$ hexo g$ hexo s访问 localhost:4000 即可 直接方式在 source/_posts/下新建一个.md文件也可 配置网站的设置大部分都在_config.yml文件中，详细配置可以查看官方文档下面只列出简单常用配置 title -&gt; 网站标题 subtitle -&gt; 网站副标题 description -&gt; 网站描述 author -&gt; 您的名字 language -&gt; 网站使用的语言坑：进行配置时，需要在冒号:后加一个英文空格title: Droidlover 换一个好看的主题,Hexo 中有很多主题，可以在官网查看。推荐hexo-theme-next，我用的也是这个，可以去我的blog看看效果。 更换主题的步骤：下载主题资源12$ cd theme/$ git clone https://github.com/iissnan/hexo-theme-next themes/next 应用下载的主题在网站配置文件_config.yml中，配置theme12theme: nextnext是主题名称，具体的可查看主题的文档 主题其他配置可在/theme/{theme}/_config.yml 主题的配置文件下进行主题的配置。比如添加评论，看板娘，添加浏览人数……接下来，可以执行万能的调试命令看看效果123$ hexo clean$ hexo g$ hexo s git准备没有GitHub账号的创建一个账号，注册流程就略略略了。然后创建一个youridname.github.io的public仓库。这里我们需要点击Choose a theme任意选择一个选择主题，然后界面会跳转到仓库，随便选主题，反正后面也要用hexo的主题。建好仓库可以访问下https://youridname.github.io。然后本地安装部署插件1sudo npm install hexo-cli -g 找到下载hexo的目录下_config.yml文件，配置deploy123456deploy: type: git repo: &lt;repository url&gt; branch: [branch]//branch为分支，默认为master,可以不配置//repo为仓库地址，在github上新建仓库后，可复制此地址 然后将项目部署到github上1hexo d 扩展blog这时候的blog里面有很多功能没打开，可以在设置文件中更改。相关功能如下：1 实用性优化 • 基本使用（_config.yml文件配置） • 添加RSS • 添加标签、分类等页面 • 设置网站icon • 添加侧边栏社交链接 • 添加侧边栏友情链接 • 底部显示建站时间和图标的修改 • 微信支付宝打赏功能 • 关闭网站动画效果 • 设置第三方JS库 • 添加评论系统 • 统计访客量以及文章阅读量 • 阅读次数统计（基于LanCloud） • 字数统计 • 增加版权信息 • 添加文章分享功能 • 文章排序优先级设置 • 添加站内搜索功能 • DaoVoice在线联系2 个性化优化 • 设置字体 • 设置代码高亮主题 • 左上角或右上角的Github样式 • 添加背景动画 • 添加顶部加载条 • 点击出现小爱心效果 • 修改文章链接文本样式 • 修改文章底部标签样式 • 文章末尾统一添加“文本结束”标记 • 修改作者头像并旋转 • 文章添加阴影效果 • 修改打赏部分字体动画 • 自定义鼠标样式 • 添加看板娘]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>小概念</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[迭代_归纳_递归]]></title>
+    <url>%2F2018%2F11%2F02%2F%E8%BF%AD%E4%BB%A3-%E5%BD%92%E7%BA%B3-%E9%80%92%E5%BD%92%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[docker相关]]></title>
+    <url>%2F2018%2F10%2F31%2Fdocker%E7%9B%B8%E5%85%B3%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[入门docker]]></title>
+    <url>%2F2018%2F10%2F31%2F%E5%85%A5%E9%97%A8docker%2F</url>
+    <content type="text"><![CDATA[最近有朋友搞了个微信机器人，我之前用phpvbot也做个了，但是不好玩，看他做的比较好玩，就想拿过来看看怎么做的。他问我会不会docker，可以把repo给我，哎呀，我不会docker哎，不过可以看看这是什么。 安装docker关于docker安装，网上的教程实在太多了，不过我也是吃饱了撑着，先去腾讯云的在线cloudstdio里面开了个ubuntu的空间来安装docker，不过用ubuntu安装要注意版本。 后面我直接在mac上安装了，安装很方便，把这几个command cv下就可以了。12345brew cask install docker//安装docker --version//查看版本信息docker info //查看配置信息 开始挖坑了刚安装好，就想赶紧试试新玩意，结果连容器，镜像都没分清楚，尴尬，pull了一堆东西，运行也没停止，就删，各种问题，疯狂google。所以还是先看清楚再玩吧。 推荐一个入门的blog，感觉那个厨房和食物的比喻还是很贴切的，蛮逗。Docker入门这里面还简单介绍了docker的发展史，老实说，我一直把docker和dota联系在一起，只要提到docker我就想到dota，虽然两者半毛钱关系都没有。 关于容器，入门时有几个迷惑，它的空间是在哪里？都说是云服务，那么创建的环境是放在我本地的还是在线上的？会占用我电脑的内存么？Docker和虚拟机有什么区别？虚拟机占内存和性能，那么docker的优势在哪里？他能解决我什么问题，环境一致？是说我在本地运行的环境可以打包成一个镜像发布到docker容器中，其他人可以直接下载这个镜像运行，就不会出现环境不一致而导致的问题么？Docker会让我节省安装环境的时间么？Dockerhub上是压缩的镜像，主要压缩了什么？怎么会变得那么小？docker build 在哪工作的？ 带着各种各样的疑惑，开始小白之旅 。。。]]></content>
+      <categories>
+        <category>小概念</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[C语言数据模型]]></title>
     <url>%2F2018%2F10%2F29%2FC%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%2F</url>
-    <content type="text"><![CDATA[解释C语言程序的标识符与名字（用于“框”或数据对象）之间的区别举例说出有多个名字的C语言数据对象如果熟悉C语言之外的编程语言，描述一下它的类型系统和操作]]></content>
+    <content type="text"><![CDATA[C语言数据模型计算输出所含字符数的C语言程序123456789#include&lt;stdio.h&gt;int main()&#123; int num;//声明变量的类型 num = 0;//初始化num为0 while (getchar() != EOF)//使用getchar一次读入一个输入字符 ++num; /* add 1 to num *///在每次字符读入后递增num变量，知道没有输入字符可供读入为止。EOF会提示文件已达末尾。 printf(“%d\n”,num);//将num的值以十进制整数之后加上换行符的形式打印出来&#125; C语言类型系统静态部分主要描述了数据可能拥有的值。类型系统包含整数这样的基本类型以及一些类型构成规则，利用这些规则可以用一直的类型逐步构建更加复杂的类型。 字符（char, signed char, unsigned char） 整数（int, short int, long int, unsigned） 浮点数（float, double, long double） 枚举（enum） 其中整数和浮点数是算术类型。 可以使用基本类型或使用这些规则构建好的其他类型。 数组类型数组可由字符，算术类型，指针，结构体，共用体或其他数组构成 结构体类型结构体是由称为成员或字段的变量构成的分组。在结构体中，不同的成员可以具有不同的类型，但是每个成员都必须具有某一个类型的元素。T1…Tn是类型，M1…Mn是成员名称 1234567struct S&#123; T1M1; T2M2; T3M3; …… TnMn;&#125; 共用体类型共用体类型允许一个变量在程序执行的不同时期具有不同的类型。声明： 1234567union &#123; T1M1; T2M2; T3M3; …… TnMn;&#125;x; 定义了变量x，可以存放类型为T1…Tn中任意一种的值，成员名称M1…Mn用来指示x的值现在应该是哪种类型。也就是说，x.Mi就表示x的值是类型Ti的值。 指针类型指针类型的变量包含在某个存储区域的地址，可以通过指针间接的访问另外一个变量。声明T *p;获取对象的地址用&amp;p = &amp;x将x的地址赋值给p。就是让p指向x，用在p前面的*会获取p指向的框的值。 C语言的typedef结构可用来创建类型名称的同义字。typedef &lt;类型描述符&gt; T 函数如果函数没有返回值，那么该函数类型就是void类型的。一般情况下，可以应用类型构成规则任意地构建类型，不过也存在一些限制，比如，不能构建“函数数组”，不过构建由指向函数的指针构成的数组是可以的。 动态部分对数据进行的操作 创建或销毁数据对象的操作对于数据的创建，C语言提供了几种简陋的机制，在函数被调用时，会创建对应每个局部参数的框，这些框都用来存放参数的值。 另一种数据创建机制就是使用程序库例程malloc（n），该例程可以返回一个指针，指向n个未使用的连续字符位置，这些存储空间可以被malloc的调用者用来存储数据，餐后就可以在这一存储区域中创建数据对象。 C语言有着类似的方法来销毁数据对象，当函数返回时，该函数调用的局部参数将不服村组，例程free会释放malloc创建的存储空间，特别要说的是，使用free（p）的效果是释放p指向的存储区域，若使用free去销毁不是通过调用malloc创建的对象，会造成灾难性后果。 访问或修改数据对象某些部分的操作C语言具有访问对象某些部分的机制，可以使用a[i]访问数组a的第i个元素，用x.m访问结构x的成员m,还可以用*p访问指针p指向的对象。在C语言中，修改（或者说是写）值主要是赋值运算符完成的，这让我们可以改变对象的值。 将若干数据对象的值组合起来，为某个数据对象生成新值的操作1.算术运算符2.逻辑运算符3.比较运算符4.位运算符5.赋值运算符6.强制转换运算符 解释C语言程序的标识符与名字（用于“框”或数据对象）之间的区别标识符是在程序中自定义的一些符号和名称。比如NULL，EOF，TRUE，FALSE。要跟关键字区分开来：关键字是C语言默认提供的符号，标识符是程序员自定义的。标识符有预定义标识符和已定义标识符。名字是自己定义的，是C语言标识符的一种 举例说出有多个名字的C语言数据对象如果熟悉C语言之外的编程语言，描述一下它的类型系统和操作]]></content>
       <categories>
         <category>计算机基础</category>
       </categories>
