@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="编程," />
+  <meta name="keywords" content="ZoeSj, Zoe" />
 
 
 
@@ -79,54 +79,18 @@
 
 
 
-<meta name="description" content="在还没做程序媛之前，我是一个爱玩爱浪的～成为程序媛之后，嗯，依旧放荡不羁。哈哈哈哈。翻看以前的照片，原来自己也是蛮“多才多艺”的嘛，哈哈哈。 ﻿记得那时最爱涂鸦了，初中政治书里面全是配图加旁白，哈哈哈。后来上了大学逼格上升，不画书上了。买了个漂亮的本子。">
-<meta name="keywords" content="编程">
+<meta name="description" content="深入理解PHP内核关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？有哪些比较重要的文件值得看看？想写PHP扩展应该看看那个文件？源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？检查环境的脚本是什么？编译的脚本后缀是什么？官方扩展目录是哪个？里面包含的内容是什么？扩展中的东西是怎样和PHP联合起来使用的？怎样进行调用？？为什么能调用？如何书写自己的扩">
+<meta name="keywords" content="Zoe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="程序媛的小乐趣">
-<meta property="og:url" content="ZoeSj.github.io/2016/11/29/程序媛的小乐趣/index.html">
+<meta property="og:title" content="question_about_Thinking_in_PHP_internals">
+<meta property="og:url" content="ZoeSj.github.io/2018/11/08/question-about-Thinking-in-PHP-internals/index.html">
 <meta property="og:site_name" content="佳爷的后花媛">
-<meta property="og:description" content="在还没做程序媛之前，我是一个爱玩爱浪的～成为程序媛之后，嗯，依旧放荡不羁。哈哈哈哈。翻看以前的照片，原来自己也是蛮“多才多艺”的嘛，哈哈哈。 ﻿记得那时最爱涂鸦了，初中政治书里面全是配图加旁白，哈哈哈。后来上了大学逼格上升，不画书上了。买了个漂亮的本子。">
+<meta property="og:description" content="深入理解PHP内核关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？有哪些比较重要的文件值得看看？想写PHP扩展应该看看那个文件？源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？检查环境的脚本是什么？编译的脚本后缀是什么？官方扩展目录是哪个？里面包含的内容是什么？扩展中的东西是怎样和PHP联合起来使用的？怎样进行调用？？为什么能调用？如何书写自己的扩">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-d447cc328360dbbc.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/600/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-979063c8c22e0320.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/949/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-e0bbd4811a5db3dd.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-231b6a255d4fbab4.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/720/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-58c7a89aefb46cb7.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-4785bdc60b249195.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-85484bfa6a29bc40.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-ceaea8bfbe067da6.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/728/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-82a6dba83fa2eec5.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/800/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-f70f787c004f16ca.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-61fd515c96356e38.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-65746a3914ebfa12.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/853/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-c07e2f60fecc04f9.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-55022ec8dd1f528e.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/960/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-7533fe9df958f75e.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-a587ac91ab9bc60a.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/480/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-c076ffdc047eef58.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/400/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-4af92e8f0fd8a0ba.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-fb072e1251a47caa.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-363f0c362475a4c3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-75eca91eae5b375f.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-7949ad4b0265f8e7.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-ddc88cbb552503e2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/960/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-0970f99f9b7987e9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-1b81518ef2d5dc01.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-a3608375be1c7688.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-5eaef65c523f1293.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-e631ab9b64c8e4df.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-b8e2af06e0794f05.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-c6ce164ef0fad4f2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-ec9c1d5a5a982aa4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-53f5e41c6522954e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/960/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-fc6bebfa747c34a6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-ad3cf97534916add.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3162008-4d35e6ddd90a4b7c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:updated_time" content="2018-10-25T07:53:59.338Z">
+<meta property="og:updated_time" content="2018-11-08T10:00:35.426Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="程序媛的小乐趣">
-<meta name="twitter:description" content="在还没做程序媛之前，我是一个爱玩爱浪的～成为程序媛之后，嗯，依旧放荡不羁。哈哈哈哈。翻看以前的照片，原来自己也是蛮“多才多艺”的嘛，哈哈哈。 ﻿记得那时最爱涂鸦了，初中政治书里面全是配图加旁白，哈哈哈。后来上了大学逼格上升，不画书上了。买了个漂亮的本子。">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/3162008-d447cc328360dbbc.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/600/format/webp">
+<meta name="twitter:title" content="question_about_Thinking_in_PHP_internals">
+<meta name="twitter:description" content="深入理解PHP内核关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？有哪些比较重要的文件值得看看？想写PHP扩展应该看看那个文件？源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？检查环境的脚本是什么？编译的脚本后缀是什么？官方扩展目录是哪个？里面包含的内容是什么？扩展中的东西是怎样和PHP联合起来使用的？怎样进行调用？？为什么能调用？如何书写自己的扩">
 
 
 
@@ -156,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="ZoeSj.github.io/2016/11/29/程序媛的小乐趣/"/>
+  <link rel="canonical" href="ZoeSj.github.io/2018/11/08/question-about-Thinking-in-PHP-internals/"/>
 
 
 
 
 
-  <title>程序媛的小乐趣 | 佳爷的后花媛</title>
+  <title>question_about_Thinking_in_PHP_internals | 佳爷的后花媛</title>
   
 
 
@@ -333,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="ZoeSj.github.io/2016/11/29/程序媛的小乐趣/">
+    <link itemprop="mainEntityOfPage" href="ZoeSj.github.io/2018/11/08/question-about-Thinking-in-PHP-internals/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zoe">
@@ -350,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">程序媛的小乐趣</h1>
+          <h1 class="post-title" itemprop="name headline">question_about_Thinking_in_PHP_internals</h1>
         
 
         <div class="post-meta">
@@ -362,8 +326,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-29T15:33:49+08:00">
-                2016-11-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-08T14:34:07+08:00">
+                2018-11-08
               </time>
             
 
@@ -373,28 +337,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/物语/" itemprop="url" rel="index">
-                    <span itemprop="name">物语</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -403,8 +345,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/11/29/程序媛的小乐趣/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/11/29/程序媛的小乐趣/" itemprop="commentCount"></span>
+                <a href="/2018/11/08/question-about-Thinking-in-PHP-internals/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/08/question-about-Thinking-in-PHP-internals/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -412,7 +354,7 @@
 
           
           
-             <span id="/2016/11/29/程序媛的小乐趣/" class="leancloud_visitors" data-flag-title="程序媛的小乐趣">
+             <span id="/2018/11/08/question-about-Thinking-in-PHP-internals/" class="leancloud_visitors" data-flag-title="question_about_Thinking_in_PHP_internals">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -443,88 +385,7 @@
       
 
       
-        <p>﻿在还没做程序媛之前，我是一个爱玩爱浪的～成为程序媛之后，嗯，依旧放荡不羁。哈哈哈哈。翻看以前的照片，原来自己也是蛮“多才多艺”的嘛，哈哈哈。</p>
-<p>﻿记得那时最爱涂鸦了，初中政治书里面全是配图加旁白，哈哈哈。后来上了大学逼格上升，不画书上了。买了个漂亮的本子。</p>
-<a id="more"></a>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-d447cc328360dbbc.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/600/format/webp" alt="这是以前很喜欢的一个妞"></p>
-<p>﻿这个男生是我之前喜欢的一个人的头像，我给他画了下来，不过遗憾的是没能在一起。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-979063c8c22e0320.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/949/format/webp" alt="DQ"></p>
-<p>﻿这是上课随手画的一个蓝胖子，当我画完发了说说之后，哈哈哈，就有个人过来砸场子了，说我画的太丑了，他随笔画的都比我好，汗颜啊，不过忘记存照片了，确实画的比我好多了。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-e0bbd4811a5db3dd.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="蓝胖子"></p>
-<p>﻿这是情人节那天送给自己的，哈哈哈。谁说单身贵族木有花，我可以自己画呀</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-231b6a255d4fbab4.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/720/format/webp" alt="Rose"></p>
-<p>﻿大一刚进学校，加入了两个社团，其中就有个书画协会，一直以来对书画很感兴趣，不过写的不咋滴，这是我练了半个月的成果，唉╯﹏╰。以后要多练练，争取达到我们部长的水平。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-58c7a89aefb46cb7.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp" alt="小白～"></p>
-<p>虽然不咋滴，不过拿了个鼓励奖，哈哈哈</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-4785bdc60b249195.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp" alt=""></p>
-<p>给你们看下我们部长写的春联。棒棒哒</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-85484bfa6a29bc40.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp" alt="部长写哒"></p>
-<p>﻿﻿大二下学期接触了LOL,还是不错的，不过每次打一局时间好长，目前玩的一共加起来不到二十次，我果然太懒了，这是我杀的最多的一次了。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-ceaea8bfbe067da6.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/728/format/webp" alt="machine"></p>
-<p>感觉自己棒棒哒</p>
-<p>﻿下面放一些我的涂鸦，尽情吐槽吧</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-82a6dba83fa2eec5.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/800/format/webp" alt=""></p>
-<p>﻿这个小姑娘还是很温柔哒</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-f70f787c004f16ca.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
-<p>﻿蛮喜欢这件外套</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-61fd515c96356e38.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
-<p>﻿这是以前喜欢的一个封面小镇</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-65746a3914ebfa12.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/853/format/webp" alt=""></p>
-<p>﻿哈哈哈，练笔</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-c07e2f60fecc04f9.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp" alt=""></p>
-<p>第一次正式写字，乱七八糟</p>
-<p>其实我是按照杨洋侧脸来画的，不过没有百分之一</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-55022ec8dd1f528e.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/960/format/webp" alt=""></p>
-<p>大家觉得像谁呢</p>
-<p>﻿萌萌哒</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-7533fe9df958f75e.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
-<p>﻿这是小漫画，很可爱有木有</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-a587ac91ab9bc60a.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/480/format/webp" alt=""></p>
-<p>﻿这是手工做的，猜猜用什么做的</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-c076ffdc047eef58.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/400/format/webp" alt=""></p>
-<p>﻿这也是我DIY，适合平安夜哟(ღ˘⌣˘ღ)</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-4af92e8f0fd8a0ba.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp" alt=""></p>
-<p>﻿那时候喜欢言情小说女主，就画下来了</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-fb072e1251a47caa.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/640/format/webp" alt=""></p>
-<p>﻿喜欢无脸男。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-363f0c362475a4c3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
-<p>Zoe</p>
-<p>﻿这句话我很喜欢。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-75eca91eae5b375f.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
-<p>﻿我也是个小文艺哟</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-7949ad4b0265f8e7.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
-<p>喜欢枫叶</p>
-<p>﻿最喜欢自己做吃的</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-ddc88cbb552503e2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/960/format/webp" alt=""></p>
-<p>酸奶苹果沙拉</p>
-<p>﻿当然，作为一个正经吃货，自己会烧，很有必要</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-0970f99f9b7987e9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
-<p>生菜</p>
-<p>﻿有木有和我一样喜欢吃卷心菜的小伙伴啊</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-1b81518ef2d5dc01.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
-<p>卷心菜</p>
-<p>﻿好久没烧荤菜了，然后华丽丽歇菜，不过吃起来还是不错的，下次传个卖相好看点的</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-a3608375be1c7688.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="小狐狸爱吃鱼"></p>
-<p>﻿这个味道不错</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-5eaef65c523f1293.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
-<p>茭白肉丝</p>
-<p>﻿这道菜我经常吃，蛮喜欢</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-e631ab9b64c8e4df.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
-<p>﻿最擅长下面，因为我喜欢面食～嘎嘎嘎</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-b8e2af06e0794f05.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
-<p>﻿没事爱臭美，这个姨妈色不错(*๓´╰╯`๓)</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-c6ce164ef0fad4f2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
-<p>﻿这个围脖快织好了才发现线不够，忧桑。本来之前就要送人的，拖到现在</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-ec9c1d5a5a982aa4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="围脖"></p>
-<p>此生放荡不羁爱浪。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-53f5e41c6522954e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/960/format/webp" alt="">s<br>﻿程序媛的桌面啥样？哈哈，就酱。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-fc6bebfa747c34a6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="程序媛"></p>
-<p>当然，我是一个正经吃货</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-ad3cf97534916add.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="唯有美食不可辜负"></p>
-<p>﻿听说爱笑的女生运气不会太差</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/3162008-4d35e6ddd90a4b7c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="爱笑的女生运气不会太差"></p>
-<p>本文已在版权印备案，如需转载请访问版权印。<a href="https://101612020003884.bqy.mobi" target="_blank" rel="noopener">获取授权</a></p>
-
+        <h2 id="深入理解PHP内核"><a href="#深入理解PHP内核" class="headerlink" title="深入理解PHP内核"></a>深入理解PHP内核</h2><h3 id="关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？"><a href="#关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？" class="headerlink" title="关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？"></a>关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？</h3><h3 id="有哪些比较重要的文件值得看看？"><a href="#有哪些比较重要的文件值得看看？" class="headerlink" title="有哪些比较重要的文件值得看看？"></a>有哪些比较重要的文件值得看看？</h3><h3 id="想写PHP扩展应该看看那个文件？"><a href="#想写PHP扩展应该看看那个文件？" class="headerlink" title="想写PHP扩展应该看看那个文件？"></a>想写PHP扩展应该看看那个文件？</h3><h3 id="源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？"><a href="#源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？" class="headerlink" title="源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？"></a>源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？</h3><h3 id="检查环境的脚本是什么？"><a href="#检查环境的脚本是什么？" class="headerlink" title="检查环境的脚本是什么？"></a>检查环境的脚本是什么？</h3><h3 id="编译的脚本后缀是什么？"><a href="#编译的脚本后缀是什么？" class="headerlink" title="编译的脚本后缀是什么？"></a>编译的脚本后缀是什么？</h3><h3 id="官方扩展目录是哪个？里面包含的内容是什么？"><a href="#官方扩展目录是哪个？里面包含的内容是什么？" class="headerlink" title="官方扩展目录是哪个？里面包含的内容是什么？"></a>官方扩展目录是哪个？里面包含的内容是什么？</h3><h3 id="扩展中的东西是怎样和PHP联合起来使用的？怎样进行调用？？为什么能调用？如何书写自己的扩展？"><a href="#扩展中的东西是怎样和PHP联合起来使用的？怎样进行调用？？为什么能调用？如何书写自己的扩展？" class="headerlink" title="扩展中的东西是怎样和PHP联合起来使用的？怎样进行调用？？为什么能调用？如何书写自己的扩展？"></a>扩展中的东西是怎样和PHP联合起来使用的？怎样进行调用？？为什么能调用？如何书写自己的扩展？</h3><h3 id="扩展文件中的tests文件是干嘛的？里面是测试和调试的么？"><a href="#扩展文件中的tests文件是干嘛的？里面是测试和调试的么？" class="headerlink" title="扩展文件中的tests文件是干嘛的？里面是测试和调试的么？"></a>扩展文件中的tests文件是干嘛的？里面是测试和调试的么？</h3><h3 id="最核心的代码是放在哪里的？主要实现了什么？"><a href="#最核心的代码是放在哪里的？主要实现了什么？" class="headerlink" title="最核心的代码是放在哪里的？主要实现了什么？"></a>最核心的代码是放在哪里的？主要实现了什么？</h3><h3 id="zend引擎目录里面都有些什么？这些机制的实现和测试都在这里么？"><a href="#zend引擎目录里面都有些什么？这些机制的实现和测试都在这里么？" class="headerlink" title="zend引擎目录里面都有些什么？这些机制的实现和测试都在这里么？"></a>zend引擎目录里面都有些什么？这些机制的实现和测试都在这里么？</h3><h3 id="PHP扩展与应用仓库是哪个文件？"><a href="#PHP扩展与应用仓库是哪个文件？" class="headerlink" title="PHP扩展与应用仓库是哪个文件？"></a>PHP扩展与应用仓库是哪个文件？</h3><h3 id="各种服务器抽象层的代码都安家在哪？这里面都有哪些抽象？？或者说哪些接口？"><a href="#各种服务器抽象层的代码都安家在哪？这里面都有哪些抽象？？或者说哪些接口？" class="headerlink" title="各种服务器抽象层的代码都安家在哪？这里面都有哪些抽象？？或者说哪些接口？"></a>各种服务器抽象层的代码都安家在哪？这里面都有哪些抽象？？或者说哪些接口？</h3><h3 id="PHP的线程安全是构建在哪个库上面的？这玩意是干嘛的？能封装嘛？封装它干嘛？"><a href="#PHP的线程安全是构建在哪个库上面的？这玩意是干嘛的？能封装嘛？封装它干嘛？" class="headerlink" title="PHP的线程安全是构建在哪个库上面的？这玩意是干嘛的？能封装嘛？封装它干嘛？"></a>PHP的线程安全是构建在哪个库上面的？这玩意是干嘛的？能封装嘛？封装它干嘛？</h3><h3 id="PHP的测试脚本都在哪待着？怎样写测试文件？怎么进行自动化测试？测试有啥好处？有必要么？"><a href="#PHP的测试脚本都在哪待着？怎样写测试文件？怎么进行自动化测试？测试有啥好处？有必要么？" class="headerlink" title="PHP的测试脚本都在哪待着？怎样写测试文件？怎么进行自动化测试？测试有啥好处？有必要么？"></a>PHP的测试脚本都在哪待着？怎样写测试文件？怎么进行自动化测试？测试有啥好处？有必要么？</h3><h3 id="虽然我是macos系统，但是这要是在windows下，有哪个目录里面有对它的相关实现？"><a href="#虽然我是macos系统，但是这要是在windows下，有哪个目录里面有对它的相关实现？" class="headerlink" title="虽然我是macos系统，但是这要是在windows下，有哪个目录里面有对它的相关实现？"></a>虽然我是macos系统，但是这要是在windows下，有哪个目录里面有对它的相关实现？</h3><h3 id="fatal-error是什么？为什么测试脚本会“不小心”触发它？"><a href="#fatal-error是什么？为什么测试脚本会“不小心”触发它？" class="headerlink" title="fatal error是什么？为什么测试脚本会“不小心”触发它？"></a>fatal error是什么？为什么测试脚本会“不小心”触发它？</h3><h3 id="PHP中有哪些将脚本隔离的方法？"><a href="#PHP中有哪些将脚本隔离的方法？" class="headerlink" title="PHP中有哪些将脚本隔离的方法？"></a>PHP中有哪些将脚本隔离的方法？</h3><h3 id="研究下-PHP-SRC-run-tests-php脚本的实现也是不错的选择，哪里不错？如何研究？"><a href="#研究下-PHP-SRC-run-tests-php脚本的实现也是不错的选择，哪里不错？如何研究？" class="headerlink" title="研究下$PHP_SRC/run-tests.php脚本的实现也是不错的选择，哪里不错？如何研究？"></a>研究下$PHP_SRC/run-tests.php脚本的实现也是不错的选择，哪里不错？如何研究？</h3><h3 id="PHP源码中的宏在哪？有哪些常见的》怎么理解这些宏？"><a href="#PHP源码中的宏在哪？有哪些常见的》怎么理解这些宏？" class="headerlink" title="PHP源码中的宏在哪？有哪些常见的》怎么理解这些宏？"></a>PHP源码中的宏在哪？有哪些常见的》怎么理解这些宏？</h3><h3 id="和-有啥子区别？"><a href="#和-有啥子区别？" class="headerlink" title="##和#有啥子区别？"></a><code>##</code>和<code>#</code>有啥子区别？</h3><h3 id="宏在实际中有哪些应用？比如对字符串进行封装，是怎么封装的？？"><a href="#宏在实际中有哪些应用？比如对字符串进行封装，是怎么封装的？？" class="headerlink" title="宏在实际中有哪些应用？比如对字符串进行封装，是怎么封装的？？"></a>宏在实际中有哪些应用？比如对字符串进行封装，是怎么封装的？？</h3><h3 id="宏定义中的do-while循环？do-while和宏定义有啥关系？多行宏又是什么？宏不是只是用-来标明的么？"><a href="#宏定义中的do-while循环？do-while和宏定义有啥关系？多行宏又是什么？宏不是只是用-来标明的么？" class="headerlink" title="宏定义中的do-while循环？do-while和宏定义有啥关系？多行宏又是什么？宏不是只是用#来标明的么？"></a>宏定义中的do-while循环？do-while和宏定义有啥关系？多行宏又是什么？宏不是只是用#来标明的么？</h3><h3 id="宏定义了是不是就直接在代码执行时按照宏定义的方式来？所以宏定义就是对相关的底层操作和参数进行定义？宏只是简单的代码替换？"><a href="#宏定义了是不是就直接在代码执行时按照宏定义的方式来？所以宏定义就是对相关的底层操作和参数进行定义？宏只是简单的代码替换？" class="headerlink" title="宏定义了是不是就直接在代码执行时按照宏定义的方式来？所以宏定义就是对相关的底层操作和参数进行定义？宏只是简单的代码替换？"></a>宏定义了是不是就直接在代码执行时按照宏定义的方式来？所以宏定义就是对相关的底层操作和参数进行定义？宏只是简单的代码替换？</h3><h3 id="预处理（-line）又是啥-主要是干嘛的？"><a href="#预处理（-line）又是啥-主要是干嘛的？" class="headerlink" title="预处理（#line）又是啥?主要是干嘛的？"></a>预处理（#line）又是啥?主要是干嘛的？</h3><h3 id="全局变量宏又是啥？这系列宏的主要作用是什么？啥叫解决线程安全所写的全局变量包裹宏？"><a href="#全局变量宏又是啥？这系列宏的主要作用是什么？啥叫解决线程安全所写的全局变量包裹宏？" class="headerlink" title="全局变量宏又是啥？这系列宏的主要作用是什么？啥叫解决线程安全所写的全局变量包裹宏？"></a>全局变量宏又是啥？这系列宏的主要作用是什么？啥叫解决线程安全所写的全局变量包裹宏？</h3><h3 id="什么是线性安全？？ifdef是什么？ZTS又是啥？"><a href="#什么是线性安全？？ifdef是什么？ZTS又是啥？" class="headerlink" title="什么是线性安全？？ifdef是什么？ZTS又是啥？"></a>什么是线性安全？？ifdef是什么？ZTS又是啥？</h3><h3 id="PHP运行时的全局参数，这些参数都有啥意义？他们都在哪个里面？"><a href="#PHP运行时的全局参数，这些参数都有啥意义？他们都在哪个里面？" class="headerlink" title="PHP运行时的全局参数，这些参数都有啥意义？他们都在哪个里面？"></a>PHP运行时的全局参数，这些参数都有啥意义？他们都在哪个里面？</h3><h3 id="zend-bool代表什么？"><a href="#zend-bool代表什么？" class="headerlink" title="zend_bool代表什么？"></a>zend_bool代表什么？</h3><h3 id="据说那些全局变量和php-ini文件的配置项是对应的，在PHP启动并读取php-ini文件时就会对这些字段进行赋值，而用户空间的ini-get-，ini-set-函数操作的一些配置也是对这个全局变量进行操作的，这两者是如何联系起来的？"><a href="#据说那些全局变量和php-ini文件的配置项是对应的，在PHP启动并读取php-ini文件时就会对这些字段进行赋值，而用户空间的ini-get-，ini-set-函数操作的一些配置也是对这个全局变量进行操作的，这两者是如何联系起来的？" class="headerlink" title="据说那些全局变量和php.ini文件的配置项是对应的，在PHP启动并读取php.ini文件时就会对这些字段进行赋值，而用户空间的ini_get()，ini_set()函数操作的一些配置也是对这个全局变量进行操作的，这两者是如何联系起来的？"></a>据说那些全局变量和php.ini文件的配置项是对应的，在PHP启动并读取php.ini文件时就会对这些字段进行赋值，而用户空间的ini_get()，ini_set()函数操作的一些配置也是对这个全局变量进行操作的，这两者是如何联系起来的？</h3>
       
     </div>
     
@@ -539,12 +400,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/编程/" rel="tag"># 编程</a>
-          
-        </div>
-      
 
       
       
@@ -554,8 +409,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/29/java基础知识/" rel="next" title="java基础知识">
-                <i class="fa fa-chevron-left"></i> java基础知识
+              <a href="/2018/11/08/question-about-computer-system/" rel="next" title="question_about_computer_system">
+                <i class="fa fa-chevron-left"></i> question_about_computer_system
               </a>
             
           </div>
@@ -563,10 +418,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/07/无题/" rel="prev" title="无题">
-                无题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -621,8 +472,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -692,6 +552,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#深入理解PHP内核"><span class="nav-number">1.</span> <span class="nav-text">深入理解PHP内核</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？"><span class="nav-number">1.1.</span> <span class="nav-text">关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有哪些比较重要的文件值得看看？"><span class="nav-number">1.2.</span> <span class="nav-text">有哪些比较重要的文件值得看看？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#想写PHP扩展应该看看那个文件？"><span class="nav-number">1.3.</span> <span class="nav-text">想写PHP扩展应该看看那个文件？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？"><span class="nav-number">1.4.</span> <span class="nav-text">源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查环境的脚本是什么？"><span class="nav-number">1.5.</span> <span class="nav-text">检查环境的脚本是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译的脚本后缀是什么？"><span class="nav-number">1.6.</span> <span class="nav-text">编译的脚本后缀是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#官方扩展目录是哪个？里面包含的内容是什么？"><span class="nav-number">1.7.</span> <span class="nav-text">官方扩展目录是哪个？里面包含的内容是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展中的东西是怎样和PHP联合起来使用的？怎样进行调用？？为什么能调用？如何书写自己的扩展？"><span class="nav-number">1.8.</span> <span class="nav-text">扩展中的东西是怎样和PHP联合起来使用的？怎样进行调用？？为什么能调用？如何书写自己的扩展？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展文件中的tests文件是干嘛的？里面是测试和调试的么？"><span class="nav-number">1.9.</span> <span class="nav-text">扩展文件中的tests文件是干嘛的？里面是测试和调试的么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最核心的代码是放在哪里的？主要实现了什么？"><span class="nav-number">1.10.</span> <span class="nav-text">最核心的代码是放在哪里的？主要实现了什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zend引擎目录里面都有些什么？这些机制的实现和测试都在这里么？"><span class="nav-number">1.11.</span> <span class="nav-text">zend引擎目录里面都有些什么？这些机制的实现和测试都在这里么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP扩展与应用仓库是哪个文件？"><span class="nav-number">1.12.</span> <span class="nav-text">PHP扩展与应用仓库是哪个文件？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#各种服务器抽象层的代码都安家在哪？这里面都有哪些抽象？？或者说哪些接口？"><span class="nav-number">1.13.</span> <span class="nav-text">各种服务器抽象层的代码都安家在哪？这里面都有哪些抽象？？或者说哪些接口？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP的线程安全是构建在哪个库上面的？这玩意是干嘛的？能封装嘛？封装它干嘛？"><span class="nav-number">1.14.</span> <span class="nav-text">PHP的线程安全是构建在哪个库上面的？这玩意是干嘛的？能封装嘛？封装它干嘛？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP的测试脚本都在哪待着？怎样写测试文件？怎么进行自动化测试？测试有啥好处？有必要么？"><span class="nav-number">1.15.</span> <span class="nav-text">PHP的测试脚本都在哪待着？怎样写测试文件？怎么进行自动化测试？测试有啥好处？有必要么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虽然我是macos系统，但是这要是在windows下，有哪个目录里面有对它的相关实现？"><span class="nav-number">1.16.</span> <span class="nav-text">虽然我是macos系统，但是这要是在windows下，有哪个目录里面有对它的相关实现？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fatal-error是什么？为什么测试脚本会“不小心”触发它？"><span class="nav-number">1.17.</span> <span class="nav-text">fatal error是什么？为什么测试脚本会“不小心”触发它？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP中有哪些将脚本隔离的方法？"><span class="nav-number">1.18.</span> <span class="nav-text">PHP中有哪些将脚本隔离的方法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#研究下-PHP-SRC-run-tests-php脚本的实现也是不错的选择，哪里不错？如何研究？"><span class="nav-number">1.19.</span> <span class="nav-text">研究下$PHP_SRC/run-tests.php脚本的实现也是不错的选择，哪里不错？如何研究？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP源码中的宏在哪？有哪些常见的》怎么理解这些宏？"><span class="nav-number">1.20.</span> <span class="nav-text">PHP源码中的宏在哪？有哪些常见的》怎么理解这些宏？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#和-有啥子区别？"><span class="nav-number">1.21.</span> <span class="nav-text">##和#有啥子区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宏在实际中有哪些应用？比如对字符串进行封装，是怎么封装的？？"><span class="nav-number">1.22.</span> <span class="nav-text">宏在实际中有哪些应用？比如对字符串进行封装，是怎么封装的？？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宏定义中的do-while循环？do-while和宏定义有啥关系？多行宏又是什么？宏不是只是用-来标明的么？"><span class="nav-number">1.23.</span> <span class="nav-text">宏定义中的do-while循环？do-while和宏定义有啥关系？多行宏又是什么？宏不是只是用#来标明的么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宏定义了是不是就直接在代码执行时按照宏定义的方式来？所以宏定义就是对相关的底层操作和参数进行定义？宏只是简单的代码替换？"><span class="nav-number">1.24.</span> <span class="nav-text">宏定义了是不是就直接在代码执行时按照宏定义的方式来？所以宏定义就是对相关的底层操作和参数进行定义？宏只是简单的代码替换？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预处理（-line）又是啥-主要是干嘛的？"><span class="nav-number">1.25.</span> <span class="nav-text">预处理（#line）又是啥?主要是干嘛的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局变量宏又是啥？这系列宏的主要作用是什么？啥叫解决线程安全所写的全局变量包裹宏？"><span class="nav-number">1.26.</span> <span class="nav-text">全局变量宏又是啥？这系列宏的主要作用是什么？啥叫解决线程安全所写的全局变量包裹宏？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是线性安全？？ifdef是什么？ZTS又是啥？"><span class="nav-number">1.27.</span> <span class="nav-text">什么是线性安全？？ifdef是什么？ZTS又是啥？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP运行时的全局参数，这些参数都有啥意义？他们都在哪个里面？"><span class="nav-number">1.28.</span> <span class="nav-text">PHP运行时的全局参数，这些参数都有啥意义？他们都在哪个里面？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zend-bool代表什么？"><span class="nav-number">1.29.</span> <span class="nav-text">zend_bool代表什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#据说那些全局变量和php-ini文件的配置项是对应的，在PHP启动并读取php-ini文件时就会对这些字段进行赋值，而用户空间的ini-get-，ini-set-函数操作的一些配置也是对这个全局变量进行操作的，这两者是如何联系起来的？"><span class="nav-number">1.30.</span> <span class="nav-text">据说那些全局变量和php.ini文件的配置项是对应的，在PHP启动并读取php.ini文件时就会对这些字段进行赋值，而用户空间的ini_get()，ini_set()函数操作的一些配置也是对这个全局变量进行操作的，这两者是如何联系起来的？</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
