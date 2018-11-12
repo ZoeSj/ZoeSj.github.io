@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="小概念," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="深入理解PHP内核关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？有哪些比较重要的文件值得看看？想写PHP扩展应该看看那个文件？源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？">
+<meta name="keywords" content="小概念">
+<meta property="og:type" content="article">
+<meta property="og:title" content="question_about_Thinking_in_PHP_internals">
+<meta property="og:url" content="ZoeSj.github.io/2018/11/12/question-about-Thinking-in-PHP-internals/index.html">
+<meta property="og:site_name" content="佳爷的后花媛">
+<meta property="og:description" content="深入理解PHP内核关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？有哪些比较重要的文件值得看看？想写PHP扩展应该看看那个文件？源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-12T03:39:41.076Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="question_about_Thinking_in_PHP_internals">
+<meta name="twitter:description" content="深入理解PHP内核关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？有哪些比较重要的文件值得看看？想写PHP扩展应该看看那个文件？源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="ZoeSj.github.io/2018/11/12/question-about-Thinking-in-PHP-internals/"/>
+
+
+
+
+
+  <title>question_about_Thinking_in_PHP_internals | 佳爷的后花媛</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">佳爷的后花媛</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="ZoeSj.github.io/2018/11/12/question-about-Thinking-in-PHP-internals/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zoe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="佳爷的后花媛">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">question_about_Thinking_in_PHP_internals</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-12T11:34:07+08:00">
+                2018-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/12/question-about-Thinking-in-PHP-internals/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/12/question-about-Thinking-in-PHP-internals/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/11/12/question-about-Thinking-in-PHP-internals/" class="leancloud_visitors" data-flag-title="question_about_Thinking_in_PHP_internals">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="深入理解PHP内核"><a href="#深入理解PHP内核" class="headerlink" title="深入理解PHP内核"></a>深入理解PHP内核</h2><h3 id="关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？"><a href="#关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？" class="headerlink" title="关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？"></a>关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？</h3><h3 id="有哪些比较重要的文件值得看看？"><a href="#有哪些比较重要的文件值得看看？" class="headerlink" title="有哪些比较重要的文件值得看看？"></a>有哪些比较重要的文件值得看看？</h3><h3 id="想写PHP扩展应该看看那个文件？"><a href="#想写PHP扩展应该看看那个文件？" class="headerlink" title="想写PHP扩展应该看看那个文件？"></a>想写PHP扩展应该看看那个文件？</h3><h3 id="源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？"><a href="#源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？" class="headerlink" title="源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？"></a>源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？</h3><a id="more"></a>
+<h3 id="检查环境的脚本是什么？"><a href="#检查环境的脚本是什么？" class="headerlink" title="检查环境的脚本是什么？"></a>检查环境的脚本是什么？</h3><h3 id="编译的脚本后缀是什么？"><a href="#编译的脚本后缀是什么？" class="headerlink" title="编译的脚本后缀是什么？"></a>编译的脚本后缀是什么？</h3><h3 id="官方扩展目录是哪个？里面包含的内容是什么？"><a href="#官方扩展目录是哪个？里面包含的内容是什么？" class="headerlink" title="官方扩展目录是哪个？里面包含的内容是什么？"></a>官方扩展目录是哪个？里面包含的内容是什么？</h3><h3 id="扩展中的东西是怎样和PHP联合起来使用的？怎样进行调用？？为什么能调用？如何书写自己的扩展？"><a href="#扩展中的东西是怎样和PHP联合起来使用的？怎样进行调用？？为什么能调用？如何书写自己的扩展？" class="headerlink" title="扩展中的东西是怎样和PHP联合起来使用的？怎样进行调用？？为什么能调用？如何书写自己的扩展？"></a>扩展中的东西是怎样和PHP联合起来使用的？怎样进行调用？？为什么能调用？如何书写自己的扩展？</h3><h3 id="扩展文件中的tests文件是干嘛的？里面是测试和调试的么？"><a href="#扩展文件中的tests文件是干嘛的？里面是测试和调试的么？" class="headerlink" title="扩展文件中的tests文件是干嘛的？里面是测试和调试的么？"></a>扩展文件中的tests文件是干嘛的？里面是测试和调试的么？</h3><h3 id="最核心的代码是放在哪里的？主要实现了什么？"><a href="#最核心的代码是放在哪里的？主要实现了什么？" class="headerlink" title="最核心的代码是放在哪里的？主要实现了什么？"></a>最核心的代码是放在哪里的？主要实现了什么？</h3><h3 id="zend引擎目录里面都有些什么？这些机制的实现和测试都在这里么？"><a href="#zend引擎目录里面都有些什么？这些机制的实现和测试都在这里么？" class="headerlink" title="zend引擎目录里面都有些什么？这些机制的实现和测试都在这里么？"></a>zend引擎目录里面都有些什么？这些机制的实现和测试都在这里么？</h3><h3 id="PHP扩展与应用仓库是哪个文件？"><a href="#PHP扩展与应用仓库是哪个文件？" class="headerlink" title="PHP扩展与应用仓库是哪个文件？"></a>PHP扩展与应用仓库是哪个文件？</h3><h3 id="各种服务器抽象层的代码都安家在哪？这里面都有哪些抽象？？或者说哪些接口？"><a href="#各种服务器抽象层的代码都安家在哪？这里面都有哪些抽象？？或者说哪些接口？" class="headerlink" title="各种服务器抽象层的代码都安家在哪？这里面都有哪些抽象？？或者说哪些接口？"></a>各种服务器抽象层的代码都安家在哪？这里面都有哪些抽象？？或者说哪些接口？</h3><h3 id="PHP的线程安全是构建在哪个库上面的？这玩意是干嘛的？能封装嘛？封装它干嘛？"><a href="#PHP的线程安全是构建在哪个库上面的？这玩意是干嘛的？能封装嘛？封装它干嘛？" class="headerlink" title="PHP的线程安全是构建在哪个库上面的？这玩意是干嘛的？能封装嘛？封装它干嘛？"></a>PHP的线程安全是构建在哪个库上面的？这玩意是干嘛的？能封装嘛？封装它干嘛？</h3><h3 id="PHP的测试脚本都在哪待着？怎样写测试文件？怎么进行自动化测试？测试有啥好处？有必要么？"><a href="#PHP的测试脚本都在哪待着？怎样写测试文件？怎么进行自动化测试？测试有啥好处？有必要么？" class="headerlink" title="PHP的测试脚本都在哪待着？怎样写测试文件？怎么进行自动化测试？测试有啥好处？有必要么？"></a>PHP的测试脚本都在哪待着？怎样写测试文件？怎么进行自动化测试？测试有啥好处？有必要么？</h3><h3 id="虽然我是macos系统，但是这要是在windows下，有哪个目录里面有对它的相关实现？"><a href="#虽然我是macos系统，但是这要是在windows下，有哪个目录里面有对它的相关实现？" class="headerlink" title="虽然我是macos系统，但是这要是在windows下，有哪个目录里面有对它的相关实现？"></a>虽然我是macos系统，但是这要是在windows下，有哪个目录里面有对它的相关实现？</h3><h3 id="fatal-error是什么？为什么测试脚本会“不小心”触发它？"><a href="#fatal-error是什么？为什么测试脚本会“不小心”触发它？" class="headerlink" title="fatal error是什么？为什么测试脚本会“不小心”触发它？"></a>fatal error是什么？为什么测试脚本会“不小心”触发它？</h3><h3 id="PHP中有哪些将脚本隔离的方法？"><a href="#PHP中有哪些将脚本隔离的方法？" class="headerlink" title="PHP中有哪些将脚本隔离的方法？"></a>PHP中有哪些将脚本隔离的方法？</h3><h3 id="研究下-PHP-SRC-run-tests-php脚本的实现也是不错的选择，哪里不错？如何研究？"><a href="#研究下-PHP-SRC-run-tests-php脚本的实现也是不错的选择，哪里不错？如何研究？" class="headerlink" title="研究下$PHP_SRC/run-tests.php脚本的实现也是不错的选择，哪里不错？如何研究？"></a>研究下$PHP_SRC/run-tests.php脚本的实现也是不错的选择，哪里不错？如何研究？</h3><h3 id="PHP源码中的宏在哪？有哪些常见的》怎么理解这些宏？"><a href="#PHP源码中的宏在哪？有哪些常见的》怎么理解这些宏？" class="headerlink" title="PHP源码中的宏在哪？有哪些常见的》怎么理解这些宏？"></a>PHP源码中的宏在哪？有哪些常见的》怎么理解这些宏？</h3><h3 id="和-有啥子区别？"><a href="#和-有啥子区别？" class="headerlink" title="##和#有啥子区别？"></a><code>##</code>和<code>#</code>有啥子区别？</h3><h3 id="宏在实际中有哪些应用？比如对字符串进行封装，是怎么封装的？？"><a href="#宏在实际中有哪些应用？比如对字符串进行封装，是怎么封装的？？" class="headerlink" title="宏在实际中有哪些应用？比如对字符串进行封装，是怎么封装的？？"></a>宏在实际中有哪些应用？比如对字符串进行封装，是怎么封装的？？</h3><h3 id="宏定义中的do-while循环？do-while和宏定义有啥关系？多行宏又是什么？宏不是只是用-来标明的么？"><a href="#宏定义中的do-while循环？do-while和宏定义有啥关系？多行宏又是什么？宏不是只是用-来标明的么？" class="headerlink" title="宏定义中的do-while循环？do-while和宏定义有啥关系？多行宏又是什么？宏不是只是用#来标明的么？"></a>宏定义中的do-while循环？do-while和宏定义有啥关系？多行宏又是什么？宏不是只是用#来标明的么？</h3><h3 id="宏定义了是不是就直接在代码执行时按照宏定义的方式来？所以宏定义就是对相关的底层操作和参数进行定义？宏只是简单的代码替换？"><a href="#宏定义了是不是就直接在代码执行时按照宏定义的方式来？所以宏定义就是对相关的底层操作和参数进行定义？宏只是简单的代码替换？" class="headerlink" title="宏定义了是不是就直接在代码执行时按照宏定义的方式来？所以宏定义就是对相关的底层操作和参数进行定义？宏只是简单的代码替换？"></a>宏定义了是不是就直接在代码执行时按照宏定义的方式来？所以宏定义就是对相关的底层操作和参数进行定义？宏只是简单的代码替换？</h3><h3 id="预处理（-line）又是啥-主要是干嘛的？"><a href="#预处理（-line）又是啥-主要是干嘛的？" class="headerlink" title="预处理（#line）又是啥?主要是干嘛的？"></a>预处理（#line）又是啥?主要是干嘛的？</h3><h3 id="全局变量宏又是啥？这系列宏的主要作用是什么？啥叫解决线程安全所写的全局变量包裹宏？"><a href="#全局变量宏又是啥？这系列宏的主要作用是什么？啥叫解决线程安全所写的全局变量包裹宏？" class="headerlink" title="全局变量宏又是啥？这系列宏的主要作用是什么？啥叫解决线程安全所写的全局变量包裹宏？"></a>全局变量宏又是啥？这系列宏的主要作用是什么？啥叫解决线程安全所写的全局变量包裹宏？</h3><h3 id="什么是线性安全？？ifdef是什么？ZTS又是啥？"><a href="#什么是线性安全？？ifdef是什么？ZTS又是啥？" class="headerlink" title="什么是线性安全？？ifdef是什么？ZTS又是啥？"></a>什么是线性安全？？ifdef是什么？ZTS又是啥？</h3><h3 id="PHP运行时的全局参数，这些参数都有啥意义？他们都在哪个里面？"><a href="#PHP运行时的全局参数，这些参数都有啥意义？他们都在哪个里面？" class="headerlink" title="PHP运行时的全局参数，这些参数都有啥意义？他们都在哪个里面？"></a>PHP运行时的全局参数，这些参数都有啥意义？他们都在哪个里面？</h3><h3 id="zend-bool代表什么？"><a href="#zend-bool代表什么？" class="headerlink" title="zend_bool代表什么？"></a>zend_bool代表什么？</h3><h3 id="据说那些全局变量和php-ini文件的配置项是对应的，在PHP启动并读取php-ini文件时就会对这些字段进行赋值，而用户空间的ini-get-，ini-set-函数操作的一些配置也是对这个全局变量进行操作的，这两者是如何联系起来的？"><a href="#据说那些全局变量和php-ini文件的配置项是对应的，在PHP启动并读取php-ini文件时就会对这些字段进行赋值，而用户空间的ini-get-，ini-set-函数操作的一些配置也是对这个全局变量进行操作的，这两者是如何联系起来的？" class="headerlink" title="据说那些全局变量和php.ini文件的配置项是对应的，在PHP启动并读取php.ini文件时就会对这些字段进行赋值，而用户空间的ini_get()，ini_set()函数操作的一些配置也是对这个全局变量进行操作的，这两者是如何联系起来的？"></a>据说那些全局变量和php.ini文件的配置项是对应的，在PHP启动并读取php.ini文件时就会对这些字段进行赋值，而用户空间的ini_get()，ini_set()函数操作的一些配置也是对这个全局变量进行操作的，这两者是如何联系起来的？</h3><h2 id="用户代码的执行"><a href="#用户代码的执行" class="headerlink" title="用户代码的执行"></a>用户代码的执行</h2><h3 id="脚本的编译，解析，执行，web服务器的配合，内存管理，语法实现这些过程都是什么，运行过程中发生了什么变化？"><a href="#脚本的编译，解析，执行，web服务器的配合，内存管理，语法实现这些过程都是什么，运行过程中发生了什么变化？" class="headerlink" title="脚本的编译，解析，执行，web服务器的配合，内存管理，语法实现这些过程都是什么，运行过程中发生了什么变化？"></a>脚本的编译，解析，执行，web服务器的配合，内存管理，语法实现这些过程都是什么，运行过程中发生了什么变化？</h3><h3 id="PHP的整体结构是什么？"><a href="#PHP的整体结构是什么？" class="headerlink" title="PHP的整体结构是什么？"></a>PHP的整体结构是什么？</h3><h3 id="PHP的生命周期是什么？"><a href="#PHP的生命周期是什么？" class="headerlink" title="PHP的生命周期是什么？"></a>PHP的生命周期是什么？</h3><h3 id="PHP与其他容器（Apache）的交互式怎样进行的？"><a href="#PHP与其他容器（Apache）的交互式怎样进行的？" class="headerlink" title="PHP与其他容器（Apache）的交互式怎样进行的？"></a>PHP与其他容器（Apache）的交互式怎样进行的？</h3><h3 id="什么是词法分析？"><a href="#什么是词法分析？" class="headerlink" title="什么是词法分析？"></a>什么是词法分析？</h3><h3 id="什么是语法分析？"><a href="#什么是语法分析？" class="headerlink" title="什么是语法分析？"></a>什么是语法分析？</h3><h3 id="上述分析是存在哪里？源码是什么？怎么执行的？有什么用？"><a href="#上述分析是存在哪里？源码是什么？怎么执行的？有什么用？" class="headerlink" title="上述分析是存在哪里？源码是什么？怎么执行的？有什么用？"></a>上述分析是存在哪里？源码是什么？怎么执行的？有什么用？</h3><h3 id="zend-engine在PHP中的作用"><a href="#zend-engine在PHP中的作用" class="headerlink" title="zend engine在PHP中的作用?"></a>zend engine在PHP中的作用?</h3><h3 id="SAPI接口是什么？"><a href="#SAPI接口是什么？" class="headerlink" title="SAPI接口是什么？"></a>SAPI接口是什么？</h3><h3 id="什么是Opcodes？"><a href="#什么是Opcodes？" class="headerlink" title="什么是Opcodes？"></a>什么是Opcodes？</h3><h2 id="生命周期和zend引擎"><a href="#生命周期和zend引擎" class="headerlink" title="生命周期和zend引擎"></a>生命周期和zend引擎</h2><h3 id="SAPI-server-application-programming-interface"><a href="#SAPI-server-application-programming-interface" class="headerlink" title="SAPI server application programming interface"></a>SAPI server application programming interface</h3><h3 id="Apache，Nginx这类web服务器是怎样和PHP脚本工作的？怎么测试PHP脚本？他们工作是为了什么？"><a href="#Apache，Nginx这类web服务器是怎样和PHP脚本工作的？怎么测试PHP脚本？他们工作是为了什么？" class="headerlink" title="Apache，Nginx这类web服务器是怎样和PHP脚本工作的？怎么测试PHP脚本？他们工作是为了什么？"></a>Apache，Nginx这类web服务器是怎样和PHP脚本工作的？怎么测试PHP脚本？他们工作是为了什么？</h3><h3 id="PHP解释器又是什么？"><a href="#PHP解释器又是什么？" class="headerlink" title="PHP解释器又是什么？"></a>PHP解释器又是什么？</h3><h3 id="web服务器应答？是应答什么？为什么回应答，并且将应答内容显示给浏览器，这期间是怎样运行的？"><a href="#web服务器应答？是应答什么？为什么回应答，并且将应答内容显示给浏览器，这期间是怎样运行的？" class="headerlink" title="web服务器应答？是应答什么？为什么回应答，并且将应答内容显示给浏览器，这期间是怎样运行的？"></a>web服务器应答？是应答什么？为什么回应答，并且将应答内容显示给浏览器，这期间是怎样运行的？</h3><h3 id="标准输入输出又是什么？"><a href="#标准输入输出又是什么？" class="headerlink" title="标准输入输出又是什么？"></a>标准输入输出又是什么？</h3><h3 id="PHP解释器在哪？"><a href="#PHP解释器在哪？" class="headerlink" title="PHP解释器在哪？"></a>PHP解释器在哪？</h3><h3 id="web服务器和命令行程序执行的脚本为何不一样？哪里不一样？"><a href="#web服务器和命令行程序执行的脚本为何不一样？哪里不一样？" class="headerlink" title="web服务器和命令行程序执行的脚本为何不一样？哪里不一样？"></a>web服务器和命令行程序执行的脚本为何不一样？哪里不一样？</h3><h3 id="SAPI接口有哪些？常见的有哪些？怎么工作的？和Apache是如何联系？二者有什么关系？"><a href="#SAPI接口有哪些？常见的有哪些？怎么工作的？和Apache是如何联系？二者有什么关系？" class="headerlink" title="SAPI接口有哪些？常见的有哪些？怎么工作的？和Apache是如何联系？二者有什么关系？"></a>SAPI接口有哪些？常见的有哪些？怎么工作的？和Apache是如何联系？二者有什么关系？</h3><h3 id="模块初始化阶段（MINIT）主要做了什么？Apache启动以后，都做了什么？命令行程序执行流程是什么？"><a href="#模块初始化阶段（MINIT）主要做了什么？Apache启动以后，都做了什么？命令行程序执行流程是什么？" class="headerlink" title="模块初始化阶段（MINIT）主要做了什么？Apache启动以后，都做了什么？命令行程序执行流程是什么？"></a>模块初始化阶段（MINIT）主要做了什么？Apache启动以后，都做了什么？命令行程序执行流程是什么？</h3><h3 id="什么是模块激活阶段？（RINIT）"><a href="#什么是模块激活阶段？（RINIT）" class="headerlink" title="什么是模块激活阶段？（RINIT）"></a>什么是模块激活阶段？（RINIT）</h3><h3 id="什么是PHP注册扩展模块？注册是什么意思？"><a href="#什么是PHP注册扩展模块？注册是什么意思？" class="headerlink" title="什么是PHP注册扩展模块？注册是什么意思？"></a>什么是PHP注册扩展模块？注册是什么意思？</h3><h3 id="注册常量，定义模块使用的类，这些是每次执行PHP脚本都会发生的么？是怎样发生的？都如何实现的？"><a href="#注册常量，定义模块使用的类，这些是每次执行PHP脚本都会发生的么？是怎样发生的？都如何实现的？" class="headerlink" title="注册常量，定义模块使用的类，这些是每次执行PHP脚本都会发生的么？是怎样发生的？都如何实现的？"></a>注册常量，定义模块使用的类，这些是每次执行PHP脚本都会发生的么？是怎样发生的？都如何实现的？</h3><h3 id="什么是回调函数，如果实现这些回调函数？"><a href="#什么是回调函数，如果实现这些回调函数？" class="headerlink" title="什么是回调函数，如果实现这些回调函数？"></a>什么是回调函数，如果实现这些回调函数？</h3><h3 id="怎样创建一个执行环境？"><a href="#怎样创建一个执行环境？" class="headerlink" title="怎样创建一个执行环境？"></a>怎样创建一个执行环境？</h3><h3 id="PHP每次运行中那些定义的变量和函数都存放在哪里？RINIT函数是什么？"><a href="#PHP每次运行中那些定义的变量和函数都存放在哪里？RINIT函数是什么？" class="headerlink" title="PHP每次运行中那些定义的变量和函数都存放在哪里？RINIT函数是什么？"></a>PHP每次运行中那些定义的变量和函数都存放在哪里？RINIT函数是什么？</h3><h3 id="什么是单进程？"><a href="#什么是单进程？" class="headerlink" title="什么是单进程？"></a>什么是单进程？</h3><h3 id="CLI-CGI又是什么？"><a href="#CLI-CGI又是什么？" class="headerlink" title="CLI CGI又是什么？"></a>CLI CGI又是什么？</h3><h3 id="为什么在调用每个模块前，都有一个初始化的过程？"><a href="#为什么在调用每个模块前，都有一个初始化的过程？" class="headerlink" title="为什么在调用每个模块前，都有一个初始化的过程？"></a>为什么在调用每个模块前，都有一个初始化的过程？</h3><h3 id="脚本中定义的变量在初始化时被放在哪里？"><a href="#脚本中定义的变量在初始化时被放在哪里？" class="headerlink" title="脚本中定义的变量在初始化时被放在哪里？"></a>脚本中定义的变量在初始化时被放在哪里？</h3><h3 id="什么是内置模块？"><a href="#什么是内置模块？" class="headerlink" title="什么是内置模块？"></a>什么是内置模块？</h3><h3 id="禁用函数是什么？不可调用么？那为什么还存在？"><a href="#禁用函数是什么？不可调用么？那为什么还存在？" class="headerlink" title="禁用函数是什么？不可调用么？那为什么还存在？"></a>禁用函数是什么？不可调用么？那为什么还存在？</h3><h3 id="什么是垃圾收集机制？如何重置？"><a href="#什么是垃圾收集机制？如何重置？" class="headerlink" title="什么是垃圾收集机制？如何重置？"></a>什么是垃圾收集机制？如何重置？</h3><h3 id="什么是多进程模式？"><a href="#什么是多进程模式？" class="headerlink" title="什么是多进程模式？"></a>什么是多进程模式？</h3><h3 id="PHP是怎样编译为Apache的一个模块来处理PHP请求的？"><a href="#PHP是怎样编译为Apache的一个模块来处理PHP请求的？" class="headerlink" title="PHP是怎样编译为Apache的一个模块来处理PHP请求的？"></a>PHP是怎样编译为Apache的一个模块来处理PHP请求的？</h3><h3 id="Apache启动后怎样fork出多个子进程？"><a href="#Apache启动后怎样fork出多个子进程？" class="headerlink" title="Apache启动后怎样fork出多个子进程？"></a>Apache启动后怎样fork出多个子进程？</h3><h3 id="Hiphop是啥？"><a href="#Hiphop是啥？" class="headerlink" title="Hiphop是啥？"></a>Hiphop是啥？</h3><h3 id="PHP的很多扩展是怎样和zend引擎耦合在一起？"><a href="#PHP的很多扩展是怎样和zend引擎耦合在一起？" class="headerlink" title="PHP的很多扩展是怎样和zend引擎耦合在一起？"></a>PHP的很多扩展是怎样和zend引擎耦合在一起？</h3><h3 id="如何将PHP扩展和zendapi解耦？"><a href="#如何将PHP扩展和zendapi解耦？" class="headerlink" title="如何将PHP扩展和zendapi解耦？"></a>如何将PHP扩展和zendapi解耦？</h3><h3 id="SAPI源码解读"><a href="#SAPI源码解读" class="headerlink" title="SAPI源码解读"></a>SAPI源码解读</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/小概念/" rel="tag"># 小概念</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/11/五度-瓶颈/" rel="next" title="五度-瓶颈">
+                <i class="fa fa-chevron-left"></i> 五度-瓶颈
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Zoe</p>
+              <p class="site-description motion-element" itemprop="description">get busy living or busy dying</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ZoeSj" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#深入理解PHP内核"><span class="nav-number">1.</span> <span class="nav-text">深入理解PHP内核</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？"><span class="nav-number">1.1.</span> <span class="nav-text">关于PHP的源码目录结构，根目录下都放了哪些文件？这些文件有什么用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有哪些比较重要的文件值得看看？"><span class="nav-number">1.2.</span> <span class="nav-text">有哪些比较重要的文件值得看看？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#想写PHP扩展应该看看那个文件？"><span class="nav-number">1.3.</span> <span class="nav-text">想写PHP扩展应该看看那个文件？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？"><span class="nav-number">1.4.</span> <span class="nav-text">源码编译的文件存放在哪里？这些文件是如何编译的？构建是什么？怎样构建脚本文件？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查环境的脚本是什么？"><span class="nav-number">1.5.</span> <span class="nav-text">检查环境的脚本是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译的脚本后缀是什么？"><span class="nav-number">1.6.</span> <span class="nav-text">编译的脚本后缀是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#官方扩展目录是哪个？里面包含的内容是什么？"><span class="nav-number">1.7.</span> <span class="nav-text">官方扩展目录是哪个？里面包含的内容是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展中的东西是怎样和PHP联合起来使用的？怎样进行调用？？为什么能调用？如何书写自己的扩展？"><span class="nav-number">1.8.</span> <span class="nav-text">扩展中的东西是怎样和PHP联合起来使用的？怎样进行调用？？为什么能调用？如何书写自己的扩展？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展文件中的tests文件是干嘛的？里面是测试和调试的么？"><span class="nav-number">1.9.</span> <span class="nav-text">扩展文件中的tests文件是干嘛的？里面是测试和调试的么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最核心的代码是放在哪里的？主要实现了什么？"><span class="nav-number">1.10.</span> <span class="nav-text">最核心的代码是放在哪里的？主要实现了什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zend引擎目录里面都有些什么？这些机制的实现和测试都在这里么？"><span class="nav-number">1.11.</span> <span class="nav-text">zend引擎目录里面都有些什么？这些机制的实现和测试都在这里么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP扩展与应用仓库是哪个文件？"><span class="nav-number">1.12.</span> <span class="nav-text">PHP扩展与应用仓库是哪个文件？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#各种服务器抽象层的代码都安家在哪？这里面都有哪些抽象？？或者说哪些接口？"><span class="nav-number">1.13.</span> <span class="nav-text">各种服务器抽象层的代码都安家在哪？这里面都有哪些抽象？？或者说哪些接口？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP的线程安全是构建在哪个库上面的？这玩意是干嘛的？能封装嘛？封装它干嘛？"><span class="nav-number">1.14.</span> <span class="nav-text">PHP的线程安全是构建在哪个库上面的？这玩意是干嘛的？能封装嘛？封装它干嘛？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP的测试脚本都在哪待着？怎样写测试文件？怎么进行自动化测试？测试有啥好处？有必要么？"><span class="nav-number">1.15.</span> <span class="nav-text">PHP的测试脚本都在哪待着？怎样写测试文件？怎么进行自动化测试？测试有啥好处？有必要么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虽然我是macos系统，但是这要是在windows下，有哪个目录里面有对它的相关实现？"><span class="nav-number">1.16.</span> <span class="nav-text">虽然我是macos系统，但是这要是在windows下，有哪个目录里面有对它的相关实现？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fatal-error是什么？为什么测试脚本会“不小心”触发它？"><span class="nav-number">1.17.</span> <span class="nav-text">fatal error是什么？为什么测试脚本会“不小心”触发它？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP中有哪些将脚本隔离的方法？"><span class="nav-number">1.18.</span> <span class="nav-text">PHP中有哪些将脚本隔离的方法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#研究下-PHP-SRC-run-tests-php脚本的实现也是不错的选择，哪里不错？如何研究？"><span class="nav-number">1.19.</span> <span class="nav-text">研究下$PHP_SRC/run-tests.php脚本的实现也是不错的选择，哪里不错？如何研究？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP源码中的宏在哪？有哪些常见的》怎么理解这些宏？"><span class="nav-number">1.20.</span> <span class="nav-text">PHP源码中的宏在哪？有哪些常见的》怎么理解这些宏？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#和-有啥子区别？"><span class="nav-number">1.21.</span> <span class="nav-text">##和#有啥子区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宏在实际中有哪些应用？比如对字符串进行封装，是怎么封装的？？"><span class="nav-number">1.22.</span> <span class="nav-text">宏在实际中有哪些应用？比如对字符串进行封装，是怎么封装的？？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宏定义中的do-while循环？do-while和宏定义有啥关系？多行宏又是什么？宏不是只是用-来标明的么？"><span class="nav-number">1.23.</span> <span class="nav-text">宏定义中的do-while循环？do-while和宏定义有啥关系？多行宏又是什么？宏不是只是用#来标明的么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宏定义了是不是就直接在代码执行时按照宏定义的方式来？所以宏定义就是对相关的底层操作和参数进行定义？宏只是简单的代码替换？"><span class="nav-number">1.24.</span> <span class="nav-text">宏定义了是不是就直接在代码执行时按照宏定义的方式来？所以宏定义就是对相关的底层操作和参数进行定义？宏只是简单的代码替换？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预处理（-line）又是啥-主要是干嘛的？"><span class="nav-number">1.25.</span> <span class="nav-text">预处理（#line）又是啥?主要是干嘛的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局变量宏又是啥？这系列宏的主要作用是什么？啥叫解决线程安全所写的全局变量包裹宏？"><span class="nav-number">1.26.</span> <span class="nav-text">全局变量宏又是啥？这系列宏的主要作用是什么？啥叫解决线程安全所写的全局变量包裹宏？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是线性安全？？ifdef是什么？ZTS又是啥？"><span class="nav-number">1.27.</span> <span class="nav-text">什么是线性安全？？ifdef是什么？ZTS又是啥？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP运行时的全局参数，这些参数都有啥意义？他们都在哪个里面？"><span class="nav-number">1.28.</span> <span class="nav-text">PHP运行时的全局参数，这些参数都有啥意义？他们都在哪个里面？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zend-bool代表什么？"><span class="nav-number">1.29.</span> <span class="nav-text">zend_bool代表什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#据说那些全局变量和php-ini文件的配置项是对应的，在PHP启动并读取php-ini文件时就会对这些字段进行赋值，而用户空间的ini-get-，ini-set-函数操作的一些配置也是对这个全局变量进行操作的，这两者是如何联系起来的？"><span class="nav-number">1.30.</span> <span class="nav-text">据说那些全局变量和php.ini文件的配置项是对应的，在PHP启动并读取php.ini文件时就会对这些字段进行赋值，而用户空间的ini_get()，ini_set()函数操作的一些配置也是对这个全局变量进行操作的，这两者是如何联系起来的？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户代码的执行"><span class="nav-number">2.</span> <span class="nav-text">用户代码的执行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本的编译，解析，执行，web服务器的配合，内存管理，语法实现这些过程都是什么，运行过程中发生了什么变化？"><span class="nav-number">2.1.</span> <span class="nav-text">脚本的编译，解析，执行，web服务器的配合，内存管理，语法实现这些过程都是什么，运行过程中发生了什么变化？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP的整体结构是什么？"><span class="nav-number">2.2.</span> <span class="nav-text">PHP的整体结构是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP的生命周期是什么？"><span class="nav-number">2.3.</span> <span class="nav-text">PHP的生命周期是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP与其他容器（Apache）的交互式怎样进行的？"><span class="nav-number">2.4.</span> <span class="nav-text">PHP与其他容器（Apache）的交互式怎样进行的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是词法分析？"><span class="nav-number">2.5.</span> <span class="nav-text">什么是词法分析？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是语法分析？"><span class="nav-number">2.6.</span> <span class="nav-text">什么是语法分析？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上述分析是存在哪里？源码是什么？怎么执行的？有什么用？"><span class="nav-number">2.7.</span> <span class="nav-text">上述分析是存在哪里？源码是什么？怎么执行的？有什么用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zend-engine在PHP中的作用"><span class="nav-number">2.8.</span> <span class="nav-text">zend engine在PHP中的作用?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SAPI接口是什么？"><span class="nav-number">2.9.</span> <span class="nav-text">SAPI接口是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Opcodes？"><span class="nav-number">2.10.</span> <span class="nav-text">什么是Opcodes？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期和zend引擎"><span class="nav-number">3.</span> <span class="nav-text">生命周期和zend引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SAPI-server-application-programming-interface"><span class="nav-number">3.1.</span> <span class="nav-text">SAPI server application programming interface</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache，Nginx这类web服务器是怎样和PHP脚本工作的？怎么测试PHP脚本？他们工作是为了什么？"><span class="nav-number">3.2.</span> <span class="nav-text">Apache，Nginx这类web服务器是怎样和PHP脚本工作的？怎么测试PHP脚本？他们工作是为了什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP解释器又是什么？"><span class="nav-number">3.3.</span> <span class="nav-text">PHP解释器又是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web服务器应答？是应答什么？为什么回应答，并且将应答内容显示给浏览器，这期间是怎样运行的？"><span class="nav-number">3.4.</span> <span class="nav-text">web服务器应答？是应答什么？为什么回应答，并且将应答内容显示给浏览器，这期间是怎样运行的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标准输入输出又是什么？"><span class="nav-number">3.5.</span> <span class="nav-text">标准输入输出又是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP解释器在哪？"><span class="nav-number">3.6.</span> <span class="nav-text">PHP解释器在哪？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web服务器和命令行程序执行的脚本为何不一样？哪里不一样？"><span class="nav-number">3.7.</span> <span class="nav-text">web服务器和命令行程序执行的脚本为何不一样？哪里不一样？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SAPI接口有哪些？常见的有哪些？怎么工作的？和Apache是如何联系？二者有什么关系？"><span class="nav-number">3.8.</span> <span class="nav-text">SAPI接口有哪些？常见的有哪些？怎么工作的？和Apache是如何联系？二者有什么关系？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块初始化阶段（MINIT）主要做了什么？Apache启动以后，都做了什么？命令行程序执行流程是什么？"><span class="nav-number">3.9.</span> <span class="nav-text">模块初始化阶段（MINIT）主要做了什么？Apache启动以后，都做了什么？命令行程序执行流程是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是模块激活阶段？（RINIT）"><span class="nav-number">3.10.</span> <span class="nav-text">什么是模块激活阶段？（RINIT）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是PHP注册扩展模块？注册是什么意思？"><span class="nav-number">3.11.</span> <span class="nav-text">什么是PHP注册扩展模块？注册是什么意思？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册常量，定义模块使用的类，这些是每次执行PHP脚本都会发生的么？是怎样发生的？都如何实现的？"><span class="nav-number">3.12.</span> <span class="nav-text">注册常量，定义模块使用的类，这些是每次执行PHP脚本都会发生的么？是怎样发生的？都如何实现的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是回调函数，如果实现这些回调函数？"><span class="nav-number">3.13.</span> <span class="nav-text">什么是回调函数，如果实现这些回调函数？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎样创建一个执行环境？"><span class="nav-number">3.14.</span> <span class="nav-text">怎样创建一个执行环境？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP每次运行中那些定义的变量和函数都存放在哪里？RINIT函数是什么？"><span class="nav-number">3.15.</span> <span class="nav-text">PHP每次运行中那些定义的变量和函数都存放在哪里？RINIT函数是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是单进程？"><span class="nav-number">3.16.</span> <span class="nav-text">什么是单进程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CLI-CGI又是什么？"><span class="nav-number">3.17.</span> <span class="nav-text">CLI CGI又是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么在调用每个模块前，都有一个初始化的过程？"><span class="nav-number">3.18.</span> <span class="nav-text">为什么在调用每个模块前，都有一个初始化的过程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本中定义的变量在初始化时被放在哪里？"><span class="nav-number">3.19.</span> <span class="nav-text">脚本中定义的变量在初始化时被放在哪里？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是内置模块？"><span class="nav-number">3.20.</span> <span class="nav-text">什么是内置模块？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#禁用函数是什么？不可调用么？那为什么还存在？"><span class="nav-number">3.21.</span> <span class="nav-text">禁用函数是什么？不可调用么？那为什么还存在？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是垃圾收集机制？如何重置？"><span class="nav-number">3.22.</span> <span class="nav-text">什么是垃圾收集机制？如何重置？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是多进程模式？"><span class="nav-number">3.23.</span> <span class="nav-text">什么是多进程模式？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP是怎样编译为Apache的一个模块来处理PHP请求的？"><span class="nav-number">3.24.</span> <span class="nav-text">PHP是怎样编译为Apache的一个模块来处理PHP请求的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache启动后怎样fork出多个子进程？"><span class="nav-number">3.25.</span> <span class="nav-text">Apache启动后怎样fork出多个子进程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hiphop是啥？"><span class="nav-number">3.26.</span> <span class="nav-text">Hiphop是啥？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP的很多扩展是怎样和zend引擎耦合在一起？"><span class="nav-number">3.27.</span> <span class="nav-text">PHP的很多扩展是怎样和zend引擎耦合在一起？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何将PHP扩展和zendapi解耦？"><span class="nav-number">3.28.</span> <span class="nav-text">如何将PHP扩展和zendapi解耦？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SAPI源码解读"><span class="nav-number">3.29.</span> <span class="nav-text">SAPI源码解读</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zoe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'M9zF9jhgARYPcA8eLpOWCEvO-gzGzoHsz',
+        appKey: 'AqU96O5n0kwNjmqT5PU4S7WK',
+        placeholder: '来啊，造作啊，快活啊',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("M9zF9jhgARYPcA8eLpOWCEvO-gzGzoHsz", "AqU96O5n0kwNjmqT5PU4S7WK");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
