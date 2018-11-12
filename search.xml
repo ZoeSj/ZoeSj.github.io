@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[question-about-Thinking-in-PHP-internals-Apache]]></title>
+    <url>%2F2018%2F11%2F12%2Fquestion-about-Thinking-in-PHP-internals-Apache%2F</url>
+    <content type="text"><![CDATA[Apache模块]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>小概念</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[algorithmic-二分法]]></title>
     <url>%2F2018%2F11%2F12%2Falgorithmic%2F</url>
     <content type="text"><![CDATA[二分查找一般而言，对于包含了n个元素的列表，用二分查找最多需要log2n步，而简单查找最多需要n步。 对数什么是对数？如何简单的说明这个概念？对数是幂运算的逆运算 什么是大o表示法？简单的python例子下面是书上的栗子，但是用python3运行会报错： 一个错是print函数不能打印，显示语法错误，应该修改成print(binary_search(my_list, 3)). 另一个错是mid = (low + high)/2这里会报list indices must be integers, not float。解决方案是修改成mid = (low + high)//2 12345678910111213141516171819def binary_search(list, item): low = 0 high = len(list)-1 while low&lt;=high: mid = (low+high)/2 guess = list[mid] if guess == item: return mid if guess &lt; item: low = mid+1 else: high = mid-1 return Nonemy_list = [1,3,5,7,9]print binary_search(my_list, 3)print binary_search(my_list, -1) 修改后可以运行的程序： 12345678910111213141516171819def binary_search(list, item): low = 0 high = len(list)-1 while low&lt;=high: mid = (low+high)//2 guess = list[mid] if guess == item: return mid if guess &lt; item: low = mid+1 else: high = mid-1 return Nonemy_list = [1,3,5,7,9]print(binary_search(my_list, 3))print(binary_search(my_list, -1)) 小练习假设有一个包含128个名字的有序列表，你要使用二分查找在其中查找一个名字，请问最多需要几步才能找到?7步128=2*2*2*2*2*2*2 上面列表的长度翻倍后，最多需要几步?8步]]></content>
@@ -77,11 +88,6 @@
       <tags>
         <tag>物语</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[我也想随梦逐流]]></title>
-    <url>%2F2018%2F11%2F07%2F%E6%88%91%E4%B9%9F%E6%83%B3%E9%9A%8F%E6%A2%A6%E9%80%90%E6%B5%81%2F</url>
-    <content type="text"></content>
   </entry>
   <entry>
     <title><![CDATA[我们的世界]]></title>
@@ -421,17 +427,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[tp中遇到的相关方法]]></title>
-    <url>%2F2018%2F09%2F25%2Ftp%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[getDbFields这个方法在tp手册的字段定义中通常每个模型类是操作某个数据表，在大多数情况下，系统会自动获取当前数据表的字段信息。系统会在模型首次实例化的时候自动获取数据表的字段信息（而且只需要一次，以后会永久缓存字段信息，除非设置不缓存或者删除），如果是调试模式则不会生成字段缓存文件，则表示每次都会重新获取数据表字段信息。字段缓存保存在Runtime/Data/_fields/ 目录下面，缓存机制是每个模型对应一个字段缓存文件（注意：并非每个数据表对应一个字段缓存文件），命名格式是：数据库名.数据表前缀+模型名（小写）.php12demo.think_user.php // User模型生成的字段缓存文件demo.top_article.php // Article模型生成的字段缓存文件 字段缓存包括数据表的字段信息、主键字段和是否自动增长，如果开启字段类型验证的话还包括字段类型信息等等，无论是用M方法还是D方法，或者用原生的实例化模型类一般情况下只要是不开启调试模式都会生成字段缓存（字段缓存可以单独设置关闭）。可以通过设置DB_FIELDS_CACHE 参数来关闭字段自动缓存，如果在开发的时候经常变动数据库的结构，而不希望进行数据表的字段缓存，可以在项目配置文件中增加如下配置：12// 关闭字段缓存&apos;DB_FIELDS_CACHE&apos;=&gt;false 注意：调试模式下面由于考虑到数据结构可能会经常变动，所以默认是关闭字段缓存的。如果需要显式获取当前数据表的字段信息，可以使用模型类的getDbFields方法来获取当前数据对象的全部字段信息，例如：12$User = M(&apos;User&apos;);$fields = $User-&gt;getDbFields(); 如果你在部署模式下面修改了数据表的字段信息，可能需要清空Data/_fields目录下面的缓存文件，让系统重新获取更新的数据表字段信息，否则会发生新增的字段无法写入数据库的问题。 如果不希望依赖字段缓存或者想提高性能，也可以在模型类里面手动定义数据表字段的名称，可以避免IO加载的效率开销，例如：12345678namespace Home\Model;use Think\Model;class UserModel extends Model &#123; protected $fields = array(&apos;id&apos;, &apos;username&apos;, &apos;email&apos;, &apos;age&apos;); protected $pk = &apos;id&apos;;//pk属性定义当前数据表的主键名，默认值就是id，因此如果是id的话可以无需定义&#125; 如果你的数据表使用了复合主键，可以这样定义：123456namespace Home\Model;use Think\Model;class ScoreModel extends Model &#123; protected $fields = array(&apos;user_id&apos;, &apos;lession_id&apos;,&apos;score&apos;); protected $pk = array(&apos;user_id&apos;,&apos;lession_id&apos;);&#125; 除了可以设置数据表的字段之外，我们还可以定义字段的类型，用于某些验证环节。例如：12345namespace Home\Model;use Think\Model;class UserModel extends Model &#123; protected $fields = array(&apos;id&apos;, &apos;username&apos;, &apos;email&apos;, &apos;age&apos;, &apos;_type&apos;=&gt;array(&apos;id&apos;=&gt;&apos;bigint&apos;,&apos;username&apos;=&gt;&apos;varchar&apos;,&apos;email&apos;=&gt;&apos;varchar&apos;,&apos;age&apos;=&gt;&apos;int&apos;) );&#125;]]></content>
-      <categories>
-        <category>PHP</category>
-      </categories>
-      <tags>
-        <tag>tp</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[编译器和解释器]]></title>
     <url>%2F2018%2F09%2F25%2F%E5%AF%BC%E8%AE%BA%2F</url>
     <content type="text"><![CDATA[Q &amp; A编译器和解释器之间的区别是什么？编译器相对于解释器的优点是什么？解释器相对于编译器的优点是什么？在一个语言处理系统中，编译器产生汇编语言而不是机器语言的好处是什么？把一种高级语言翻译成另一种高级语言的编译器成为源到源（source-to-source）的翻译器。编译器使用C语言作为目标语言有什么好处？描述一下汇编器所要完成的一些任务。 编译器和解释器之间的区别是什么？什么是编译器A compiler is a computer program that transforms code written in a high-level programming language into the machine code. It is a program which translates the human-readable code to a language a computer processor understands (binary 1 and 0 bits). The computer processes the machine code to perform the corresponding tasks.A compiler should comply with the syntax rule of that programming language in which it is written. However, the compiler is only a program and cannot fix errors found in that program. So, if you make a mistake, you need to make changes in the syntax of your program. Otherwise, it will not compile. 编译器是一种计算机程序，它将用高级编程语言编写的代码转换为机器代码。它是一个程序，它将人类可读的代码翻译成计算机处理器理解的语言（二进制1和0位）。计算机处理机器代码以执行相应的任务。 编译器应遵循编写它的编程语言的语法规则。但是，编译器只是一个程序，无法修复该程序中发现的错误。因此，如果犯了错误，则需要更改程序的语法。否则，它将无法编译。 什么是解释器？An interpreter is a computer program, which coverts each high-level program statement into the machine code. This includes source code, pre-compiled code, and scripts. Both compiler and interpreters do the same job which is converting higher level programming language to machine code. However, a compiler will convert the code into machine code (create an exe) before program run. Interpreters convert code into machine code when the program is run. 解释器是一种计算机程序，它将每个高级程序语句转换为机器代码。这包括源代码，预编译代码和脚本。编译器和解释器都执行相同的工作，即将更高级别的编程语言转换为机器代码。但是，编译器会在程序运行之前将代码转换为机器代码（创建exe）。解释程序在程序运行时将代码转换为机器代码。 比较点 编译器 解释器 编程步骤 创建程序-&gt;编译器会分析是否正确，如果有问题提就抛出来，没有-&gt;将源代码转化成机器代码-&gt;它将不同的代码文件链接到一个可运行的程序-&gt;执行 创建程序-&gt;不链接文件或者生成机器代码-&gt;在执行期间逐行执行源语句 优势 这段程序以及被翻译成机器代码，代码执行时间更少 解释器更加方便使用，尤其是对新手来说 劣势 改变程序必须返回到源代码修改 解释程序必须在具有相应解释器的计算机上运行。 机器编码 将机器语言存储为磁盘上的机器代码 根本不保存机器代码 运行时间 编译代码运行得更快 解释的代码运行速度较慢 模型 它基于语言翻译链接加载模型。 它基于解释方法。 编码生成 生成输出程序（以exe的形式），可以独立于原始程序运行。 不生成输出程序。因此，他们在执行期间每次都会评估源程序。 运行 程序执行与编译分开。它仅在编译完整个输出程序后执行。 程序执行是解释过程的一部分，因此它是逐行执行的。 内存要求 目标程序是独立执行的，不需要内存中的编译器。 解释器在解释期间存在于解释器中。 最适合 限制在特定的目标机器上，无法移植。 C和C ++是最流行的一种使用编译模型的编程语言 对于Web环境，加载时间很重要。由于所有详尽的分析都已完成，编译需要相对较长的时间来编译甚至可能无法多次运行的小代码。在这种情况下，解释器会更好。 代码优化 编译器可以预先查看整个代码。因此，它们执行大量优化，使代码运行得更快 解释器逐行查看代码，因此优化不如编译器强大 动态打印 难以实现，因为编译器无法预测转折时会发生什么。 解释语言支持动态打字 环境 它最适合生产环境 它最适合程序和开发环境。 错误执行 编译器在编译时显示所有错误和警告。因此，无法在不修复错误的情况下运行程序 解释器读取单个语句并显示错误（如果有）。您必须更正错误以解释下一行。 输入 它需要一个完整的程序 它需要一行代码。 输出 编译器生成中间机器代码。 解释器不生成中间机器代码。 错误 同时显示编译后的所有错误。 逐个显示每行的所有错误 语言 C,C++,C#,Scala,Java all use compiler PHP,Perl,Ruby uses an interpreter]]></content>
@@ -440,6 +435,17 @@
       </categories>
       <tags>
         <tag>语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[tp中遇到的相关方法]]></title>
+    <url>%2F2018%2F09%2F25%2Ftp%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[getDbFields这个方法在tp手册的字段定义中通常每个模型类是操作某个数据表，在大多数情况下，系统会自动获取当前数据表的字段信息。系统会在模型首次实例化的时候自动获取数据表的字段信息（而且只需要一次，以后会永久缓存字段信息，除非设置不缓存或者删除），如果是调试模式则不会生成字段缓存文件，则表示每次都会重新获取数据表字段信息。字段缓存保存在Runtime/Data/_fields/ 目录下面，缓存机制是每个模型对应一个字段缓存文件（注意：并非每个数据表对应一个字段缓存文件），命名格式是：数据库名.数据表前缀+模型名（小写）.php12demo.think_user.php // User模型生成的字段缓存文件demo.top_article.php // Article模型生成的字段缓存文件 字段缓存包括数据表的字段信息、主键字段和是否自动增长，如果开启字段类型验证的话还包括字段类型信息等等，无论是用M方法还是D方法，或者用原生的实例化模型类一般情况下只要是不开启调试模式都会生成字段缓存（字段缓存可以单独设置关闭）。可以通过设置DB_FIELDS_CACHE 参数来关闭字段自动缓存，如果在开发的时候经常变动数据库的结构，而不希望进行数据表的字段缓存，可以在项目配置文件中增加如下配置：12// 关闭字段缓存&apos;DB_FIELDS_CACHE&apos;=&gt;false 注意：调试模式下面由于考虑到数据结构可能会经常变动，所以默认是关闭字段缓存的。如果需要显式获取当前数据表的字段信息，可以使用模型类的getDbFields方法来获取当前数据对象的全部字段信息，例如：12$User = M(&apos;User&apos;);$fields = $User-&gt;getDbFields(); 如果你在部署模式下面修改了数据表的字段信息，可能需要清空Data/_fields目录下面的缓存文件，让系统重新获取更新的数据表字段信息，否则会发生新增的字段无法写入数据库的问题。 如果不希望依赖字段缓存或者想提高性能，也可以在模型类里面手动定义数据表字段的名称，可以避免IO加载的效率开销，例如：12345678namespace Home\Model;use Think\Model;class UserModel extends Model &#123; protected $fields = array(&apos;id&apos;, &apos;username&apos;, &apos;email&apos;, &apos;age&apos;); protected $pk = &apos;id&apos;;//pk属性定义当前数据表的主键名，默认值就是id，因此如果是id的话可以无需定义&#125; 如果你的数据表使用了复合主键，可以这样定义：123456namespace Home\Model;use Think\Model;class ScoreModel extends Model &#123; protected $fields = array(&apos;user_id&apos;, &apos;lession_id&apos;,&apos;score&apos;); protected $pk = array(&apos;user_id&apos;,&apos;lession_id&apos;);&#125; 除了可以设置数据表的字段之外，我们还可以定义字段的类型，用于某些验证环节。例如：12345namespace Home\Model;use Think\Model;class UserModel extends Model &#123; protected $fields = array(&apos;id&apos;, &apos;username&apos;, &apos;email&apos;, &apos;age&apos;, &apos;_type&apos;=&gt;array(&apos;id&apos;=&gt;&apos;bigint&apos;,&apos;username&apos;=&gt;&apos;varchar&apos;,&apos;email&apos;=&gt;&apos;varchar&apos;,&apos;age&apos;=&gt;&apos;int&apos;) );&#125;]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>tp</tag>
       </tags>
   </entry>
   <entry>
@@ -519,6 +525,17 @@
       </categories>
       <tags>
         <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[我也想随梦逐流]]></title>
+    <url>%2F2017%2F04%2F04%2F%E6%88%91%E4%B9%9F%E6%83%B3%E9%9A%8F%E6%A2%A6%E9%80%90%E6%B5%81%2F</url>
+    <content type="text"><![CDATA[假期总是一如既往的过得很快，上大学之后，放假最后一天不再是以前赶作业的匆忙日子，所以时间流逝的更快了。实习的日子里开始为了未来奋斗着，摸索着前进的道路。以前看的小说里面有句话很喜欢——“我心有猛虎细嗅蔷薇”。我想每个还没毕业或者已经毕业的朋友们，都有着自己的梦。尤其对于我们程序员来说，很多伙伴都有一颗创业的心。农民翻身把歌唱。每天搬砖搬多了也想去规划一栋大楼。时代变了，电脑手机不再是有钱人的奢侈物了。如今的社会几乎是人手一部手机，家中常备电脑。大一大二时我还没有自己的电脑，对于一个计算机专业的学生来说，有点尴尬。直到大二暑假在一个暑期班当了一个月的老师，终于买了我心爱的小黑。从此不离不弃。 从那时起开始我的码媛生活。之前也写过为什么要做程序员,感兴趣的可以点击这里看看。一直以为自己以后的工作会是一个Android工程师，然后做几年转产品。等挣了足够的钱，就背起我的背包，去实现从小到大的理想。（周游世界）闯荡江湖。自小就想成为一个走遍世界的人，留下自己的脚印。每个人来到这个世上，都怀揣着各自的使命和理想，能不能实现就是最难的关卡，上帝是一个很棒的架构师，设计了各种各样的程序关卡让我们去过关，体验人生。但是我们总是在虚幻中憧憬理想，在现实中和小怪打斗却一直杀不了boss，过不了关卡，最后梦想在现实中越来越远。社会是一个巨大的磨盘，撒上岁月的粉，加点生活的苦水。拉着磨着，就这样一点一滴磨平曾经激情澎湃的梦，碾碎大家觉得不能实现的想法，那些龇牙咧嘴的“棱角”不再是你的标识了。慢慢的我们习惯了三点一线的生活。很多人安于平淡，岁月静好。也有人曾经想上天入地，最后在上帝的某一个关卡中趋于平静。一直觉得人之所以区别于人的最大辨别在于，每个人都有自己的特点，都有自己的个性。吸引着我去交往。还记得小学，一个人坐上去上海的大巴，可以和邻座的小女孩聊得天马行空，留下彼此的联系。现在坐车的时候大人把小孩保护的严严实实，不要和陌生人说话。然后每个人手上拿着的不是手机就是ipad。安静的可以听到最后座大叔的呼噜声。 刚开始来到魔都，住的地方距离上班的地方来回四个小时的地铁。每天早早起来，乘坐着小怪兽游荡在这个城市的地下。对于一个之前没做过地铁的我来说，每次听到地铁发出刺耳的轰鸣声，神经都是紧绷的，不知道下一秒会发生什么。环顾四周，似乎只有我还没融入到这坐城市，每个人的神情都是淡然的，疲倦的，专注的看着手机。没有人会和我一样诧异着小怪兽发出的嘶吼声。空气中游荡着一个叫做浮躁的恶灵，开始吞噬社会。在这个城市也快半年了，一直喜欢把地铁形容成小怪兽，游荡在这个城市的身躯中。拥挤的时候，小怪兽胖的像个皮球，而我们就像沙丁鱼，原地随波逐流。现在换了个住处，可以骑着自行车去上班，清晨连汽车的尾气都变得芬芳起来，可能拌着自由的味道。 自由这个东西感觉有时候追逐一生也并不能触其衣角。 以前觉得时间很多，等有钱了就可以去做自己想做的事情，现在上班了才知道，时间很少，属于自己的时间很少。想做的事情等以后有钱也不一定有时间去做，后面有了家庭，时间就更少了，挤一挤出来的有可能只是泡沫。程序员这个工作并不会优于女生，产品要上线了，无论男女都要加班加点完成。很多小伙伴笑话说自从做了程序员头发都比以前少了，对啊，没办法，拿着怎样的工资就要付出怎样的代价。以前在学校的时候，会抽空去周边旅游，会拿着书躺在床上和古人神交，会拿出笔描绘人生。现在回家能按时做完运动已经是感谢自己还爱着自己，别说去旅游了。每次看到新闻上说谁周游世界几国，总是心潮澎湃，那也是我的梦啊。 我也想随梦逐流啊，不是原地踏步。促使我开始规划自己的梦不仅仅是新闻，更多的是我的工作。青春的尾巴在摇摆，在溜走，每天对着电脑发现视力已经下降的五米开外雌雄难辨，十米开外人畜不分，行走的瞎子一个。有时候很想就这样背上我的包，来一场说走就走的旅行，带上我的眼with your eye。 作为一个程序媛，想要靠自己去完成一个又一个的行走，其实是很难得。一个bug就会阻拦前方的路。但是不管怎样，如果连试都不试一下，又怎么去走出上帝设下的另一条路呢。 朋友说我这个人有个优点还不错，就是有想法就会去做，属于行动派。 今年的目标是实现我的毕业旅行。规划的路线包括九寨沟，重庆，深圳，西藏，北京，厦门。想要实现，需要的自然是旅费，老爸老妈会在精神上支持我。然后没然后了，所以我需要靠自己来挣旅费。 于是乎我就设计了一个小project，希望能让我打败boss。这个是我目前的一款初期设计，后期可能做成app或者小程序（因为比较适合我这样的新手做）。附上初期图稿。如果有吐槽的请一定不要憋着。因为可能会给我很大的帮助。如果有什么建议，我在这里给您跪谢啦~ 作为一个四年级看小说到现在的我来说，很喜欢写点东西，也很喜欢听故事。如果你有故事，我有酒，来点小菜，就着时光。也希望我写的小故事你们能喜欢。目前虽然在设计阶段，但是如果你有故事，我很乐意听，并且写下来（当然你愿意的话）。毕竟等以后老了可以回过来看看自己的一生。我这个人记性不好，很多事情过了就忘了。希望十月之前能逐梦而行。灰常感谢你的支持。 感兴趣的可以点开这个看看。使用墨刀设计的一个小东西（最近忙着毕设，做的比较简陋，见谅）。不过设置了一个密码，想看的可以加我或者简信给我。很高兴你来吐槽哟~请小主尽情打击吧。你有故事我有酒【用浏览器或者微信qq打开】]]></content>
+      <categories>
+        <category>物语</category>
+      </categories>
+      <tags>
+        <tag>物语</tag>
       </tags>
   </entry>
   <entry>
