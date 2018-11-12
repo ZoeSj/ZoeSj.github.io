@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="佳爷的后花媛">
 <meta property="og:description" content="二分查找一般而言，对于包含了n个元素的列表，用二分查找最多需要log2n步，而简单查找最多需要n步。 对数什么是对数？如何简单的说明这个概念？对数是幂运算的逆运算">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-12T07:06:42.448Z">
+<meta property="og:updated_time" content="2018-11-12T07:09:18.732Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="algorithmic-二分法">
 <meta name="twitter:description" content="二分查找一般而言，对于包含了n个元素的列表，用二分查找最多需要log2n步，而简单查找最多需要n步。 对数什么是对数？如何简单的说明这个概念？对数是幂运算的逆运算">
@@ -417,7 +417,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">def binary_search(list, item):</span><br><span class="line">	low = 0</span><br><span class="line">	high = len(list)-1</span><br><span class="line"></span><br><span class="line">	while low&lt;=high:</span><br><span class="line">		mid = (low+high)/2</span><br><span class="line">		guess = list[mid]</span><br><span class="line">		if guess == item:</span><br><span class="line">			return mid</span><br><span class="line">		if guess &lt; item:</span><br><span class="line">			low = mid+1</span><br><span class="line">		else:</span><br><span class="line">			high = mid-1</span><br><span class="line">	return None</span><br><span class="line"></span><br><span class="line">my_list = [1,3,5,7,9]</span><br><span class="line"></span><br><span class="line">print binary_search(my_list, 3)</span><br><span class="line">print binary_search(my_list, -1)</span><br></pre></td></tr></table></figure>
 <p>修改后可以运行的程序：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">def binary_search(list, item):</span><br><span class="line">	low = 0</span><br><span class="line">	high = len(list)-1</span><br><span class="line"></span><br><span class="line">	while low&lt;=high:</span><br><span class="line">		mid = (low+high)//2</span><br><span class="line">		guess = list[mid]</span><br><span class="line">		if guess == item:</span><br><span class="line">			return mid</span><br><span class="line">		if guess &lt; item:</span><br><span class="line">			low = mid+1</span><br><span class="line">		else:</span><br><span class="line">			high = mid-1</span><br><span class="line">	return None</span><br><span class="line"></span><br><span class="line">my_list = [1,3,5,7,9]</span><br><span class="line"></span><br><span class="line">print(binary_search(my_list, 3))</span><br><span class="line">print(binary_search(my_list, -1))</span><br></pre></td></tr></table></figure>
-<h3 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h3><h4 id="假设有一个包含128个名字的有序列表，你要使用二分查找在其中查找一个名字，请问最多需要几步才能找到"><a href="#假设有一个包含128个名字的有序列表，你要使用二分查找在其中查找一个名字，请问最多需要几步才能找到" class="headerlink" title="假设有一个包含128个名字的有序列表，你要使用二分查找在其中查找一个名字，请问最多需要几步才能找到?"></a>假设有一个包含128个名字的有序列表，你要使用二分查找在其中查找一个名字，请问最多需要几步才能找到?</h4><p>7步<br>128=2<em>2</em>2<em>2</em>2<em>2</em>2</p>
+<h3 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h3><h4 id="假设有一个包含128个名字的有序列表，你要使用二分查找在其中查找一个名字，请问最多需要几步才能找到"><a href="#假设有一个包含128个名字的有序列表，你要使用二分查找在其中查找一个名字，请问最多需要几步才能找到" class="headerlink" title="假设有一个包含128个名字的有序列表，你要使用二分查找在其中查找一个名字，请问最多需要几步才能找到?"></a>假设有一个包含128个名字的有序列表，你要使用二分查找在其中查找一个名字，请问最多需要几步才能找到?</h4><p>7步<br><code>128=2*2*2*2*2*2*2</code></p>
 <h4 id="上面列表的长度翻倍后，最多需要几步"><a href="#上面列表的长度翻倍后，最多需要几步" class="headerlink" title="上面列表的长度翻倍后，最多需要几步?"></a>上面列表的长度翻倍后，最多需要几步?</h4><pre><code>8步
 </code></pre>
       
@@ -451,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/12/question-about-Thinking-in-PHP-internals/" rel="next" title="question_about_Thinking_in_PHP_internals">
-                <i class="fa fa-chevron-left"></i> question_about_Thinking_in_PHP_internals
+              <a href="/2018/11/12/question-about-Thinking-in-PHP-internals/" rel="next" title="question_about_Thinking_in_PHP_internals（SAPI）">
+                <i class="fa fa-chevron-left"></i> question_about_Thinking_in_PHP_internals（SAPI）
               </a>
             
           </div>
