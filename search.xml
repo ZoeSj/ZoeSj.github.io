@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[阿姆达尔定律]]></title>
+    <url>%2F2018%2F11%2F16%2F%E9%98%BF%E5%A7%86%E8%BE%BE%E5%B0%94%E5%AE%9A%E5%BE%8B%2F</url>
+    <content type="text"><![CDATA[阿姆达尔定律阿姆达尔定律（英语：Amdahl’s law，Amdahl’s argument），一个计算机科学界的经验法则，因吉恩·阿姆达尔(Gene Amdahl)而得名。它代表了处理器平行运算之后效率提升的能力。1967年计算机体系结构专家吉恩.阿姆达尔提出过一个定律阿姆达尔定律，说：在并行计算中用多处理器的应用加速受限于程序所需的串行时间百分比。譬如说，你的程序50%是串行的，其他一半可以并行，那么，最大的加速比就是2。不管你用多少处理器并行，这个加速比不可能提高。在这种情况下，改进串行算法可能比多核处理器并行更有效。 公式Gustafson定律说明在许多实际的应用程序中得到接近线性的加速效果是可能的。阿姆达尔定律的问题出在它的前提过于理想化。因为并行算法通常能处理比串行算法更大规模的问题，即使算法仍然存在着串行部分，但由于问题规模的不断扩大，往往会导致算法中串行部分所占比例的持续减少。]]></content>
+      <categories>
+        <category>小概念</category>
+      </categories>
+      <tags>
+        <tag>小概念</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[关于MySQL]]></title>
     <url>%2F2018%2F11%2F12%2F%E5%85%B3%E4%BA%8EMySQL%2F</url>
-    <content type="text"><![CDATA[使用MySQL如何设计web数据库？使用关系数据库代替普通文件有哪些优点？关系数据库专门的内置机制是怎么处理并发访问的？什么是关系数据库？web数据库的设计和架构是什么？]]></content>
+    <content type="text"><![CDATA[使用MySQL如何设计web数据库？使用关系数据库代替普通文件有哪些优点？关系数据库专门的内置机制是怎么处理并发访问的？什么是关系数据库？web数据库的设计和架构是什么？什么是建模？要考虑什么？如何避免空间的浪费？ 如何确定所获取的数据是最新的？什么是修改不规则？什么是删除不规则？什么是原子列值？数据库里面的空值会占用空间么？如何避免浪费空间？用户在浏览器上查看信息的一个流程？主要历经了哪几个？如何提高数据库性能？登录MySQL的指令是什么？远程如何登录？什么是MySQL权限系统？最少权限原则是啥？MySQL提供多个表类型和存储引擎，其中包括一些食物安全的类型这些都是什么？？myisam是什么？为什么要用这种存储引擎？什么是存储引擎？什么是索引？怎样创建索引？char和varchar的区别？text和blob的区别？set和enum的区别？有哪些常见的数据库系统？他们之间有什么区别？笛卡尔积是什么？左关联是干嘛的？MySQL中的关联类型？如何分组和合计数据？如何进行子查询？有没有同等作用的查询sql？哪个效率更高？子查询的操作符有哪些？用alter如何对表进行修改？MySQLCRUDJOIN、LEFT JOIN 、RIGHT JOIN、INNER JOINUNIONGROUP BY + COUNT + WHERE 组合案例常用 MySQL 函数，如：now()、md5()、concat()、uuid()等1:1、1:n、n:n 各自适用场景了解触发器是什么，说个使用场景数据库优化手段索引、联合索引（命中条件）分库分表（水平分表、垂直分表）分区会使用 explain 分析 SQL 性能问题，了解各参数含义重点理解 type、rows、keySlow Log（有什么用，什么时候需要）MSSQL(了解) • 查询最新5条数据NOSQL • Redis、Memcached、MongoDB • 对比、适用场景（可从以下维度进行对比） ◦ 持久化 ◦ 支持多钟数据类型 ◦ 可利用 CPU 多核心 ◦ 内存淘汰机制 ◦ 集群 Cluster ◦ 支持 SQL ◦ 性能对比 ◦ 支持事务 ◦ 应用场景 • 你之前为了解决什么问题使用的什么，为什么选它？]]></content>
       <categories>
         <category>Mysql</category>
       </categories>
