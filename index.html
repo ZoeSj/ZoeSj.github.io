@@ -297,6 +297,174 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="ZoeSj.github.io/2018/12/10/PAT B1001/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zoe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="佳爷的后花媛">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/10/PAT B1001/" itemprop="url">（PAT B1001）害死人不偿命的（3n+1）猜想</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-10T23:39:18+08:00">
+                2018-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/10/PAT B1001/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/10/PAT B1001/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/10/PAT B1001/" class="leancloud_visitors" data-flag-title="（PAT B1001）害死人不偿命的（3n+1）猜想">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>每天一点小算法~<br>2018.12.10</p>
+<h3 id="（PAT-B1001）害死人不偿命的（3n-1）猜想"><a href="#（PAT-B1001）害死人不偿命的（3n-1）猜想" class="headerlink" title="（PAT B1001）害死人不偿命的（3n+1）猜想"></a>（PAT B1001）害死人不偿命的（3n+1）猜想</h3><h4 id="题目：卡拉兹猜想："><a href="#题目：卡拉兹猜想：" class="headerlink" title="题目：卡拉兹猜想："></a>题目：卡拉兹猜想：</h4><p>对任何一个自然是n，如果它是偶数，那么把它砍掉一半了如果它是奇数，那么把（3n+1）砍掉一半，这样一直反复砍下去，最后一定在某一步得到n=1.</p>
+<p>问题：<br>对给定的任一不超过1000的正整数n，简单的数一下，需要多少步才能得到n=1?</p>
+<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><p>1.判断n是否为1，如果是，退出<br>2.如果n不是1，判断是否是偶数，如果不是，使用(3n+1)，然后开始对半砍，计算步数+1，如果是，直接对半砍，计算步数。</p>
+<p>代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">	int n,step = 0;</span><br><span class="line">	scanf(“%d”,&amp;n);</span><br><span class="line">	while(n != 1)&#123;</span><br><span class="line">		if(n%2==0) </span><br><span class="line">			n = n/2;</span><br><span class="line">		else</span><br><span class="line">			n = (3n+1)/2;</span><br><span class="line">		step++;</span><br><span class="line">	&#125;</span><br><span class="line">printf(“%d\n”,step);</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>第一步的判断是否为1不要漏掉！</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="ZoeSj.github.io/2018/12/03/about-the-command/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1061,174 +1229,6 @@
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="ZoeSj.github.io/2018/11/12/PAT B1001/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Zoe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="佳爷的后花媛">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/12/PAT B1001/" itemprop="url">（PAT B1001）害死人不偿命的（3n+1）猜想</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-12T13:39:18+08:00">
-                2018-11-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/11/12/PAT B1001/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/12/PAT B1001/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/11/12/PAT B1001/" class="leancloud_visitors" data-flag-title="（PAT B1001）害死人不偿命的（3n+1）猜想">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>每天一点小算法~<br>2018.12.10</p>
-<h3 id="（PAT-B1001）害死人不偿命的（3n-1）猜想"><a href="#（PAT-B1001）害死人不偿命的（3n-1）猜想" class="headerlink" title="（PAT B1001）害死人不偿命的（3n+1）猜想"></a>（PAT B1001）害死人不偿命的（3n+1）猜想</h3><h4 id="题目：卡拉兹猜想："><a href="#题目：卡拉兹猜想：" class="headerlink" title="题目：卡拉兹猜想："></a>题目：卡拉兹猜想：</h4><p>对任何一个自然是n，如果它是偶数，那么把它砍掉一半了如果它是奇数，那么把（3n+1）砍掉一半，这样一直反复砍下去，最后一定在某一步得到n=1.</p>
-<p>问题：<br>对给定的任一不超过1000的正整数n，简单的数一下，需要多少步才能得到n=1?</p>
-<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><p>1.判断n是否为1，如果是，退出<br>2.如果n不是1，判断是否是偶数，如果不是，使用(3n+1)，然后开始对半砍，计算步数+1，如果是，直接对半砍，计算步数。</p>
-<p>代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">	int n,step = 0;</span><br><span class="line">	scanf(“%d”,&amp;n);</span><br><span class="line">	while(n != 1)&#123;</span><br><span class="line">		if(n%2==0) </span><br><span class="line">			n = n/2;</span><br><span class="line">		else</span><br><span class="line">			n = (3n+1)/2;</span><br><span class="line">		step++;</span><br><span class="line">	&#125;</span><br><span class="line">printf(“%d\n”,step);</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>第一步的判断是否为1不要漏掉！</p>
-
-          
         
       
     </div>
